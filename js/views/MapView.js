@@ -20,10 +20,9 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
         },
 
         addMap: function() {
-            var options ={center: new L.LatLng(42.350711, 13.399961),
-              zoom: 13
-            };
-            var map = L.map('map', options);
+           
+            var map = new L.map('map', {center: new L.LatLng(42.350711, 13.399961),zoom: 17,zoomControl: false} );
+            //var googleLayer = new L.Google('ROADMAP');
 
             // add the markers about the ads
            /* for (var i = 0; i < this.model.length; i++) {
@@ -45,10 +44,16 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
             }, function() {});
 
 
-
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            //map.addLayer(googleLayer);
+            L.tileLayer('http://{s}.tile.cloudmade.com/a6f26d33c61342318355eb8f812ce3ba/17306/256/{z}/{x}/{y}.png', {
                 
                 maxZoom: 20
+            }).addTo(map);
+
+            var circle = L.circle([42.350711,  13.399961], 50, {
+            color: 'blue',
+            fillColor: '#1F00FF',
+             fillOpacity: 0.5
             }).addTo(map);
 
             
