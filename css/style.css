@@ -1,0 +1,251 @@
+@charset "UTF-8";
+/* STANDARD FOR MOBILE */
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;
+                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;
+             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;
+                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-attachment: fixed;
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+/* END STANDARD MOBILE */
+
+/* START STRUCTURE */
+
+#mainContainer {
+    position: absolute;
+    height: 100%;
+    width: 200%;
+    margin: 0px;
+    padding: 0px;
+    left: -100%;
+    overflow: hidden;
+    -webkit-transition: left 0.2s;
+}
+
+#mainContainer.is-menu-visible {
+    left: -20%;
+}
+
+#navigation {
+    position: absolute;
+    bottom: 0;
+    right: 0%;
+    z-index: 100;
+}
+
+#content {
+    height: 100%;
+}
+
+#contents {
+    /* */
+    position: absolute;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: -webkit-calc(100% - 44px);
+    width: 100%;
+}
+
+#titlebar {
+    z-index: 100;
+    position: relative;
+    left: 0;
+    top: 0;
+    height: 44px;
+    width: 100%;
+    background-image: url(../images/navigationBar.png);
+}
+
+#title {
+    margin: 0 auto;
+    width: 60%;
+    text-overflow: ellipsis;
+    font-size: medium;
+    line-height: 44px;
+    font-size: 1.5em;
+    font-weight: bold;
+    white-space:nowrap; 
+    overflow:hidden;
+}
+
+#backButton {
+    position:absolute;
+    left: 0;
+    top: 0;
+    margin: 3px;
+    width: 63px;
+    height: 85%;
+    background-image: url(../images/back.png);
+    border-radius: 2px; 
+}
+
+/* #otherButton {
+    position:absolute;
+    right: 0;
+    top: 0;
+    margin: 5px;
+    width: 44px;
+    height: 80%;
+    color: black;
+    background-color: yellow;
+    text-align: center;
+    border-radius: 2px; 
+} */
+
+#navigationList {
+    display: inline;
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+    top:5px;
+    border:#fff solid;
+    border-width:1px;
+    background-color:#999;
+}
+
+.toolBar
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 44px;
+    z-index: 100;
+    background-image: url(../images/ToolBar.png);
+}
+.barButton1
+{
+    position: relative;
+    width: 60px;
+    height: 39px;
+    top: 2px;
+    left: 23px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/buttonToolBar1.png);
+}
+.barButton2
+{
+    position: relative;
+    width: 90px;
+    height: 39px;
+    top: 2px;
+    left: 55px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/buttonToolBar2.png);
+}
+.barButton3
+{
+    position: relative;
+    width: 90px;
+    height: 39px;
+    top: 2px;
+    left: 68px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/buttonToolBar3.png);
+}
+
+.navigationItem {
+    border-bottom: 1px solid #d9e2eb;
+    background: #090909;
+    display: inline;
+    color: white;
+    padding: 15px 0px;
+    padding-left: 10px;
+}
+
+/* END STRUCTURE */
+
+#list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#contents ul li {
+    border-bottom: 1px solid #d9e2eb;
+    background: #fff;
+    display: block;
+    padding: 15px 0px;
+    padding-left: 10px;
+    width: 100%;
+    /* background-image: -webkit-linear-gradient(top, #ffffff, #ecf1f5); */
+}
+
+#contents ul li a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    font-size: 1.4em;
+    color: #787878;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+#back {
+    background-color: red;
+    padding: 1.5em;
+    color: white;
+    text-align: center;
+}
+
+#figureContainer {
+    text-align: center;
+}
+
+#addImage {
+    background-color: blue;
+    padding: 1.5em;
+    color: white;
+    text-align: center;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.markerOpen {
+    background-color: #25AE5E;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
