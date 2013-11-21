@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="lib/leaflet/leaflet.css">
+        <script type="text/javascript" src="lib/cordova/cordova-2.6.0.js"></script>
+        <script type="text/javascript" src="lib/parse/parse-1.2.7.min.js"></script>
+        
+        <title>Prova</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+		
+		Parse.initialize("PHYN9yjJLqmSo0xACd63oypUBUcx4q0eLHBvoozY", "fFGAiJk3k4eOUjsALSGd3wzbIGaOe84SMS6hSA9q"); //ApplicationID e javascript KEY
+		
+       var GameScore = Parse.Object.extend("Warrior");
+        var query = new Parse.Query(GameScore);
+    query.get("4Vlf3lqb1K", {
+     success: function(GameScore) {
+   alert(GameScore.get("nick"));
+    },
+         error: function(object, error) {
+		 alert("errore");
+    // The object was not retrieved successfully.
+    // error is a Parse.Error with an error code and description.
+  }
+});
+        </script>
+        
+    </body>
+</html>
