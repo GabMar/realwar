@@ -1,10 +1,11 @@
-define(["jquery", "underscore", "parse", "collections/UsCollection", "models/Warrior","models/Weapon", "models/User", "views/UsView", "views/UsListView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView","views/WeaponsListView"],
-    function ($, _, Parse, UsCollection, Warrior,Weapon, User, UsView, UsListView, HeadQuarterView, MapView, StructureView, WeaponsMarketView, WeaponsListView) {
+define(["jquery", "underscore", "parse", "collections/UsCollection", "models/Warrior","models/Weapon", "models/User", "views/UsView", "views/UsListView", "views/LoginView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView","views/WeaponsListView"],
+    function ($, _, Parse, UsCollection, Warrior,Weapon, User, UsView, UsListView, LoginView, HeadQuarterView, MapView, StructureView, WeaponsMarketView, WeaponsListView) {
 
     var AppRouter = Parse.Router.extend({
 		me: undefined,
       routes: {
-		"": "structure",
+    	"":"start",
+		"structure": "structure",
         "market": "market",
         "showMap": "map",
         "headQuarter": "headQuarter",
@@ -16,7 +17,7 @@ define(["jquery", "underscore", "parse", "collections/UsCollection", "models/War
 	  me=this;
         this.currentView = undefined;
 		
-
+        alert('ciaorouter');
 		var warriorClass = Parse.Object.extend("Warrior");
 		var weaponClass = Parse.Object.extend("Weapon");
         var query = new Parse.Query(warriorClass);
@@ -24,7 +25,6 @@ define(["jquery", "underscore", "parse", "collections/UsCollection", "models/War
 		var weap;
 		var weapons;
 		var weaptitle;
-		
 		query.get("En2VuPv0ob", {
 			success: function(warriorClass) {
 		window.localStorage.setItem("warrior", JSON.stringify(warriorClass));
@@ -66,6 +66,20 @@ define(["jquery", "underscore", "parse", "collections/UsCollection", "models/War
 
 	  },
 
+	  
+	  start: function(){  
+		  var currentUser = Parse.User.current();
+		  if(currentUser){
+			  this.structure();
+		  }
+		  else{
+			 var page = new LoginView();
+			 this.changePage(page);
+		  }
+    },
+    
+    
+	  
       structure: function () {
         if(!this.structureView) {
           this.structureView = new StructureView(); //provare a rendere variabile globale
@@ -121,7 +135,6 @@ define(["jquery", "underscore", "parse", "collections/UsCollection", "models/War
         this.contents.append($(page.el));
         this.currentView.trigger("inTheDom");
       }
-      
 
     });
 
