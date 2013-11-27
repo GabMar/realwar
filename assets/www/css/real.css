@@ -46,8 +46,10 @@ font-size: 20px;
 
 #map {
 	position: absolute;
-    height: 100%;
+    height: 130%;
     width: 100%;
+	-webkit-transform: rotateZ(0deg)
+				rotateX(45deg);
 }
 
 /* PROFILO DEL WARRIOR */
