@@ -16,14 +16,16 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
 		    login: function(e) {
 		        var username = this.$("#login-username").val();
 		        var password = this.$("#login-password").val();
-		        
 		        Parse.User.logIn(username, password, {
 		        	 
 		             success: function(user) {
-		            	Parse.history.navigate('structure', {trigger:true});
+		            	 window.localStorage.setItem("local_user_id", user.id);
+		            	 Parse.history.navigate('structure', {trigger:true});
+		            	
 		          }
 		        
 		        });
+		        
 		    return false;   
 		},
 		

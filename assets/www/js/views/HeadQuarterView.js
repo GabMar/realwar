@@ -1,48 +1,54 @@
-define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!templates/headquarter.html","models/Warrior"],
-    function ($, _, Parse, Handlebars, L, template, Warrior) {
+define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet", "text!templates/headquarter.html","models/Warrior", "models/Weapon"],
+    function ($, $p,  _, Parse, Handlebars, L, template, Warrior, Weapon) {
 
 var HeadQuarterView = Parse.View.extend({
        //className: "page",
 	   //tagName: "div",
 	   //id: "warriorInfo",
 	   self:undefined,
-
-
 	   template: Handlebars.compile(template),
-	   initialize: function ( ) {	
-		self=this;	   
-	    var local_warrior=JSON.parse(window.localStorage.getItem("warrior"));
-		var local_weapon=JSON.parse(window.localStorage.getItem("weapon"));
-		self.model=local_warrior;
-		var warriorClass= Parse.Object.extend("Warrior");
-		var query = new Parse.Query(warriorClass);
-		var weaponClass = Parse.Object.extend("Weapon");
-		var querywep = new Parse.Query(weaponClass);
-		query.equalTo("objectId",local_warrior.id);
-		query.find().then(function (data){
-			warrior=data[0];
-			self.model = warrior;
-			window.localStorage.setItem("warrior",JSON.stringify(warrior));
-			self.model.bind("change",this.render,this);
-			
-			querywep.get(warrior.get("weapon").id, {
-						success: function(weapon) {
-							window.localStorage.setItem("weapon",JSON.stringify(weapon));
-						},
-						error:function(object,error){
-							console.debug(error);
-						}
-				});
-		
-			//weapons=new WeaponCollection();
-			//weapons.fetch();
-			//warrior.weapon=weapons.get(warrior.id);
-			self.render();
-		});
-		   
-		},
 	   
-	
+	   initialize: function ( ) {	
+		   self=this;
+		   
+		   var id = window.localStorage.getItem('local_user_id');
+		   var warrior = Parse.Object.extend("Warrior");
+		   var weaponClass = Parse.Object.extend("Weapon");
+	       var query = new Parse.Query(warrior);
+	       var queryWeapon = new Parse.Query(weaponClass);
+		   
+	       
+	       query.equalTo("userId", {
+	    	   						__type: "Pointer",
+	    	   						className: "_User",
+	    	   						objectId: id
+	       });
+	       query.find({
+	    	   
+	    	   success: function  (results) {
+	   			   var warrior = results[0];
+	   			   self.model = warrior;
+	   			   window.localStorage.setItem("warrior",JSON.stringify(warrior));
+	   			   self.model.bind("change",this.render,this);
+	   			   
+	   			   queryWeapon.get(warrior.get("weapon").id, {
+	   						success: function(weapon) {
+	   							window.localStorage.setItem("weapon",JSON.stringify(weapon));
+	   						},
+	   						error:function(object,error){
+	   							alert(error);
+	   						}
+	   				});
+	   			   self.render();
+	   			},
+	   		
+	   			error:function(object,error){
+					alert(error);
+	   			}
+	   		
+	       });
+	   },
+
 	   render: function(eventName) {
 			if (self.model != undefined)
 			{	 
@@ -58,6 +64,7 @@ var HeadQuarterView = Parse.View.extend({
 				$(self.el).html(self.template(context));
 			}
             return self;
+		   
         },
 	
 });

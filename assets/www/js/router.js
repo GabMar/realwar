@@ -1,5 +1,5 @@
-define(["jquery", "underscore", "parse", "collections/UsCollection", "models/Warrior","models/Weapon", "models/User", "views/UsView", "views/UsListView", "views/LoginView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView","views/WeaponsListView"],
-    function ($, _, Parse, UsCollection, Warrior,Weapon, User, UsView, UsListView, LoginView, HeadQuarterView, MapView, StructureView, WeaponsMarketView, WeaponsListView) {
+define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection", "models/Warrior","models/Weapon", "models/User", "views/UsView", "views/UsListView", "views/LoginView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView","views/WeaponsListView"],
+    function ($,$p, _, Parse, UsCollection, Warrior,Weapon, User, UsView, UsListView, LoginView, HeadQuarterView, MapView, StructureView, WeaponsMarketView, WeaponsListView) {
 
     var AppRouter = Parse.Router.extend({
 		me: undefined,
@@ -16,54 +16,6 @@ define(["jquery", "underscore", "parse", "collections/UsCollection", "models/War
       initialize: function () {
 	  me=this;
         this.currentView = undefined;
-		
-        alert('ciaorouter');
-		var warriorClass = Parse.Object.extend("Warrior");
-		var weaponClass = Parse.Object.extend("Weapon");
-        var query = new Parse.Query(warriorClass);
-		var querywep = new Parse.Query(weaponClass);
-		var weap;
-		var weapons;
-		var weaptitle;
-		query.get("En2VuPv0ob", {
-			success: function(warriorClass) {
-		window.localStorage.setItem("warrior", JSON.stringify(warriorClass));
-		var war= JSON.parse(window.localStorage.getItem("warrior"))
-        warriorClass.relation("weapons").query().find({
-            success: function(list) {
-              for(i=0;i<list.length;++i)
-              {
-                console.debug(list[i].get("name"));
-              }
-              console.debug(list)
-            }
-        });
-
-        querywep.get(warriorClass.get("weapon").id, {
-						success: function(Arma) {
-							weaptitle = Arma.get("name");
-							$('#paragrafo').append(weaptitle);
-						},
-						error:function(object,error){
-							console.debug(error);
-						}
-				});
-		
-			},
-			error: function(object, error) {
-			alert("errore");
-			// The object was not retrieved successfully.
-			// error is a Parse.Error with an error code and description.
-			}
-		});
-		 
-		query.equalTo("objectId", "4Vlf3lqb1K");
-		query.find().then(function  (data) {
-		warrior = data[0];
-		
-		});
-
-
 	  },
 
 	  

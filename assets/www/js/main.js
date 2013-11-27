@@ -1,6 +1,7 @@
 require.config({
   paths: {
     jquery: '../lib/jquery/zepto',
+    jqueryparse:'../lib/jquery/jquery.parse',
     underscore: '../lib/underscore/underscore-min',
     parse: "../lib/parse/parse-1.2.8.min",
     text: '../lib/require/text-1.0.6',
@@ -13,6 +14,9 @@ require.config({
     'jquery': {
       exports: '$'
     },
+    'jqueryparse': {
+        exports: '$p'
+      },
     'underscore': {
       exports: '_'
     },
