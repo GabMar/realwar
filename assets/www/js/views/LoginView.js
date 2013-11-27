@@ -1,5 +1,5 @@
-define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!templates/login.html"],
-    function ($, _, Parse, Handlebars, L, template) {
+define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet", "text!templates/login.html"],
+    function ($, $p, _, Parse, Handlebars, L, template) {
 	
 	var LoginView = Parse.View.extend({
 
@@ -16,6 +16,11 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
 		    login: function(e) {
 		        var username = this.$("#login-username").val();
 		        var password = this.$("#login-password").val();
+		        $.parse.login(username, password, function(user) {
+	            	 window.localStorage.setItem("local_user_id", user.id);
+	            	 Parse.history.navigate('structure', {trigger:true});
+	            	
+	          })/*
 		        Parse.User.logIn(username, password, {
 		        	 
 		             success: function(user) {
@@ -24,7 +29,7 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
 		            	
 		          }
 		        
-		        });
+		        })*/;
 		        
 		    return false;   
 		},
