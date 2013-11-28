@@ -1,6 +1,13 @@
 <div id="headQuarter">
 <div id="warriorInfo">
-<img class="avatar" src="{{warr.figure.url}}"/>
+{{#if warr.image}}
+ <img class="avatar" src="./{{warr.image}}"/>
+ {{else}}
+ <img class="avatar" src="./images/anonym.jpg"/>
+{{/if}}
+
+
+
 <p class="info">{{warr.nick}}</p>
 <p class="info">{{warr.coins}} $</p>
 <p class="info">Level: {{warr.level}}</p>
