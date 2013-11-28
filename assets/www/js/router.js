@@ -1,16 +1,17 @@
-define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection", "models/Warrior","models/Weapon", "models/User", "views/UsView", "views/UsListView", "views/LoginView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView","views/WeaponsListView"],
-    function ($,$p, _, Parse, UsCollection, Warrior,Weapon, User, UsView, UsListView, LoginView, HeadQuarterView, MapView, StructureView, WeaponsMarketView, WeaponsListView) {
+define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection", "models/Warrior","models/Weapon", "models/User", "views/UsView", "views/UsListView", "views/LoginView", "views/RegView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView","views/WeaponsListView"],
+    function ($,$p, _, Parse, UsCollection, Warrior,Weapon, User, UsView, UsListView, LoginView, RegView, HeadQuarterView, MapView, StructureView, WeaponsMarketView, WeaponsListView) {
 
     var AppRouter = Parse.Router.extend({
 		me: undefined,
       routes: {
     	"":"start",
-		"structure": "structure",
-        "market": "market",
-        "showMap": "map",
-        "headQuarter": "headQuarter",
-        "users/:id": "usDetails",
-        "provalist": "provalist"
+    	"reg": "reg",
+		  "structure": "structure",
+      "market": "market",
+      "showMap": "map",
+      "headQuarter": "headQuarter",
+      "users/:id": "usDetails",
+      "provalist": "provalist"
       },
 
       initialize: function () {
@@ -30,7 +31,10 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
 		  }
     },
     
-    
+    reg: function(){
+  	  var page= new RegView();
+  	  this.changePage(page);
+  	  },
 	  
       structure: function () {
         if(!this.structureView) {

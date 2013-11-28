@@ -4,7 +4,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 	var LoginView = Parse.View.extend({
 
 		events: {
-		      "submit form.login-form": "login"
+		      "submit form.login-form": "login",
+		      "touchend #regButton": "goReg",
 		    },
 		
 		    
@@ -12,15 +13,15 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		        _.bindAll(this, "login");
 		        this.render();
 		      },
+		      
+	      	goReg: function () {
+	          Parse.history.navigate("reg", {trigger: true});
+	        },
 		
 		    login: function(e) {
 		        var username = this.$("#login-username").val();
 		        var password = this.$("#login-password").val();
-		        $.parse.login(username, password, function(user) {
-	            	 window.localStorage.setItem("local_user_id", user.id);
-	            	 Parse.history.navigate('structure', {trigger:true});
-	            	
-	          })/*
+		        
 		        Parse.User.logIn(username, password, {
 		        	 
 		             success: function(user) {
@@ -29,7 +30,7 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		            	
 		          }
 		        
-		        })*/;
+		        });
 		        
 		    return false;   
 		},
