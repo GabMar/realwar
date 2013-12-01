@@ -46,18 +46,37 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
         this.headQuarter();
       },
 
-	  headQuarter: function(){
-	  var page= new HeadQuarterView();
+	  headQuarter: function(){ //al cambio delle pagine spengo e accendo i bottoni
+	  $('#mapButton').removeClass("mapButtonActive");
+    $('#headQuarterButton').removeClass("headQuarterButton");
+    $('#marketButton').removeClass("marketButtonActive");
+    $('#mapButton').addClass("mapButton");
+    $('#headQuarterButton').addClass("headQuarterButtonActive");
+    $('#marketButton').addClass("marketButton");
+    $('#toolbar').css("display","block");
+    $('#fire').css("display","none");
+    var page= new HeadQuarterView();
 	  this.changePage(page);
 	  },
 	  
       market: function () {
+
+        $('#mapButton').removeClass("mapButtonActive");
+        $('#headQuarterButton').removeClass("headQuarterButtonActive");
+        $('#marketButton').removeClass("marketButton");
+        $('#mapButton').addClass("mapButton");
+        $('#headQuarterButton').addClass("headQuarterButton");
+        $('#marketButton').addClass("marketButtonActive");
+        $('#toolbar').css("display","block");
+        $('#fire').css("display","none");
         var page = new WeaponsMarketView();
         this.changePage(page);
       },
 
 	  
       map: function () {
+         $('#toolbar').css("display","none");
+         $('#fire').css("display","block");
         var page = new MapView({
           model: this.users
         });

@@ -52,6 +52,205 @@ font-size: 20px;
 				rotateX(45deg);
 }
 
+#fire{
+	display: none;
+	right: 40%;
+	position: fixed;
+	bottom: 0px;
+	width: 66px;
+}
+
+@media screen and (max-width: 320px) {
+.headQuarterButtonActive
+{
+    position: relative;
+    width: 106px;
+    height: 45px;
+    border: none;
+    background-color: #63ca3a;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/pentagonOn.png);
+}
+.headQuarterButton
+{
+    position: relative;
+    width: 106px;
+    height: 45px;
+    border: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/pentagonOff.png);
+}
+.mapButton
+{
+    position: relative;
+    width: 106px;
+    height: 45px;
+    border: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/mapOff.png);
+}
+.mapButtonActive
+{
+    position: relative;
+    width: 106px;
+    height: 45px;
+    border: none;
+    background-color: #63ca3a;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/mapOn.png);
+}
+.marketButton
+{
+    position: relative;
+    width: 106px;
+    height: 45px;
+    border: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/gunOff.png);
+}
+.marketButtonActive
+{
+    position: relative;
+    width: 106px;
+    height: 45px;
+    border: none;
+    background-color: #63ca3a;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/gunOn.png);
+	}
+}
+
+@media screen and (min-width: 360px) {
+.headQuarterButtonActive
+{
+    position: relative;
+    width: 120px;
+    height: 45px;
+    border: none;
+    background-color: #63ca3a;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/pentagonOn.png);
+}
+.headQuarterButton
+{
+    position: relative;
+    width: 120px;
+    height: 45px;
+    border: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/pentagonOff.png);
+}
+.mapButton
+{
+    position: relative;
+    width: 120px;
+    height: 45px;
+    border: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/mapOff.png);
+}
+.mapButtonActive
+{
+    position: relative;
+    width: 120px;
+    height: 45px;
+    border: none;
+    background-color: #63ca3a;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/mapOn.png);
+}
+.marketButton
+{
+    position: relative;
+    width: 120px;
+    height: 45px;
+    border: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/gunOff.png);
+}
+.marketButtonActive
+{
+    position: relative;
+    width: 120px;
+    height: 45px;
+    border: none;
+    background-color: #63ca3a;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/gunOn.png);
+	}
+}
+
+.backButton
+{
+    position: relative;
+    width: 4em;
+    height: 2em;
+    top: 0.6em;
+    left: 0px;
+    border: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-image: url(../images/back.png);
+    background-size: contain;
+	}
+
+
 /* PROFILO DEL WARRIOR */
 
 #headQuarter{

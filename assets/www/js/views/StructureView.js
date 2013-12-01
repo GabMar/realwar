@@ -13,7 +13,7 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
           "touchend #provalist": "provalist"
         },
 
-        showMap: function () {
+        showMap: function () { 
           Parse.history.navigate("showMap", {trigger: true});
         },
 
