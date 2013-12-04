@@ -114,9 +114,11 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
           };
 
 
+          var optiosnsGPS = { timeout: 2000,
+           enableHighAccuracy: true };
 
 
-            navigator.geolocation.watchPosition(OnSuccess, onError, { timeout: 2000 });
+          var GPSid = navigator.geolocation.watchPosition(OnSuccess, onError, optiosnsGPS);
 
             //var webkit =  document.getElementsByClassName("leaflet-marker-icon  leaflet-clickable leaflet-zoom-animated").style.webkitTransform;
 
