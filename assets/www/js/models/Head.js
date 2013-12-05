@@ -1,15 +1,14 @@
 define(["jquery", "underscore", "parse"],
   function ($, _, Parse) {
-    var Helmet = Parse.Object.extend("Helmet", {
+    var Head = Parse.Object.extend("Head", {
       defaults: {
       	name: undefined,
       	defense: 0,
-      	figure: undefined,
         cost: 0
       }
 
       });
 
-    return Helmet;
+    return Head;
 
   });

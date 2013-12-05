@@ -1,5 +1,5 @@
-define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection", "models/Warrior","models/Weapon", "models/User", "views/UsView", "views/UsListView", "views/LoginView", "views/RegView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView","views/WeaponsListView"],
-    function ($,$p, _, Parse, UsCollection, Warrior,Weapon, User, UsView, UsListView, LoginView, RegView, HeadQuarterView, MapView, StructureView, WeaponsMarketView, WeaponsListView) {
+define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection", "models/Warrior", "models/Weapon","models/Head", "models/Armor","models/User", "views/UsView", "views/UsListView", "views/LoginView", "views/RegView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView", "views/EquipView", "views/EquipItemView", "views/WeaponsListView"],
+    function ($,$p, _, Parse, UsCollection, Warrior,Weapon, Head, Armor, User, UsView, UsListView, LoginView, RegView, HeadQuarterView, MapView, StructureView, WeaponsMarketView, EquipView, EquipItemView, WeaponsListView) {
 
     var AppRouter = Parse.Router.extend({
 		me: undefined,
@@ -11,7 +11,7 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
       "showMap": "map",
       "headQuarter": "headQuarter",
       "users/:id": "usDetails",
-      "provalist": "provalist"
+      "showEquip": "showEquip"
       },
 
       initialize: function () {
@@ -47,16 +47,16 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
       },
 
 	  headQuarter: function(){ //al cambio delle pagine spengo e accendo i bottoni
-	  $('#mapButton').removeClass("mapButtonActive");
-    $('#headQuarterButton').removeClass("headQuarterButton");
-    $('#marketButton').removeClass("marketButtonActive");
-    $('#mapButton').addClass("mapButton");
-    $('#headQuarterButton').addClass("headQuarterButtonActive");
-    $('#marketButton').addClass("marketButton");
-    $('#toolbar').css("display","block");
-    $('#fire').css("display","none");
-    var page= new HeadQuarterView();
-	  this.changePage(page);
+		  $('#mapButton').removeClass("mapButtonActive");
+		  $('#headQuarterButton').removeClass("headQuarterButton");
+		  $('#marketButton').removeClass("marketButtonActive");
+		  $('#mapButton').addClass("mapButton");
+		  $('#headQuarterButton').addClass("headQuarterButtonActive");
+		  $('#marketButton').addClass("marketButton");
+		  $('#toolbar').css("display","block");
+		  $('#fire').css("display","none");
+		  var page = new HeadQuarterView();
+		  this.changePage(page);
 	  },
 	  
       market: function () {
@@ -83,14 +83,12 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
         this.changePage(page);
       },
 
-        provalist: function () {
-         var page = new WeaponsListView();
-         this.contents = this.structureView.$el.find("#hqContent");
+        showEquip: function () {
+         var page = new EquipView();
+         this.structureView = new StructureView();
+         this.contents = $("#hqContent");
          this.contents.empty();
          this.contents.append($(page.el));
-         //this.currentView = page;
-         //this.currentView.trigger("inTheDom");
-         //this.changePage(page);
         },
 
       usDetails: function (id) {

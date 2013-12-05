@@ -1,37 +1,39 @@
 <div id="headQuarter">
-<div id="warriorInfo">
-{{#if warr.image}}
- <img class="avatar" src="./{{warr.image}}"/>
- {{else}}
- <img class="avatar" src="./images/anonym.jpg"/>
-{{/if}}
+	<div id="warriorInfo">
+		{{#if localWarrior.image}}
+ 			<img class="avatar" src="./{{localWarrior.image}}"/>
+ 		{{else}}
+ 			<img class="avatar" src="./images/anonym.jpg"/>
+		{{/if}}
 
+		<p class="info">{{localWarrior.nick}}</p>
+		<p class="info">{{localWarrior.coins}} $</p>
+		<p class="info">Level: {{localWarrior.level}}</p>
+		<img class="stars" src="./images/star.png"/>
+	</div>
 
+	<div class="hqBar" id="hqBar">
+		<ul id="menu-orizz">
+			<li id="Stats" class="active"><a >Stats </a></li>
+			<li id="Equip" class=""><a id="showEquip" >Equip </a></li>
+			<li><a >Score </a></li>
+		</ul>
+	</div>
 
-<p class="info">{{warr.nick}}</p>
-<p class="info">{{warr.coins}} $</p>
-<p class="info">Level: {{warr.level}}</p>
-<img class="stars" src="./images/star.png"/>
-</div>
-<div class="hqBar" id="hqBar">
-<ul id="menu-orizz">
-<li id="Stats" class="active"><a >Stats </a></li>
-<li id="Equip"><a id="provalist" >Equip </a></li>
-<li><a >Score </a></li>
-</ul>
-</div>
-<div id="hqContent">
-<div id="warriorStats">
-<div id="kills">Kills {{warr.kills}}</div>
-<div id="deaths">Deaths {{warr.deaths}}</div>
-</div>
-<div id="warriorEquipment">
-<p>attack ={{weap.attack}}</p>
-<p>defense= 10</p>
-<p> range= {{weap.range}}</p>
-<!-- <button class="barButton1" id="provalist" ></button> -->
-</div>
-<div id="scores">
-</div>
-</div>
+	<div id="hqContent">
+		<div id="warriorStats">
+			<div id="kills">Kills {{localWarrior.kills}}</div>
+			<div style="display:inline" id="deaths">Deaths {{localWarrior.deaths}}</div>
+	</div>
+	
+	<div id="warriorEquipment">
+		<p>attack = {{localWeapon.attack}}</p>
+		<p>range= {{range}}</p>
+		<p>defense= {{defense}}</p>
+		<!-- <button class="barButton1" id="provalist" ></button> -->
+	</div>
+
+	<div id="scores">
+	</div>
+	
 </div>

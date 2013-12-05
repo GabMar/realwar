@@ -10,7 +10,7 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
           "touchend #mapButton": "showMap",
           "touchend #headQuarterButton": "headQuarter",
           "touchend #marketButton": "market",
-          "touchend #provalist": "provalist"
+          "touchend #showEquip": "showEquip"
         },
 
         showMap: function () { 
@@ -29,10 +29,10 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
           Parse.history.navigate("market", {trigger: true});
         },
 
-        provalist: function () {
+        showEquip: function () {
          $('#Stats').removeClass("active");
          $('#Equip').addClass("active");
-          Parse.history.navigate("provalist", {trigger: true});
+          Parse.history.navigate("showEquip", {trigger: true});
         },
 
         template: Handlebars.compile(template),

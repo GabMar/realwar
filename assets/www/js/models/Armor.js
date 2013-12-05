@@ -4,7 +4,6 @@ define(["jquery", "underscore", "parse"],
       defaults: {
       	name: undefined,
       	defense: 0,
-      	figure: undefined,
         cost: 0
       }
 
