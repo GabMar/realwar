@@ -23,8 +23,8 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/equip-ite
                 //weapon.cid = this.model.cid;
                 var vector =[];
                 vector['weapon']=weapon;
-                //vector.push(head);
-                //vector.push(armor);
+                vector['head']=head;
+                vector['armor']=armor;
                 $(this.el).html(this.template(vector));
                 return this;
             },

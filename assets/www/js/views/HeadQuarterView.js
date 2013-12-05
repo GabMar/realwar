@@ -10,6 +10,8 @@ var HeadQuarterView = Parse.View.extend({
 	   
 	   initialize: function ( ) {	
 		   self=this;
+		   self.model = new Warrior();
+		   self.model.bind("change", self.render, self);
 		   
 		   var id = window.localStorage.getItem('local_user_id');
 		   var warrior = Parse.Object.extend("Warrior");
@@ -31,13 +33,16 @@ var HeadQuarterView = Parse.View.extend({
 	       query.find({
 	    	   success: function  (results) {
 	   			   var warrior = results[0];
+	   			   
 	   			   self.model = warrior;
 	   			   window.localStorage.setItem("warrior",JSON.stringify(warrior));
-	   			   self.model.bind("change",this.render,this);
+	   			   self.model.bind("change",self.render,self);
 	   			   
 	   			   queryWeapon.get(warrior.get("weapon").id, {
 	   					success: function(weapon) {
 	   							window.localStorage.setItem("weapon",JSON.stringify(weapon));
+	   							self.model.set("coins",23);
+	   							self.model.save();
 	   					},
 	   					error:function(object,error){
 	   						alert(error);
@@ -73,7 +78,7 @@ var HeadQuarterView = Parse.View.extend({
 	   },
 
 	   render: function(eventName) {
-			if (self.model != undefined)
+	//	if (self.model != undefined)
 			{	 
 				
 				//var warrior = self.model.toJSON();
@@ -85,11 +90,11 @@ var HeadQuarterView = Parse.View.extend({
 					localWeapon:JSON.parse(window.localStorage.getItem("weapon")),
 					localHead:JSON.parse(window.localStorage.getItem("head")),
 					localArmor:JSON.parse(window.localStorage.getItem("armor")),
-					range:JSON.parse(window.localStorage.getItem("weapon")).range + 
+					/*range:JSON.parse(window.localStorage.getItem("weapon")).range + 
 							JSON.parse(window.localStorage.getItem("head")).range,
 					defense: JSON.parse(window.localStorage.getItem("armor")).defense + 
-							JSON.parse(window.localStorage.getItem("head")).defense
-				};
+							JSON.parse(window.localStorage.getItem("head")).defense*/
+				}
 				$(self.el).html(self.template(context));
 			}
             return self;

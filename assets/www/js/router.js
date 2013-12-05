@@ -6,7 +6,7 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
       routes: {
     	"":"start",
     	"reg": "reg",
-		  "structure": "structure",
+	  "structure": "structure",
       "market": "market",
       "showMap": "map",
       "headQuarter": "headQuarter",

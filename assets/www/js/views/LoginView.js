@@ -26,7 +26,7 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		        	 
 		             success: function(user) {
 		            	 window.localStorage.setItem("local_user_id", user.id);
-		            	 Parse.history.navigate('structure', {trigger:true});
+		            	 Parse.history.navigate("structure", {trigger:true});
 		            	
 		          }
 		        
