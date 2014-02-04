@@ -45,7 +45,7 @@ var HeadQuarterView = Parse.View.extend({
 	   							self.model.save();
 	   					},
 	   					error:function(object,error){
-	   						alert(error);
+	   						alert("Errore1: "+error);
 	   					}
 	   				});
 	   			   
@@ -54,7 +54,7 @@ var HeadQuarterView = Parse.View.extend({
 							window.localStorage.setItem("head",JSON.stringify(head));
 						},
 						error:function(object,error){
-							alert(error);
+							alert("Errore2: "+error);
 						}
 	   			   });
 	   			
@@ -63,7 +63,7 @@ var HeadQuarterView = Parse.View.extend({
 							window.localStorage.setItem("armor",JSON.stringify(armor));
 						},
 						error:function(object,error){
-							alert(error);
+							alert("Errore3: "+error);
 						}
 	   			   });
 	   			   

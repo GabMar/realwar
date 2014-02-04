@@ -14,7 +14,9 @@ define(["jquery", "underscore", "parse"],
 		kills:0,
 		deaths:0,
         weapon: undefined,
-        weapons: undefined
+        weapons: undefined,
+        gpsId: undefined,   // andrebbero inseriti e utilizzati, salvando il model
+        watchId: undefined
       }
 
       });

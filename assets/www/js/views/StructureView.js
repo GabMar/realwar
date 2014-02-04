@@ -47,7 +47,7 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
           return this;
         },
 
-        toggleMenu: function () {
+        toggleMenu: function () {//non utilizzata
           this.el.classList.toggle("is-menu-visible");
         }
       });

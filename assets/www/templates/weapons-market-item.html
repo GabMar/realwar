@@ -1,6 +1,11 @@
-<h4>
-    {{ name }}
-</h4>
-<p>
-    Range: {{ range }} | Attack: {{attack}} | Cost: {{cost}}
-</p>
+<div class="weaponsInfo">
+		{{#if localWeapon.image}}
+ 			<img class="avatarWeap" src="./{{localWeapon.image}}"/>
+ 		{{else}}
+ 			<img class="avatarWeap" src="./images/gun.jpg"/>
+		{{/if}}
+
+		<p class="info">{{name}}</p>
+		<p class="info">Level Required: {{ range }}</p>
+		<p class="info">Price: {{cost}} $</p>
+	</div>

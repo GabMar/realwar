@@ -1,12 +1,13 @@
 <div id="adDetails">
-    <h1>{{ title }} </h1>
-	{{#if figure }}
-		<div id="figureContainer">
-    		<img id="figure" src="{{ figure }}"/>
-    	</div>
-    {{/if}}
-    <p>{{ price }} euro</p>
+	{{#if localWeapon.image}}
+ 			<img  src="./{{localWeapon.image}}"/>
+ 		{{else}}
+ 			<img  src="./images/gun.jpg"/>
+		{{/if}}
+		<p class="info">{{name}} </p>
+    	<p class="info">Price: {{cost}} $</p>
 </div>
 
-<div id="addImage">add image</div>
-<div id="back">back</div>
+<button class="topcoat-button" id="addImage">add image</div>
+<button class="topcoat-button" id="buyItem">Buy Item</div>
+<button class="topcoat-button" id="back">back</div>

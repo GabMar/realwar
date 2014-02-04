@@ -32,8 +32,8 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/ad-detail
           navigator.camera.getPicture(cameraSuccess, cameraError, options);
         },
 
-        goBack: function () {
-          window.history.back();
+        goBack: function () { //se metto market non va, se metto showMap si -.-
+          Parse.history.navigate("market", {trigger: true});
         },
 
         template: Handlebars.compile(template),

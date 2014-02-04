@@ -10,7 +10,7 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
       "market": "market",
       "showMap": "map",
       "headQuarter": "headQuarter",
-      "users/:id": "usDetails",
+      "weaponsmarket": "changePage",
       "showEquip": "showEquip"
       },
 
@@ -91,7 +91,7 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
          this.contents.append($(page.el));
         },
 
-      usDetails: function (id) {
+      weapDetails: function (id) { //ma i modelli li deve caricare il router?
         var us = this.users.getByCid(id);
         this.changePage(new UsView({
           model: us

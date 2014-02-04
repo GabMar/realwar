@@ -118,13 +118,13 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
            enableHighAccuracy: true };
 
 
-          var GPSid = navigator.geolocation.watchPosition(OnSuccess, onError, optiosnsGPS);
+           GPSid = navigator.geolocation.watchPosition(OnSuccess, onError, optiosnsGPS);
 
             //var webkit =  document.getElementsByClassName("leaflet-marker-icon  leaflet-clickable leaflet-zoom-animated").style.webkitTransform;
 
-            function onCompassSuccess(heading) {
+            function onCompassSuccess(heading) { //trasformazioni geometriche commentate perchè danno brutto effetto
                 //alert( 'Heading: ' + heading.magneticHeading);
-                document.getElementById("map").style.webkitTransform = 'rotateZ('+heading.magneticHeading+'deg) rotateX(60deg)';
+                //document.getElementById("map").style.webkitTransform = 'rotateZ('+heading.magneticHeading+'deg) rotateX(60deg)';
                 //document.getElementsByClassName("leaflet-marker-icon  leaflet-clickable leaflet-zoom-animated").style.webkitTransform = webkit + 'rotateZ('+heading.magneticHeading+'deg)';
             };
 
@@ -134,7 +134,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
 
             var options = { frequency: 500 };  // Update every 3 seconds
 
-            var watchID = navigator.compass.watchHeading(onCompassSuccess, onCompassError, options);
+             watchID = navigator.compass.watchHeading(onCompassSuccess, onCompassError, options);
            
 
 
