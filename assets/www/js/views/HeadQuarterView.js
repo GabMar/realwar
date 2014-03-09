@@ -1,17 +1,24 @@
-define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet", "text!templates/headquarter.html", "models/Warrior", "models/Weapon", "models/Head", "models/Armor"],
-    function ($, $p,  _, Parse, Handlebars, L, template, Warrior, Weapon, Head, Armor) {
+define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet", "text!templates/headquarter.html", "models/Warrior", "models/Weapon", "models/Head", "models/Armor", "views/HeadQuarterStatsView", "views/HeadQuarterScoreView", "views/HeadQuarterEquipView",],
+    function ($, $p,  _, Parse, Handlebars, L, template, Warrior, Weapon, Head, Armor, HeadQuarterStatsView, HeadQuarterScoreView, HeadQuarterEquipView) {
 
 var HeadQuarterView = Parse.View.extend({
        //className: "page",
-	   //tagName: "div",
-	   //id: "warriorInfo",
+	   tagName: "div",
+	   id: "headQuarter",
+	   //el: 'div',
 	   self:undefined,
 	   template: Handlebars.compile(template),
+
+	    events: {
+	    	"touchend #showStats": "showStats",
+          	"touchend #showEquip": "showEquip",
+          	"touchend #showScore": "showScore"
+        },
 	   
 	   initialize: function ( ) {	
 		   self=this;
 		   self.model = new Warrior();
-		   self.model.bind("change", self.render, self);
+		   //self.model.bind("change", self.render, self); apparentemente non fa niente
 		   
 		   var id = window.localStorage.getItem('local_user_id');
 		   var warrior = Parse.Object.extend("Warrior");
@@ -67,7 +74,7 @@ var HeadQuarterView = Parse.View.extend({
 						}
 	   			   });
 	   			   
-	   			   self.render();
+	   			   //self.render(); non fa niente
 	   			},
 	   		
 	   			error:function(object,error){
@@ -76,6 +83,42 @@ var HeadQuarterView = Parse.View.extend({
 	   		
 	       });
 	   },
+
+
+	   showStats: function() {
+	   	 $('#Equip').removeClass("active");
+         $('#Score').removeClass("active");
+         $('#Stats').addClass("active");
+         var page = new HeadQuarterStatsView();
+         //this.structureView = new StructureView();
+         this.contents = $("#hqContent");
+         this.contents.empty();
+         this.contents.append($(page.el));
+
+	   },
+
+	   showEquip: function () {
+         $('#Stats').removeClass("active");
+         $('#Score').removeClass("active");
+         $('#Equip').addClass("active");
+         var page = new HeadQuarterEquipView();
+         //this.structureView = new StructureView();
+         this.contents = $("#hqContent");
+         this.contents.empty();
+         this.contents.append($(page.el));
+        },
+
+        showScore: function() {
+         $('#Equip').removeClass("active");
+         $('#Stats').removeClass("active");
+         $('#Score').addClass("active");
+         var page = new HeadQuarterScoreView();
+         //this.structureView = new StructureView();
+         this.contents = $("#hqContent");
+         this.contents.empty();
+         this.contents.append($(page.el));
+
+        },
 
 	   render: function(eventName) {
 	//	if (self.model != undefined)

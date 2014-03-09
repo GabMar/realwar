@@ -1,4 +1,3 @@
-<div id="headQuarter">
 	<div id="warriorInfo">
 		{{#if localWarrior.image}}
  			<img class="avatar" src="./{{localWarrior.image}}"/>
@@ -14,24 +13,17 @@
 
 	<div class="hqBar" id="hqBar">
 		<ul id="menu-orizz">
-			<li id="Stats" class="active"><a >Stats </a></li>
+			<li id="Stats" class="active"><a id="showStats" >Stats </a></li>
 			<li id="Equip" class=""><a id="showEquip" >Equip </a></li>
-			<li><a >Score </a></li>
+			<li id="Score" class=""><a id="showScore" >Score </a></li>
 		</ul>
 	</div>
 
 	<div id="hqContent">
-		<div id="warriorStats">
-			<div id="kills">Kills {{localWarrior.kills}}</div>
-			<div style="display:inline" id="deaths">Deaths {{localWarrior.deaths}}</div>
-	</div>
+		
 	
-	<div id="warriorEquipment">
-		<p>attack = {{localWeapon.attack}}</p>
-		<p>range= </p>
-		<p>defense=</p>
-		<!-- <button class="barButton1" id="provalist" ></button> -->
-	</div>
+	<div id="kills">Kills {{localWarrior.kills}}</div>
+	<div id="deaths">Deaths {{localWarrior.deaths}}</div>
 
 	<div id="scores">
 	</div>

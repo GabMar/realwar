@@ -1,5 +1,5 @@
-define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection", "models/Warrior", "models/Weapon","models/Head", "models/Armor","models/User", "views/UsView", "views/UsListView", "views/LoginView", "views/RegView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView", "views/EquipView", "views/EquipItemView", "views/WeaponsListView"],
-    function ($,$p, _, Parse, UsCollection, Warrior,Weapon, Head, Armor, User, UsView, UsListView, LoginView, RegView, HeadQuarterView, MapView, StructureView, WeaponsMarketView, EquipView, EquipItemView, WeaponsListView) {
+define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "collections/UsCollection", "models/Warrior", "models/Weapon","models/Head", "models/Armor","models/User", "views/LoginView", "views/RegView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView" ],
+    function ($,$p, _, Parse, Spinner, UsCollection, Warrior,Weapon, Head, Armor, User, LoginView, RegView, HeadQuarterView, MapView, StructureView, WeaponsMarketView, HeadQuarterEquipView) {
 
     var AppRouter = Parse.Router.extend({
 		me: undefined,
@@ -10,9 +10,10 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
       "market": "market",
       "showMap": "map",
       "headQuarter": "headQuarter",
-      "weaponsmarket": "changePage",
-      "showEquip": "showEquip"
+      "weaponsmarket": "changePage"
       },
+
+      spinner:undefined,
 
       initialize: function () {
 	  me=this;
@@ -43,6 +44,29 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
           //this.contents = this.structureView.$el.find("#content #contents");
         }
         this.contents = this.structureView.$el.find("#content #contents");
+        /*inserisco lo spinner
+        var opts = {
+                    lines: 15, // The number of lines to draw
+                    length: 18, // The length of each line
+                    width: 6, // The line thickness
+                    radius: 18, // The radius of the inner circle
+                    corners: 1, // Corner roundness (0..1)
+                    rotate: 0, // The rotation offset
+                    direction: 1, // 1: clockwise, -1: counterclockwise
+                    color: '#2FE43B', // #rgb or #rrggbb or array of colors
+                    speed: 1, // Rounds per second
+                    trail: 60, // Afterglow percentage
+                    shadow: false, // Whether to render a shadow
+                    hwaccel: false, // Whether to use hardware acceleration
+                    className: 'spinner', // The CSS class to assign to the spinner
+                    zIndex: 2e9, // The z-index (defaults to 2000000000)
+                    top: '30px', // Top position relative to parent in px
+                    left: 'auto' // Left position relative to parent in px
+                  };
+            var target = document.getElementById('contents');
+            spinner = new Spinner(opts).spin(target); 
+            qualche problema con lo spinner, è da sistemare */
+
         this.headQuarter();
       },
 
@@ -83,20 +107,6 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
         this.changePage(page);
       },
 
-        showEquip: function () {
-         var page = new EquipView();
-         this.structureView = new StructureView();
-         this.contents = $("#hqContent");
-         this.contents.empty();
-         this.contents.append($(page.el));
-        },
-
-      weapDetails: function (id) { //ma i modelli li deve caricare il router?
-        var us = this.users.getByCid(id);
-        this.changePage(new UsView({
-          model: us
-        }));
-      },
 
       changePage: function (page) {
         if(this.currentView) {
@@ -107,6 +117,9 @@ define(["jquery","jqueryparse", "underscore", "parse", "collections/UsCollection
         page.render();
         this.contents.append($(page.el));
         this.currentView.trigger("inTheDom");
+        if (page.postRender) { //serve per controllare quali viste hanno il metodo
+               page.postRender(); //e avviarlo per inserire lo scroll
+            }
       }
 
     });

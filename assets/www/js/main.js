@@ -8,7 +8,9 @@ require.config({
     async: '../lib/require/async',
     handlebars: '../lib/handlebars/handlebars',
     templates: '../templates',
-    leaflet: '../lib/leaflet/leaflet'
+    leaflet: '../lib/leaflet/leaflet',
+    IScroll: '../lib/iscroll/iscroll-lite',
+    Spinner: '../lib/spinner/spin.min'
   },
   shim: {
     'jquery': {
@@ -29,7 +31,10 @@ require.config({
     },
     'leaflet': {
       exports: 'L'
-    }
+    },
+    'IScroll': {
+             exports: 'IScroll'
+         }
   }
 });
 

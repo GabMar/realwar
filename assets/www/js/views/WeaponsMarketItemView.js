@@ -1,5 +1,5 @@
-define(["jquery", "underscore", "parse", "handlebars", "views/UsView", "text!templates/weapons-market-item.html"],
-    function ($, _, Parse, Handlebars, UsView, template) {
+define(["jquery", "underscore", "parse", "handlebars", "views/WeaponsMarketItemDetailsView", "text!templates/weapons-market-item.html"],
+    function ($, _, Parse, Handlebars, WeaponsMarketItemDetailsView, template) {
 
         var WeaponsMarketItemView = Parse.View.extend({
 
@@ -25,12 +25,11 @@ define(["jquery", "underscore", "parse", "handlebars", "views/UsView", "text!tem
             },
 
             goToDetails: function () {
-                var us = new UsView({
+                var us = new WeaponsMarketItemDetailsView({
                     model: this.model
                  });
-                $('#weaponsmarket').empty();
-                $('#weaponsmarket').append(us.render().el);
-                //Parse.history.navigate("weaponsmarket", {model: this.us, trigger: true});
+                $('#weaponsmarketcontainer').empty();
+                $('#weaponsmarketcontainer').append(us.render().el);
             }
         });
 

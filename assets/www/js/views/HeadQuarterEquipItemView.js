@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "parse", "handlebars", "text!templates/equip-item.html"],
+define(["jquery", "underscore", "parse", "handlebars", "text!templates/headquarter-equip-item.html"],
     function ($, _, Parse, Handlebars, template) {
 
-        var EquipItemView = Parse.View.extend({
+        var HeadQuarterEquipItemView = Parse.View.extend({
 
             tagName: "li",
 
@@ -30,10 +30,13 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/equip-ite
             },
 
             goToDetails: function () {
+                alert("prova");
                 //Parse.history.navigate("weaponslist/" + this.model.cid, {trigger: true});
             }
         });
-
-        return EquipItemView;
+//L'implementazione di questa vista sarà totalmente diversa
+//perchè non ci serve più che carica i dati, ma dovrà dare all'utente
+//la possibilità di cambiare equipaggiamento
+        return HeadQuarterEquipItemView;
 
     });

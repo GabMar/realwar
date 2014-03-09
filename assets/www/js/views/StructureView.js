@@ -3,14 +3,13 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
 
     var StructureView = Parse.View.extend({
 
-        //id: "mainContainer", 
+        id: "mainContainer", 
 
         events: {
           "touchend #backButton": "goBack",
           "touchend #mapButton": "showMap",
           "touchend #headQuarterButton": "headQuarter",
-          "touchend #marketButton": "market",
-          "touchend #showEquip": "showEquip"
+          "touchend #marketButton": "market"
         },
 
         showMap: function () { 
@@ -29,11 +28,7 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
           Parse.history.navigate("market", {trigger: true});
         },
 
-        showEquip: function () {
-         $('#Stats').removeClass("active");
-         $('#Equip').addClass("active");
-          Parse.history.navigate("showEquip", {trigger: true});
-        },
+        
 
         template: Handlebars.compile(template),
 

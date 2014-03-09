@@ -1,5 +1,5 @@
-define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarketCollection","collections/ArmorMarketCollection","collections/HeadMarketCollection","views/WeaponsMarketItemView", "text!templates/weapons-market.html"],
-    function ($, _, Parse, Handlebars, WeaponsMarketCollection, ArmorMarketCollection, HeadMarketCollection, WeaponsMarketItemView, template) {
+define(["jquery", "underscore", "parse", "handlebars", "IScroll", "collections/WeaponsMarketCollection","collections/ArmorMarketCollection","collections/HeadMarketCollection","views/WeaponsMarketItemView", "text!templates/weapons-market.html"],
+    function ($, _, Parse, Handlebars, IScroll, WeaponsMarketCollection, ArmorMarketCollection, HeadMarketCollection, WeaponsMarketItemView, template) {
 
     var WeaponsMarketView = Parse.View.extend({
 
@@ -39,6 +39,8 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
         headList: function () { //funziona ma da sistermare xke aggiorna weapon
             //Non so se sia il metodo giusto per cambiare i colori
             //ma io lo faccio così per ora
+            $(this.el).empty();
+            ul = $(this.el).html(this.template);
             $(ul).find('#btnHd').css("background-color", "#20A715");
             $(ul).find('#btnHd').css("color","#051E07");
             $(ul).find('#btnWpn').css("background-color", "rgb(5, 31, 7)");
@@ -46,7 +48,7 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
             $(ul).find('#btnArm').css("background-color", "rgb(5, 31, 7)");
             $(ul).find('#btnArm').css("color","white");
             //$(ul).find('#weaponsmarket').html('<p>Under construction</p>');
-            $(ul).find('#weaponsmarket').empty();
+            //$(ul).find('#weaponsmarket').empty();
             _.each(this.head.models, function (head) {
                 $(ul).find('#weaponsmarket').append(new WeaponsMarketItemView({ //mi appende dentro this.el un elemento della lista
                     model: head
@@ -56,14 +58,15 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
         },
 
         armorList: function () {
-            //$(this.el).empty();
+            $(this.el).empty();
+            ul = $(this.el).html(this.template);
             $(ul).find('#btnArm').css("background-color", "#20A715");
             $(ul).find('#btnArm').css("color","#051E07");
             $(ul).find('#btnWpn').css("background-color", "rgb(5, 31, 7)");
             $(ul).find('#btnWpn').css("color","white");
             $(ul).find('#btnHd').css("background-color", "rgb(5, 31, 7)");
             $(ul).find('#btnHd').css("color","white");
-            $(ul).find('#weaponsmarket').empty();
+            //$(ul).find('#weaponsmarket').empty(); non serve più
             _.each(this.armor.models, function (head) {
                 $(ul).find('#weaponsmarket').append(new WeaponsMarketItemView({ //mi appende dentro this.el un elemento della lista
                     model: head
@@ -80,7 +83,14 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
                     model: weapon
                 }).render().el);
             }, this);
+            //var wrapper = document.getElementById('wrapper');
+            //var myScroll = new IScroll(wrapper);
             return this;
+        },
+
+        postRender: function (eventName) {
+            var wrapper = document.getElementById('wrapper');
+            var myScroll = new IScroll(wrapper);
         }
 
       });
