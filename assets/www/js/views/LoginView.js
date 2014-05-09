@@ -19,16 +19,27 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 	        },
 		
 		    login: function(e) {
+		    	$("#principal").hide();
+		    	$(".ball").show();
+		    	$(".ball1").show();
 		        var username = this.$("#login-username").val();
 		        var password = this.$("#login-password").val();
 		        
 		        Parse.User.logIn(username, password, {
 		        	 
 		             success: function(user) {
-		            	 window.localStorage.setItem("local_user_id", user.id);
-		            	 Parse.history.navigate("structure", {trigger:true});
+	            	 	window.localStorage.setItem("local_user_id", user.id);
+	            	 	
+	            	 	$(".ball").hide();
+	    				$(".ball1").hide();
+	            	 	Parse.history.navigate("structure", {trigger:true});
+
 		            	
-		          }
+		          },
+		          	error: function(user, error) {
+    					navigator.notification.alert('bella');
+    					//window.localStorage.clear();
+				}
 		        
 		        });
 		        
