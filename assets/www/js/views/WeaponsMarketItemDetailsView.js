@@ -16,8 +16,9 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
           che poi dovrà aggiornare il modello in locale e quello sul server*/
         },
 
-        goBack: function () { //se metto market non va, se metto showMap si -.-
-          Parse.history.navigate("weaponList", {trigger: true});
+        goBack: function () { //non possiamo mettere direttamente "market" perchè quando stiamo vedendo i dettagli di un'arma in "market" ci siamo già, perciò non farebbe niente
+          Parse.history.navigate("", {trigger: true});
+          Parse.history.navigate("market", {trigger: true});
         },
 
         template: Handlebars.compile(template),
