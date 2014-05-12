@@ -12,8 +12,84 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
         },
 
         buyItem: function () {
-          /*Dentro questa funzione va il codice per acquistare un'arma
-          che poi dovrà aggiornare il modello in locale e quello sul server*/
+          var itemName= $("#detailsName").html();
+          var a=$("#btnHd").css("color");
+          var b=$("#btnWpn").css("color");
+          var c=$("#btnArm").css("color");
+          if(a == "rgb(5, 30, 7)"){
+            var item = "Head";
+            var item_r = "heads";
+            window.localStorage.setItem("item", item);
+            window.localStorage.setItem("item_r", item_r);}
+            else if (b == "rgb(5, 30, 7)") {
+              var item = "Weapon";
+              var item_r = "weapons";
+              window.localStorage.setItem("item", item);
+              window.localStorage.setItem("item_r", item_r);
+              }
+              else if (c == "rgb(5, 30, 7)") {
+                var item = "Armor";
+                var item_r = "armors";
+                window.localStorage.setItem("item", item);
+                window.localStorage.setItem("item_r", item_r);};
+          var Itemtoadd = Parse.Object.extend(window.localStorage.getItem("item"));
+          var query = new Parse.Query(Itemtoadd);
+          query.equalTo("name", itemName);
+          alert("bellaaaaa");
+          query.find({
+            success: function(results) {
+              for (var i = 0; i < results.length; i++) { 
+                var object = results[i];
+                alert(object.id);
+                window.localStorage.setItem("variabile", object.id);
+                var Warrior = Parse.Object.extend("Warrior");
+                var query = new Parse.Query(Warrior);
+                var war_id=window.localStorage.getItem("local_warrior_id");
+                query.equalTo("objectId", war_id);
+                query.find({
+                  success: function(results) {
+                    for (var i = 0; i < results.length; i++) { 
+                      var object = results[i];
+                      var c = window.localStorage.getItem("variabile");
+                      var item = window.localStorage.getItem("item");
+                      var item_r = window.localStorage.getItem("item_r");
+                      alert(object.id+c);
+                      $.ajax({
+                      type: 'PUT',
+                      headers: {
+                          'X-Parse-Application-Id': "PHYN9yjJLqmSo0xACd63oypUBUcx4q0eLHBvoozY",
+                          'X-Parse-REST-API-Key': "VSn4lvHnF3EKZmVPox8rRA7Eol3X9r7M8blvQWfC"
+                      },
+                      url: "https://api.parse.com/1/classes/Warrior/"+object.id+"",
+                      data: '{"'+item_r+'":{"__op":"AddRelation","objects":[{"__type":"Pointer","className":"'+item+'","objectId":"'+c+'"}]}}',
+                      contentType: "application/json",
+                      success: function (data, status, jqXHR) {
+
+                          alert("bella");
+                          window.localStorage.removeItem("item");
+                          window.localStorage.removeItem("item_r");
+                          window.localStorage.removeItem("variabile");
+                        },
+
+                        error: function (jqXHR, status) {
+                           // error handler
+                           console.log(jqXHR);
+                           alert("cazzo");
+                        }
+                  });
+                    }
+                  },
+                  error: function(error) {
+                    alert("Error: " + error.code + " " + error.message);
+                  }
+                });
+              }
+            },
+            error: function(error) {
+              alert("Error: " + error.code + " " + error.message);
+            }
+          });
+          
         },
 
         goBack: function () { //non possiamo mettere direttamente "market" perchè quando stiamo vedendo i dettagli di un'arma in "market" ci siamo già, perciò non farebbe niente
