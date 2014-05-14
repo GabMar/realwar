@@ -11,7 +11,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
           "touchend #back": "goBack"
         },
 
-        buyItem: function () {
+        initialize: function () {
           var itemName= $("#detailsName").html();
           var a=$("#btnHd").css("color");
           var b=$("#btnWpn").css("color");
@@ -31,11 +31,48 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
                 var item = "Armor";
                 var item_r = "armors";
                 window.localStorage.setItem("item", item);
-                window.localStorage.setItem("item_r", item_r);};
+                window.localStorage.setItem("item_r", item_r);
+              };
+                var Warrior = Parse.Object.extend("Warrior");
+                var query = new Parse.Query(Warrior);
+                var war_id=window.localStorage.getItem("local_warrior_id");
+                query.equalTo("objectId", war_id);
+                query.find({
+                  success: function(results) {
+                    for (var i = 0; i < results.length; i++) { 
+                      var object = results[i];
+                      var relation = object.relation(window.localStorage.getItem("item_r"));
+                      var query = relation.query();
+                      query.equalTo("name", $("#detailsName").html());
+                      query.find({
+                        success:function(list) {
+                          if (list.length == 0) {
+                            $("#buyItem").show();
+                            window.localStorage.removeItem("item");
+                            window.localStorage.removeItem("item_r");
+                          };
+                          for (var i = 0; i < list.length; i++) {
+                            var bella = list[i];
+                            //$("#buyItem").hide();
+                            window.localStorage.removeItem("item");
+                            window.localStorage.removeItem("item_r");
+                          }
+                        }
+                      });
+                    }
+                  },
+                  error: function(error) {
+                    alert("Error: " + error.code + " " + error.message);
+                  }
+                });
+                
+        },
+
+        buyItem: function () {
+          var itemName= $("#detailsName").html();
           var Itemtoadd = Parse.Object.extend(window.localStorage.getItem("item"));
           var query = new Parse.Query(Itemtoadd);
           query.equalTo("name", itemName);
-          alert("bellaaaaa");
           query.find({
             success: function(results) {
               for (var i = 0; i < results.length; i++) { 
@@ -53,7 +90,6 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
                       var c = window.localStorage.getItem("variabile");
                       var item = window.localStorage.getItem("item");
                       var item_r = window.localStorage.getItem("item_r");
-                      alert(object.id+c);
                       $.ajax({
                       type: 'PUT',
                       headers: {
@@ -65,7 +101,6 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
                       contentType: "application/json",
                       success: function (data, status, jqXHR) {
 
-                          alert("bella");
                           window.localStorage.removeItem("item");
                           window.localStorage.removeItem("item_r");
                           window.localStorage.removeItem("variabile");
@@ -74,7 +109,6 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
                         error: function (jqXHR, status) {
                            // error handler
                            console.log(jqXHR);
-                           alert("cazzo");
                         }
                   });
                     }
