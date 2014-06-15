@@ -7,7 +7,7 @@ define(["jquery", "underscore", "parse", "handlebars", "views/WeaponsMarketItemD
            //className: "topcoat-list__item", non serve più: mi attribuiva la classe per sfruttare i css di topcoat
 
             events: {
-                "touchend": "goToDetails"
+                "tap": "goToDetails"
             },
 
             template: Handlebars.compile(template),

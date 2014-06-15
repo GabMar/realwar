@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-list-item.html"],
-    function ($, _, Parse, Handlebars, template) {
+define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsListCollection", "text!templates/equipment-list-item.html"],
+    function ($, _, Parse, Handlebars, WeaponsListCollection, template) {
 
-        var WeaponsListItemView = Parse.View.extend({
+        var EquipmentListItemView = Parse.View.extend({
 
             tagName: "li",
 
@@ -28,6 +28,6 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-l
             }
         });
 
-        return WeaponsListItemView;
+        return EquipmentListItemView;
 
     });

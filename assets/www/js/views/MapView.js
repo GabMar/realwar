@@ -1,6 +1,6 @@
 define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html", "text!templates/marker-popup.html","models/Warrior"], function($, _, Parse, Handlebars, template, popupTemplate,Warrior) {
 
-    var AdListView = Parse.View.extend({
+    var MapView = Parse.View.extend({
 
         tagName: "div",
         id: "map",
@@ -153,5 +153,5 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
             
         }
     });
-    return AdListView;
+    return MapView;
 });

@@ -6,6 +6,7 @@ define(["jquery", "underscore", "parse", "models/Weapon", "models/Warrior"],
             self:undefined,
             model: Weapon,
 
+
             initialize: function(param){  
             	self=this;
             	
@@ -18,6 +19,7 @@ define(["jquery", "underscore", "parse", "models/Weapon", "models/Warrior"],
                                 self.models.push(list[i]);
                             }
                             self.trigger("fetched");
+                            //window.localStorage.setItem("armi",JSON.stringify(weapon));
                         }
                     });
                 });

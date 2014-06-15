@@ -1,15 +1,17 @@
-define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsListCollection","views/WeaponsListItemView", "text!templates/headquarter-equip.html"],
-function ($, _, Parse, Handlebars, WeaponsListCollection, WeaponsListItemView, template) {
+define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsListCollection","views/EquipmentListView", "text!templates/headquarter-equip.html"],
+function ($, _, Parse, Handlebars, WeaponsListCollection, EquipmentListView, template) {
 	
 	var HeadQuarterEquipView = Parse.View.extend({
 
-        //tagName: "ul",
-        //id: "HeadQuarterEquipList",
+        tagName: "div", //si aggiunge un div con id, non cambia molto
+        id: "HeadQuarterEquipList",
 
         template: Handlebars.compile(template),
 
         events: {
-                "touchend": "goToDetails"
+                "tap #hqEquipWeap": "goToWeaponsEquip",
+                "tap #hqEquipHead": "goToHeadEquip",
+                "tap #hqEquipArm": "goToArmorEquip"
             },
 
         initialize: function () {
@@ -29,9 +31,26 @@ function ($, _, Parse, Handlebars, WeaponsListCollection, WeaponsListItemView, t
                 return this;
         },
 
-        goToDetails: function () {
-            alert("prova! tocco registrato");
-                //Parse.history.navigate("weaponslist/" + this.model.cid, {trigger: true});
+        goToWeaponsEquip: function () {
+            $('#headQuarter').empty();
+            alert("prova! tocco registrato weapon");
+            var page = new EquipmentListView();
+            $('#headQuarter').append(page.render().el);
+            },
+
+        goToHeadEquip: function () {
+            $('#headQuarter').empty();
+            alert("prova! tocco registrato head");
+            var page = new EquipmentListView();
+            $('#headQuarter').append(page.render().el);
+            },
+
+        goToArmorEquip: function () {
+            $('#headQuarter').empty();
+            alert("prova! tocco registrato armor");
+            var page = new WeaponsListView();
+            var page = new EquipmentListView();
+            $('#headQuarter').append(page.render().el);
             }
     });
 

@@ -656,6 +656,29 @@ h4 {
     right: 1em;
 }
 
+/* FINE MARKET */
+
+/* EQUIPMENT */
+
+#weaponslist li {
+    padding: 1rem;
+    border-style: solid;
+    /*border-left-style: double;*/
+   /*border-right-style: double;*/
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-color: rgb(47, 228, 59);
+    display: block;
+    height: 60px;
+}
+
+
+/* FINE EQUIPMENT */
+
 #spinner{
     top: 50%;
     margin: 0px;

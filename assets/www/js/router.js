@@ -117,9 +117,6 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "collections/U
         page.render();
         this.contents.append($(page.el));
         this.currentView.trigger("inTheDom");
-        if (page.postRender) { //serve per controllare quali viste hanno il metodo
-               page.postRender(); //e avviarlo per inserire lo scroll
-            }
       }
 
     });
