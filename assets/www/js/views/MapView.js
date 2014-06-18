@@ -138,8 +138,8 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
            
 
 
-            //map.addLayer(googleLayer);
-            L.tileLayer('http://{s}.tile.cloudmade.com/a6f26d33c61342318355eb8f812ce3ba/17306/256/{z}/{x}/{y}.png', {
+            //map.addLayer(googleLayer);  'http://{s}.tile.cloudmade.com/a6f26d33c61342318355eb8f812ce3ba/17306/256/{z}/{x}/{y}.png'
+            L.tileLayer('http://{s}.tiles.mapbox.com/v3/tarabor.ii291l53/{z}/{x}/{y}.png', {
                 
                 maxZoom: 20
             }).addTo(map);
