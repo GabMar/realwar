@@ -48,8 +48,8 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
                         success:function(list) {
                           if (list.length == 0) {
                             $("#buyItem").show();
-                            window.localStorage.removeItem("item");
-                            window.localStorage.removeItem("item_r");
+                            //window.localStorage.removeItem("item");
+                            //window.localStorage.removeItem("item_r");
                           };
                           for (var i = 0; i < list.length; i++) {
                             var bella = list[i];
@@ -77,7 +77,6 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
             success: function(results) {
               for (var i = 0; i < results.length; i++) { 
                 var object = results[i];
-                alert(object.id);
                 window.localStorage.setItem("variabile", object.id);
                 var Warrior = Parse.Object.extend("Warrior");
                 var query = new Parse.Query(Warrior);
@@ -104,6 +103,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
                           window.localStorage.removeItem("item");
                           window.localStorage.removeItem("item_r");
                           window.localStorage.removeItem("variabile");
+                          $("#buyItem").hide();
                         },
 
                         error: function (jqXHR, status) {
