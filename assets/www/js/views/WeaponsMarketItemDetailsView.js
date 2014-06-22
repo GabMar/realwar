@@ -134,7 +134,16 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
         template: Handlebars.compile(template),
 
         render: function (eventName) {
-          $(this.el).html(this.template(this.model.toJSON()));
+          var json = this.model.toJSON();
+          var warrior = JSON.parse(window.localStorage.getItem("warrior"));
+          var a = JSON.stringify(json);  //mi serve per recuperare i dati del warrior
+          var b = JSON.stringify(warrior); //e poi settare i soldi
+          var z = JSON.parse(a);
+          var x = JSON.parse(b);
+          z["coins"] = x["coins"];
+          var concatenate = a.concat(b);
+
+          $(this.el).html(this.template(z));
           return this;
         }
       });

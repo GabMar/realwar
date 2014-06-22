@@ -486,6 +486,7 @@ h4 {
     -webkit-overflow-scrolling:touch;
     border-top:1px solid rgb(47, 228, 59);
     border-bottom:1px solid rgb(47, 228, 59);
+    overflow-y: hidden;
 }
 
 #weaponsmarket{
@@ -629,7 +630,7 @@ h4 {
 #buyItem{
     position: absolute;
     right: 1em;
-    top: 12em;
+    top: 18em;
     border-right: none;
     background-color: #20A715;
     color: #051E07;
@@ -638,7 +639,7 @@ h4 {
 #back{
     position: absolute;
     left: 1em;
-    top: 12em;
+    top: 18em;
     border-right: none;
     background-color: #20A715;
     color: #051E07;
@@ -650,10 +651,38 @@ h4 {
     right: 1em;
 }
 
-#detailsPrice{
+#detailsAttack{
     position: absolute;
     top: 3em;
     right: 1em;
+}
+
+#detailsDefense{
+    position: absolute;
+    top: 3em;
+    right: 1em;
+}
+
+#detailsRange{
+    position: absolute;
+    top: 5em;
+    right: 1em;
+}
+
+#detailsPrice{
+    position: absolute;
+    top: 7em;
+    right: 1em;
+}
+
+.lineaorizzontale {
+    width: 232px;
+    height: 1px;
+    background-color: rgb(15, 236, 24);
+    border-bottom: 1px solid #04CA33;
+    text-align: center;
+    margin-left: 45px;
+    margin-top: 24px;
 }
 
 /* FINE MARKET */
