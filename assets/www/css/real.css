@@ -636,6 +636,12 @@ h4 {
     color: #051E07;
 }
 
+#equipped{
+    float:left;
+    background-color: #20A715;
+    color: #051E07;
+}
+
 #back{
     position: absolute;
     left: 1em;

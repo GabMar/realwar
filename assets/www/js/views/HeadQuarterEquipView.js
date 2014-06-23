@@ -1,5 +1,5 @@
-define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsListCollection","views/EquipmentListView", "text!templates/headquarter-equip.html"],
-function ($, _, Parse, Handlebars, WeaponsListCollection, EquipmentListView, template) {
+define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsListCollection","views/WeaponsEquipmentView", "text!templates/headquarter-equip.html"],
+function ($, _, Parse, Handlebars, WeaponsListCollection, WeaponsEquipmentView, template) {
 	
 	var HeadQuarterEquipView = Parse.View.extend({
 
@@ -34,7 +34,7 @@ function ($, _, Parse, Handlebars, WeaponsListCollection, EquipmentListView, tem
         goToWeaponsEquip: function () {
             $('#headQuarter').empty();
             alert("prova! tocco registrato weapon");
-            var page = new EquipmentListView();
+            var page = new WeaponsEquipmentView();
             $('#headQuarter').append(page.render().el);
             },
 

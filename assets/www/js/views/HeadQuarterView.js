@@ -31,50 +31,20 @@ var HeadQuarterView = Parse.View.extend({
 	       var queryHead = new Parse.Query(headClass);
 	       var queryArmor = new Parse.Query(armorClass);
 	       
-	       query.equalTo("userId", {
-	    	   						__type: "Pointer",
-	    	   						className: "_User",
-	    	   						objectId: id
-	       });
+	       query.equalTo("objectId", window.localStorage.getItem("local_warrior_id"));
 	       
 	       query.find({
 	    	   success: function  (results) {
 	   			   var warrior = results[0];
-	   			   
-	   			   self.model = warrior;
-	   			   window.localStorage.setItem("warrior",JSON.stringify(warrior));
-	   			   self.model.bind("change",self.render,self);
-	   			   
-	   			   queryWeapon.get(warrior.get("weapon").id, {
+	   			   queryWeapon.get(self.model.id, {
 	   					success: function(weapon) {
-	   							window.localStorage.setItem("weapon",JSON.stringify(weapon));
-	   							self.model.set("coins",23);
-	   							self.model.save();
+	   							warrior.set("weapon",weapon);
+	   							warrior.save();
 	   					},
 	   					error:function(object,error){
 	   						alert("Errore1: "+error);
 	   					}
 	   				});
-	   			   
-	   			   queryHead.get(warrior.get("head").id, {
-						success: function(head) {
-							window.localStorage.setItem("head",JSON.stringify(head));
-						},
-						error:function(object,error){
-							alert("Errore2: "+error);
-						}
-	   			   });
-	   			
-	   			   queryArmor.get(warrior.get("armor").id, {
-						success: function(armor) {
-							window.localStorage.setItem("armor",JSON.stringify(armor));
-						},
-						error:function(object,error){
-							alert("Errore3: "+error);
-						}
-	   			   });
-	   			   
-	   			   //self.render(); non fa niente
 	   			},
 	   		
 	   			error:function(object,error){

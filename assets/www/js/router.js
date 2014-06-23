@@ -6,7 +6,7 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "collections/U
       routes: {
     	"":"start",
     	"reg": "reg",
-	  "structure": "structure",
+	    "structure": "structure",
       "market": "market",
       "showMap": "map",
       "headQuarter": "headQuarter",
@@ -117,6 +117,7 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "collections/U
         page.render();
         this.contents.append($(page.el));
         this.currentView.trigger("inTheDom");
+      
       }
 
     });
