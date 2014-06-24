@@ -94,15 +94,16 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
 
                                 if (markers[self.warriors[i].id] == undefined){
                                     markers[self.warriors[i].id] = new L.marker([self.warriors[i].get("position").latitude, self.warriors[i].get("position").longitude], 
-                                                                            {icon: redIcon}); 
+                                                                            {icon: redIcon})
                                     markers[self.warriors[i].id].addTo(map); 
                                 }
                                 else {
                                     var b = new L.LatLng(self.warriors[i].get("position").latitude, self.warriors[i].get("position").longitude);
                                     
-                                    markers[self.warriors[i].id].off('click');
+                                    
                                     markers[self.warriors[i].id].setLatLng(b).update();
-                                    markers[self.warriors[i].id].on('click', function(e){
+                                    markers[self.warriors[i].id].off('mousedown');
+                                    markers[self.warriors[i].id].on('mousedown', function(e){
                                         var mark = e.target;
                                         for(y = 1; y<self.warriors.length; y++){
                                             var locWar = new L.LatLng(self.warriors[y].get("position").latitude, self.warriors[y].get("position").longitude);
