@@ -15,6 +15,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
             self=this;
             this.model=JSON.parse(window.localStorage.getItem("warrior"));
             this.on("inTheDom", this.addMap);
+            var warriors = new Array();
         },
 
         render: function(eventName) {
@@ -23,18 +24,34 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
             return this;
         },
 
-
         addMap: function() {
            
             var map = new L.map('map', {center: new L.LatLng(42.350711, 13.399961),zoom: 17,zoomControl: false} );
+            L.tileLayer('http://{s}.tiles.mapbox.com/v3/tarabor.ii291l53/{z}/{x}/{y}.png', {
+                maxZoom: 17,
+                continuousWorld: true,
+                noWrap: true
+            }).addTo(map);
 
             var marker;
+
             var markers = new Array();
+
+            var greenIcon = L.icon({
+                iconUrl: './res/greenMarker.png',
+                iconSize:     [38, 44], // size of the icon
+                iconAnchor:   [19, 44], // point of the icon which will correspond to marker's location
+            });
+
+            var redIcon = L.icon({
+                iconUrl: './res/redMarker.png',
+                iconSize:     [38, 44], // size of the icon
+                iconAnchor:   [19, 44], // point of the icon which will correspond to marker's location
+            });
 
             navigator.geolocation.getCurrentPosition(function (position) {
                 var coord = new L.LatLng(position.coords.latitude, position.coords.longitude);
-                map.setView(coord, 17);
-                marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+                marker = L.marker([position.coords.latitude, position.coords.longitude], {icon: greenIcon}).addTo(map);
             }, function() {});
 
             function mapUpdate(position){
@@ -42,7 +59,6 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
                 navigator.geolocation.getCurrentPosition(function (position) {
 
                     marker.setLatLng([position.coords.latitude, position.coords.longitude]).update();
-
                     self.model.position.latitude=position.coords.latitude;
                     self.model.position.longitude=position.coords.longitude;
                     // aggiorniamo nostra posizione su parse
@@ -72,35 +88,41 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
                     // Final list of objects
                     query.find({
                         success: function (nearWarriors) {
-                            console.log(nearWarriors.length);
-                            for (i = 1; i < nearWarriors.length; i++) {
-                                console.log(nearWarriors[i].id); 
-                                if (markers[nearWarriors[i].id] == undefined)   {
-                                    markers[nearWarriors[i].id] = L.marker([nearWarriors[i].get("position").latitude, nearWarriors[i].get("position").longitude])
-                                                                    .bindPopup("Marotta Merda!").openPopup().addTo(map);
+                            self.warriors = nearWarriors;
+                            
+                            for (i = 1; i < self.warriors.length; i++) { 
+
+                                if (markers[self.warriors[i].id] == undefined){
+                                    markers[self.warriors[i].id] = new L.marker([self.warriors[i].get("position").latitude, self.warriors[i].get("position").longitude], 
+                                                                            {icon: redIcon}); 
+                                    markers[self.warriors[i].id].addTo(map); 
                                 }
-                                 
                                 else {
-                                    var b = new L.LatLng(nearWarriors[i].get("position").latitude, nearWarriors[i].get("position").longitude);
-                                    markers[nearWarriors[i].id].setLatLng(b).update();
-                                }
+                                    var b = new L.LatLng(self.warriors[i].get("position").latitude, self.warriors[i].get("position").longitude);
+                                    
+                                    markers[self.warriors[i].id].off('click');
+                                    markers[self.warriors[i].id].setLatLng(b).update();
+                                    markers[self.warriors[i].id].on('click', function(e){
+                                        var mark = e.target;
+                                        for(y = 1; y<self.warriors.length; y++){
+                                            var locWar = new L.LatLng(self.warriors[y].get("position").latitude, self.warriors[y].get("position").longitude);
+                                            if (mark.getLatLng().equals(locWar)){
+                                                console.log(self.warriors[y].get("nick"));
+                                            }
+                                        }
+                                    });
+                                    
+                                    //currentMarker.fireEvent('click');
+                                } 
                             }
                         }
                     });
+                    map.panTo(new L.LatLng(position.coords.latitude, position.coords.longitude));
                 }, function() {});
-            };
-
-            L.tileLayer('http://{s}.tiles.mapbox.com/v3/tarabor.ii291l53/{z}/{x}/{y}.png', {
                 
-                maxZoom: 20
-            }).addTo(map);
-
-            setInterval(function(){mapUpdate();}, 1000);
+            }
+            setInterval(function(){mapUpdate();}, 2000);
         },
-
-        
-
     });
-
     return MapView;
 });
