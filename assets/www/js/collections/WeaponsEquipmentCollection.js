@@ -19,13 +19,14 @@ define(["jquery", "underscore", "parse", "models/Weapon", "models/Warrior"],
                                 self.models.push(list[i]);
                             }
                             self.trigger("fetched");
+                            a=JSON.stringify(self.models);
+                            window.localStorage.setItem("equipmentWeapons",a);
                             //window.localStorage.setItem("armi",JSON.stringify(weapon));
                         }
                     });
                 });
 
-
-
+                
             },
 
 

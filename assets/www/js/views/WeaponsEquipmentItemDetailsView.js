@@ -4,7 +4,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
     var WeaponsEquipmentItemDetailsView = Parse.View.extend({
 
       tagName: "div",
-      id: "adDetails",
+      weaponId: undefined,
       self:undefined,
 
         events: {
@@ -12,9 +12,18 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
           "touchend #back": "goBack"
         },
 
-        initialize: function () {
+        initialize: function (weaponId) {
           self=this;
-                
+          self.weaponId=weaponId;
+          localweaponsequip= JSON.parse(window.localStorage.getItem("equipmentWeapons"));
+          for (i=0;i<localweaponsequip.length;i++)
+          {
+            if(localweaponsequip[i].objectId==self.weaponId)
+              {
+                self.model=localweaponsequip[i];
+                break;
+              }
+          }
         },
 
         equips: function () {
@@ -27,8 +36,9 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
            success: function  (results) {
              var warrior = results[0];
                          
-             queryWeapon.get(self.model.id, {
+             queryWeapon.get(self.model.objectId, {
               success: function(weapon) {
+                  window.localStorage.setItem("weapon",JSON.stringify(weapon));
                   warrior.set("weapon",weapon);
                   warrior.save();
                   self.goBack();
@@ -48,8 +58,8 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
 
 
         goBack: function () { //non possiamo mettere direttamente "market" perchè quando stiamo vedendo i dettagli di un'arma in "market" ci siamo già, perciò non farebbe niente
-          Parse.history.navigate("", {trigger: true});
-          Parse.history.navigate("headQuarter", {trigger: true});
+          //Parse.history.navigate("", {trigger: true});
+          Parse.history.navigate("equipment/weapons", {trigger: true});
         },
 
         template: Handlebars.compile(template),
@@ -59,10 +69,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
         localweapon=JSON.parse(window.localStorage.getItem("weapon"));
         if(localweapon.objectId==self.model.id)
           vector["equipped"]=true;
-
-          var json = this.model.toJSON();
-          var a = JSON.stringify(json);  //mi serve per recuperare i dati del warrior
-          var z = JSON.parse(a);
+          var z =this.model;// JSON.parse(a);
           vector["model"]=z;
           $(this.el).html(this.template(vector));
           return this;

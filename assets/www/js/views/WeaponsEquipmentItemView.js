@@ -33,11 +33,13 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsEquip
             },
 
             goToDetails: function ()  {
-                var weids = new WeaponsEquipmentItemDetailsView({
+                dest="equipment/weapons/"+this.model.id;
+                Parse.history.navigate(dest, {trigger: true});
+                /*var weids = new WeaponsEquipmentItemDetailsView({
                     model: this.model
                  });
                 $('#weaponslistcontainer').empty();
-                $('#weaponslistcontainer').append(weids.render().el);
+                $('#weaponslistcontainer').append(weids.render().el);*/
             }
         });
 
