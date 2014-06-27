@@ -42,18 +42,13 @@ font-family: Dungeon;
 font-size: 20px;
 }
 
-#contents {
-    /* */
-    top: 45px;
-    margin-top: 46px;
-    height: -webkit-calc(100% - 44px);
-    width: 100%;
-}
-
 #map {
 	position: absolute;
+    bottom: 0;
+    top: 8%;
     height: 92%;
     width: 100%;
+    overflow-y: hidden;
 	/* -webkit-transform: rotateZ(0deg)
                 rotateX(45deg); */
 }

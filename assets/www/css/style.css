@@ -55,18 +55,26 @@ body {
 #contents {
     /* */
     position: absolute;
-    overflow-y: scroll;
+    top: 8%;
+    overflow-y: hidden;
     overflow-x: hidden;
-    height: -webkit-calc(100% - 44px);
+    height: 92%;
     width: 100%;
 }
+
+/*#contents {
+
+    top: 8%;
+    height: 92%;
+    width: 100%;
+}*/
 
 #titlebar {
     z-index: 100;
     position: relative;
     left: 0;
     top: 0;
-    height: 44px;
+    height: 8%;
     width: 100%;
     background-image: url(../images/navigationBar.png);
 }
