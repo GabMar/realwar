@@ -26,11 +26,10 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
 
         addMap: function() {
            
-            var map = new L.map('map', {center: new L.LatLng(42.350711, 13.399961),zoom: 17,zoomControl: false} );
+            var map = L.map('map', {center: new L.LatLng(42.350711, 13.399961),zoom: 17,zoomControl: false} );
+            
             L.tileLayer('http://{s}.tiles.mapbox.com/v3/tarabor.ii291l53/{z}/{x}/{y}.png', {
                 maxZoom: 17,
-                continuousWorld: true,
-                noWrap: true
             }).addTo(map);
 
             var marker;
@@ -53,6 +52,10 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
                 var coord = new L.LatLng(position.coords.latitude, position.coords.longitude);
                 marker = L.marker([position.coords.latitude, position.coords.longitude], {icon: greenIcon}).addTo(map);
             }, function() {});
+
+            function prova(){
+                alert("ciao");
+            }
 
             function mapUpdate(position){
                 
@@ -108,7 +111,14 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
                                         for(y = 1; y<self.warriors.length; y++){
                                             var locWar = new L.LatLng(self.warriors[y].get("position").latitude, self.warriors[y].get("position").longitude);
                                             if (mark.getLatLng().equals(locWar)){
-                                                console.log(self.warriors[y].get("nick"));
+                                                
+                                                $('#fight').off('mousedown');
+                                                $('#fight').on("mousedown", function() {
+                                                            alert("Gabbro merdaaaaaa!");
+                                                    });
+                                                $('#popupWarrior').show(200);
+                                                $('#infoWarrior').empty();
+                                                $('#infoWarrior').append("<p>"+self.warriors[y].get("nick")+"</p><p>Level: "+self.warriors[y].get("level")+"</p>");
                                             }
                                         }
                                     });

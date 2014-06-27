@@ -17,10 +17,10 @@ src:url(../font/SourceSansPro-Semibold.otf);
 font-weight:600;
 }
 
-* {
+/* {
     -webkit-touch-callout: none;
     -webkit-user-select:none;
-}
+}*/
 
 body {
 margin:0;
@@ -52,7 +52,7 @@ font-size: 20px;
 
 #map {
 	position: absolute;
-    height: 130%;
+    height: 92%;
     width: 100%;
 	/* -webkit-transform: rotateZ(0deg)
                 rotateX(45deg); */
@@ -792,4 +792,86 @@ h4 {
     100% {
         -webkit-transform: rotate(-360deg);
     };
+}
+
+/*Elementi della mappa*/
+
+.leaflet-control-attribution{
+    display: none;
+}
+
+#popupWarrior{
+
+    width: 99%;
+    height: 11%;
+    z-index: 20;
+    position:fixed;
+    display: block;
+    bottom: 0px;
+    border: 2px solid #63ca3a;
+    background:rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
+    display: none;
+}
+
+#avatarWarrior{
+    width: 20%;
+    height: 95%;
+    margin-left: 2px;
+    border: 1px solid #63ca3a;
+    float: left;
+
+}
+
+#infoWarrior{
+    width: 45%;
+    height: 95%;
+    margin-left: 2px;
+    float: left;
+
+}
+
+#infoWarrior p{
+    text-align: left;
+    font-size: 1.5em;
+    padding: 0px;
+    margin-top: 2%;
+    margin-left: 1%;
+    margin-bottom: 0px;
+}
+
+#fightButton{
+    width: 30%;
+    height: 95%;
+    margin-left: 5px;
+    float: left;
+
+}
+
+#fight{
+    width: 95%;
+    height: 90%;
+    margin-top: 5%;
+    margin-left: 7%;
+    font-size: 20px;
+    text-align: center;
+    font-family: Dungeon;
+    color: rgb(47, 228, 59);
+    border-style: solid;
+    border-left-style: double;
+    border-right-style: double;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-color: rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgb(3, 35, 5);
+    opacity: 1;
+}
+
+#fight:hover{
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
 }
