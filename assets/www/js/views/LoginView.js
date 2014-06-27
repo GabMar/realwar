@@ -30,19 +30,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		             success: function(user) {
 	            	 	window.localStorage.setItem("local_user_id", user.id);
 	            	 	var Warrior = Parse.Object.extend("Warrior");
-						var query = new Parse.Query(Warrior);
-						query.equalTo("userId", {__type: "Pointer", className: "_User",objectId: user.id});
-						query.find({
-						  success: function(results) {
-						    for (var i = 0; i < results.length; i++) { 
-						      var object = results[i];
-						      window.localStorage.setItem("local_warrior_id", object.id);
-						    }
-						  },
-						  error: function(error) {
-						    alert("Error: " + error.code + " " + error.message);
-						  }
-						});
+	            	 	var warrior = new Warrior();
+						warrior.setLocalWarrior(user.id);
 	            	 	$(".ball").hide();
 	    				$(".ball1").hide();
 	            	 	Parse.history.navigate("structure", {trigger:true});
