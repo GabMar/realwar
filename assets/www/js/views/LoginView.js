@@ -51,8 +51,6 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		            	
 		          },
 		          	error: function(user, error) {
-    					navigator.notification.alert('bella');
-    					//window.localStorage.clear();
 				}
 		        
 		        });

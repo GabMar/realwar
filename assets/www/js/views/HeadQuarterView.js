@@ -47,7 +47,7 @@ var HeadQuarterView = Parse.View.extend({
 	   			   queryWeapon.get(warrior.get("weapon").id, {
 	   					success: function(weapon) {
 	   							window.localStorage.setItem("weapon",JSON.stringify(weapon));
-	   							self.model.set("coins",23);
+	   							self.model.set("coins", warrior.get("coins"));
 	   							self.model.save();
 	   					},
 	   					error:function(object,error){
