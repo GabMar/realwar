@@ -19,13 +19,13 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
 
         initialize: function (params) { //carico i modelli per il market
             this.currentView = undefined;
-			this.model= new WeaponsMarketCollection();
+            this.model= new WeaponsMarketCollection();
             this.head= new HeadMarketCollection();
             this.armor= new ArmorMarketCollection();
           this.model.bind("reset", this.render, this); //che fa?
-		 },
+         },
 
-		weaponList: function () {
+        weaponList: function () {
             $(this.el).empty();
             var ul = $(this.el).html(this.template);
             $(".ball").hide();
@@ -73,14 +73,14 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
             $(ul).find('#btnHd').css("background-color", "rgb(5, 31, 7)");
             $(ul).find('#btnHd').css("color","white");
             //$(ul).find('#weaponsmarket').empty(); non serve più
-            _.each(this.armor.models, function (head) {
+            _.each(this.armor.models, function (armor) {
                 $(ul).find('#weaponsmarket').append(new WeaponsMarketItemView({ //mi appende dentro this.el un elemento della lista
-                    model: head
+                    model: armor
                 }).render().el);
             }, this);
             return this;
         },
-		 
+         
         render: function (eventName) {
             $(this.el).empty();
             var ul = $(this.el).html(this.template);
