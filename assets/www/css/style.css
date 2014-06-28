@@ -56,7 +56,7 @@ body {
     /* */
     position: absolute;
     top: 8%;
-    overflow-y: hidden;
+    overflow-y: scroll;
     overflow-x: hidden;
     height: 92%;
     width: 100%;
