@@ -8,6 +8,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
 
         events: {
           "touchend #buyItem": "buyItem",
+          "touchend #sellItem": "sellItem",
           "touchend #back": "goBack"
         },
 
@@ -48,6 +49,10 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
                           if (list.length == 0) {
                             $("#buyItem").show();
                           };
+
+                          if (list.length == 1) {
+                            $("#sellItem").show();
+                          };
                         }
                       });
                     }
@@ -65,6 +70,13 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
           var itemtoadd = new Itemtoadd();
           itemtoadd.buyThis(itemName);
           
+        },
+
+        sellItem: function() {
+          var itemName = $("#detailsName").html();
+          var Itemtosell = Parse.Object.extend(window.localStorage.getItem("item"));
+          var itemtosell = new Itemtosell();
+          itemtosell.sellThis(itemName);
         },
 
         goBack: function () { //non possiamo mettere direttamente "market" perchè quando stiamo vedendo i dettagli di un'arma in "market" ci siamo già, perciò non farebbe niente
