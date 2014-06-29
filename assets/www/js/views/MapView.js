@@ -1,4 +1,5 @@
-define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html", "text!templates/marker-popup.html","models/Warrior"], function($, _, Parse, Handlebars, template, popupTemplate,Warrior) {
+define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html", "text!templates/marker-popup.html","models/Warrior", "models/Weapon", "models/Head", "models/Armor",], 
+function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head, Armor) {
 
     var MapView = Parse.View.extend({
 
@@ -53,10 +54,6 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
                 marker = L.marker([position.coords.latitude, position.coords.longitude], {icon: greenIcon}).addTo(map);
             }, function() {});
 
-            function prova(){
-                alert("ciao");
-            }
-
             function mapUpdate(position){
                 
                 navigator.geolocation.getCurrentPosition(function (position) {
@@ -108,22 +105,21 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
                                     markers[self.warriors[i].id].off('mousedown');
                                     markers[self.warriors[i].id].on('mousedown', function(e){
                                         var mark = e.target;
-                                        for(y = 1; y<self.warriors.length; y++){
+                                        for(var y = 1; y<self.warriors.length; y++){
                                             var locWar = new L.LatLng(self.warriors[y].get("position").latitude, self.warriors[y].get("position").longitude);
                                             if (mark.getLatLng().equals(locWar)){
                                                 
+                                                var enemyWar = self.warriors[y];
                                                 $('#fight').off('mousedown');
                                                 $('#fight').on("mousedown", function() {
-                                                            alert("Gabbro merdaaaaaa!");
+                                                            fight(enemyWar);//self.fight(enemyWar);
                                                     });
-                                                $('#popupWarrior').show(200);
+                                                $('#popupWarrior').show(100);
                                                 $('#infoWarrior').empty();
                                                 $('#infoWarrior').append("<p>"+self.warriors[y].get("nick")+"</p><p>Level: "+self.warriors[y].get("level")+"</p>");
                                             }
                                         }
                                     });
-                                    
-                                    //currentMarker.fireEvent('click');
                                 } 
                             }
                         }
@@ -132,6 +128,11 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html"
                 }, function() {});
                 
             }
+
+            $('#toMap').on('mousedown', function(){
+                $('#infoFight').hide(100);
+            });
+
             setInterval(function(){mapUpdate();}, 2000);
         },
     });

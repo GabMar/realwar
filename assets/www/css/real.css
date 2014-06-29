@@ -886,3 +886,92 @@ h4 {
     background-color: rgb(47, 228, 59);
     border-color: rgb(3, 35, 5);
 }
+
+#infoFight{
+
+    width: 90%;
+    height: 65%;
+    z-index: 20;
+    position:fixed;
+    display: block;
+    margin-left: 4%;
+    bottom: 20%;
+    border: 2px solid #63ca3a;
+    background:rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
+    font-family: Dungeon;
+    display: none;
+
+}
+
+#infoResult{
+    width: 90%;
+    height: 15%;
+    position:fixed; 
+    bottom: 70%;
+}
+
+#infoResult h1{
+    text-align: center;
+    font-size: 2em;
+    padding: 0px;
+    margin-top: 2%;
+    margin-bottom: 0px;
+    color: white;
+}
+
+#infoResult p{
+    text-align: center;
+    font-size: 1em;
+    padding: 0px;
+    margin-top: 2%;
+    margin-bottom: 0px;
+    color: white;
+}
+
+#infoRound{
+    width: 80%;
+    height: 35%;
+    position:fixed; 
+    display: block; 
+    bottom: 32%;
+    margin-left: 4.5%;
+    border: 1px solid #63ca3a;
+}
+
+#backToMap{
+    width: 30%;
+    height: 10%;
+    position:fixed; 
+    display: block; 
+    bottom: 21%;
+    margin-left: 29.5%;
+}
+
+#toMap{
+    width: 95%;
+    height: 90%;
+    margin-top: 5%;
+    margin-left: 7%;
+    font-size: 20px;
+    text-align: center;
+    font-family: Dungeon;
+    color: rgb(47, 228, 59);
+    border-style: solid;
+    border-left-style: double;
+    border-right-style: double;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-color: rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgb(3, 35, 5);
+    opacity: 1;
+}
+
+#toMap:hover{
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
+}
