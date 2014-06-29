@@ -26,35 +26,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 				  	var id= user.id;
 				    var Warrior = Parse.Object.extend("Warrior");
 					var warrior= new Warrior();
-					 
-					warrior.set("nick", username);
-					warrior.set("coins", 0);
-					warrior.set("userId", {__type: "Pointer", className: "_User",objectId: id});
-					var point = new Parse.GeoPoint({latitude: 40.0, longitude: -30.0});
-					warrior.set("position", point);
-					var id_wep = "weWdWg9jeU";
-					warrior.set("weapon", {__type: "Pointer", className: "Weapon",objectId: id_wep});
-					 
-					warrior.save(null, {
-					  success: function(warrior) {
-					    // Execute any logic that should take place after the object is saved.
-					    alert('New object created with objectId: ' + warrior.id);
-					    Parse.User.logIn(username, password, {
-		        	 
-		             		success: function(user) {
-		            	 	window.localStorage.setItem("local_user_id", user.id);
-		            	 	Parse.history.navigate('structure', {trigger:true});
-		            	
-		          			}
-		        
-		        });
-					  },
-					  error: function(warrior, error) {
-					    // Execute any logic that should take place if the save fails.
-					    // error is a Parse.Error with an error code and description.
-					    alert('Failed to create new object, with error code: ' + warrior.description);
-					  }
-					});
+				 	warrior.signupWarrior(user.id, username, password);
+					
 				    
 				},
 				  error: function(user, error) {
@@ -62,11 +35,6 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 				    alert("Error: " + error.code + " " + error.message);
 				  }
 				});
-		        /*$.parse.signup({ 
-					username : username, 
-					password : password, 
-					email : email 
-				}, function(){alert("Successo");}, function(){alert("Cazzo!!!");});*/
 		        
 		    return false;   
 		},
