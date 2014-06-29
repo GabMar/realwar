@@ -31,11 +31,76 @@ define(["jquery", "underscore", "parse"],
         this.set("weapon", {__type: "Pointer", className: "Weapon",objectId: id_wep});
         this.set("head", {__type: "Pointer", className: "Head", objectId: id_he});
         this.set("armor", {__type: "Pointer", className: "Armor", objectId: id_ar});
+
          
         this.save(null, {
           success: function(warrior) {
             // Execute any logic that should take place after the object is saved.
             alert('New object created with objectId: ' + warrior.id);
+            window.localStorage.setItem("local_warrior_id", warrior.id);
+            $.ajax({
+                              type: 'PUT',
+                              headers: {
+                                  'X-Parse-Application-Id': "PHYN9yjJLqmSo0xACd63oypUBUcx4q0eLHBvoozY",
+                                  'X-Parse-REST-API-Key': "VSn4lvHnF3EKZmVPox8rRA7Eol3X9r7M8blvQWfC"
+                              },
+                              url: "https://api.parse.com/1/classes/Warrior/"+warrior.id+"",
+                              data: '{"weapons":{"__op":"AddRelation","objects":[{"__type":"Pointer","className":"Weapon","objectId":"Ykli9gHMmg"}]}}',
+                              contentType: "application/json",
+                              success: function (data, status, jqXHR) {
+
+                                  window.localStorage.removeItem("variabile");
+                                  $("#buyItem").hide();
+                                  $("#sellItem").show();
+                                },
+
+                                error: function (jqXHR, status) {
+                                   // error handler
+                                   console.log(jqXHR);
+                                }
+                    });
+            $.ajax({
+                              type: 'PUT',
+                              headers: {
+                                  'X-Parse-Application-Id': "PHYN9yjJLqmSo0xACd63oypUBUcx4q0eLHBvoozY",
+                                  'X-Parse-REST-API-Key': "VSn4lvHnF3EKZmVPox8rRA7Eol3X9r7M8blvQWfC"
+                              },
+                              url: "https://api.parse.com/1/classes/Warrior/"+warrior.id+"",
+                              data: '{"heads":{"__op":"AddRelation","objects":[{"__type":"Pointer","className":"Head","objectId":"rBYFAiiooM"}]}}',
+                              contentType: "application/json",
+                              success: function (data, status, jqXHR) {
+
+                                  window.localStorage.removeItem("variabile");
+                                  $("#buyItem").hide();
+                                  $("#sellItem").show();
+                                },
+
+                                error: function (jqXHR, status) {
+                                   // error handler
+                                   console.log(jqXHR);
+                                }
+                    });
+            $.ajax({
+                              type: 'PUT',
+                              headers: {
+                                  'X-Parse-Application-Id': "PHYN9yjJLqmSo0xACd63oypUBUcx4q0eLHBvoozY",
+                                  'X-Parse-REST-API-Key': "VSn4lvHnF3EKZmVPox8rRA7Eol3X9r7M8blvQWfC"
+                              },
+                              url: "https://api.parse.com/1/classes/Warrior/"+warrior.id+"",
+                              data: '{"armors":{"__op":"AddRelation","objects":[{"__type":"Pointer","className":"Armor","objectId":"COXNCJlA7x"}]}}',
+                              contentType: "application/json",
+                              success: function (data, status, jqXHR) {
+
+                                  window.localStorage.removeItem("variabile");
+                                  $("#buyItem").hide();
+                                  $("#sellItem").show();
+                                },
+
+                                error: function (jqXHR, status) {
+                                   // error handler
+                                   console.log(jqXHR);
+                                }
+                    });
             Parse.User.logIn(username, password, {
              
                   success: function(user) {
