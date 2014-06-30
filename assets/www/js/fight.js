@@ -1,44 +1,4 @@
-function fight(enemy){
-
-    var weaponClass = Parse.Object.extend("Weapon");
-    var headClass = Parse.Object.extend("Head");
-    var armorClass = Parse.Object.extend("Armor");
-   
-    var queryWeapon = new Parse.Query(weaponClass);
-    var queryHead = new Parse.Query(headClass);
-    var queryArmor = new Parse.Query(armorClass);
-
-    queryWeapon.get(enemy.get("weapon").id, {
-        success: function(weapon) {
-           window.localStorage.setItem("enemyWeapon",JSON.stringify(weapon));
-        }
-    });
-
-    queryHead.get(enemy.get("head").id, {
-        success: function(head) {
-           window.localStorage.setItem("enemyHead",JSON.stringify(head));
-        }
-    });
-
-    queryArmor.get(enemy.get("armor").id, {
-        success: function(armor) {
-           window.localStorage.setItem("enemyArmor",JSON.stringify(armor));
-        }
-    });
-
-
-    var enemyWeapon = JSON.parse(window.localStorage.getItem("enemyWeapon"));
-    var enemyHead = JSON.parse(window.localStorage.getItem("enemyHead"));
-    var enemyArmor = JSON.parse(window.localStorage.getItem("enemyArmor"));
-
-    /*window.localStorage.removeItem("enemyWeapon");
-    window.localStorage.removeItem("enemyHead");
-    window.localStorage.removeItem("enemyArmor");*/
-
-
-    var myWeapon = JSON.parse(window.localStorage.getItem("weapon"));
-    var myHead = JSON.parse(window.localStorage.getItem("head"));
-    var myArmor = JSON.parse(window.localStorage.getItem("armor"));
+function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myArmor){
 
     var myLife = self.model.life;
     var myLevel = self.model.level;
@@ -59,13 +19,16 @@ function fight(enemy){
     var enemyDefense = enemyHead.defense+enemyArmor.defense;
     var enemyRange = enemyHead.range;
 
-    var round = 1;
-    var firstShooter;
-    var roundResults = new Array();
-    var result = "Prova";
+    window.localStorage.removeItem("enemyWeapon");
+    window.localStorage.removeItem("enemyHead");
+    window.localStorage.removeItem("enemyArmor");
 
+    var round = 1;
+    var firstShooter = 0;
+    var roundResults = new Array();
+    var result = "";
   
-    while(myLife>0 || enemyLife>0){
+    while(myLife>0 && enemyLife>0 && round<50){
 
         //Primo round del combattimento: si decide chi inizia a sparare e si effettua il primo scontro.
         if(round == 1){
@@ -90,7 +53,7 @@ function fight(enemy){
             // --------------------------------------
             if(firstShooter == 0 || firstShooter == 1 ){
 
-                myDamage = myAttack - Math.floor(enemyDefense/10);
+                var myDamage = myAttack - Math.floor(enemyDefense/10);
 
                 if(myDamage > 0){
                     enemyLife = enemyLife - myDamage;
@@ -99,7 +62,7 @@ function fight(enemy){
                 //L'avversario risponde al fuoco solamente se rimane in vita
                 if(enemyLife > 0){
 
-                    eDamage = enemyAttack - Math.floor(myDefense/10);
+                    var eDamage = enemyAttack - Math.floor(myDefense/10);
 
                     if(eDamage > 0){
                         myLife = myLife - eDamage;
@@ -118,7 +81,7 @@ function fight(enemy){
             // --------------------------------------
             else{
 
-                eDamage = enemyAttack - Math.floor(myDefense/10);
+                var eDamage = enemyAttack - Math.floor(myDefense/10);
 
                 if(eDamage > 0){
                     myLife = myLife - eDamage;
@@ -126,7 +89,7 @@ function fight(enemy){
 
                 if(myLife > 0){
                     
-                    myDamage = myAttack - Math.floor(enemyDefense/10);
+                    var myDamage = myAttack - Math.floor(enemyDefense/10);
 
                     if(myDamage > 0){
                         enemyLife = enemyLife - myDamage;
@@ -151,7 +114,7 @@ function fight(enemy){
             // --------------------------------------
             if(firstShooter == 0 || firstShooter == 1 ){
 
-                myDamage = myAttack - Math.floor(enemyDefense/10);
+                var myDamage = myAttack - Math.floor(enemyDefense/10);
 
                 if(myDamage > 0){
                     enemyLife = enemyLife - myDamage;
@@ -160,7 +123,7 @@ function fight(enemy){
                 //L'avversario risponde al fuoco solamente se rimane in vita
                 if(enemyLife > 0){
 
-                    eDamage = enemyAttack - Math.floor(myDefense/10);
+                    var eDamage = enemyAttack - Math.floor(myDefense/10);
 
                     if(eDamage > 0){
                         myLife = myLife - eDamage;
@@ -179,7 +142,7 @@ function fight(enemy){
             // --------------------------------------
             else{
 
-                eDamage = enemyAttack - Math.floor(myDefense/10);
+                var eDamage = enemyAttack - Math.floor(myDefense/10);
 
                 if(eDamage > 0){
                     myLife = myLife - eDamage;
@@ -187,7 +150,7 @@ function fight(enemy){
 
                 if(myLife > 0){
                     
-                    myDamage = myAttack - Math.floor(enemyDefense/10);
+                    var myDamage = myAttack - Math.floor(enemyDefense/10);
 
                     if(myDamage > 0){
                         enemyLife = enemyLife - myDamage;
@@ -212,7 +175,6 @@ function fight(enemy){
     // --------------------------------------
     if(myLife > 0){
 
-        result = "You Kill "+enemy.get("nick")+"!";
         myKills++;
         enemyDeaths++;
         myCoins = myCoins + Math.floor(enemyLevel/2);
@@ -231,14 +193,14 @@ function fight(enemy){
 
             myExp = myExp + 100*myLevel*enemyLevel;
         }
+
+        result = "<h1>You Kill "+enemy.get("nick")+"!</h1><p>XP earned: "+myExp+"</p><p>Coins earned: "+myCoins+"</p>";
     }
 
     // --------------------------------------
     //Vince l'avversario, guadagna exp
     // --------------------------------------
-    else{
-
-        result = "You Are Death!";
+    else if (enemyLife>0){
         enemyKills++;
         myDeaths++;
 
@@ -256,6 +218,12 @@ function fight(enemy){
 
             enemyExp = enemyExp + 100*myLevel*enemyLevel;
         }
+
+        result = "<h1>You Are Death!</h1><p>You earned no XP and no coins!</p>";
+    }
+
+    else {
+        result="<h1>Parità</h1>"+"<p>"+myLife+"</p><p>"+enemyLife+"</p>";
     }
 
     // --------------------------------------
@@ -269,5 +237,4 @@ function fight(enemy){
     $('#popupWarrior').hide(100);
     $('#infoResult').empty();
     $('#infoResult').append("<h1>"+result+"</h1>");
-    
 };

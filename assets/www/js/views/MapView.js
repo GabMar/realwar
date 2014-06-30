@@ -110,10 +110,47 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                             if (mark.getLatLng().equals(locWar)){
                                                 
                                                 var enemyWar = self.warriors[y];
+
+
+                                                var weaponClass = Parse.Object.extend("Weapon");
+                                                var headClass = Parse.Object.extend("Head");
+                                                var armorClass = Parse.Object.extend("Armor");
+                                               
+                                                var queryWeapon = new Parse.Query(weaponClass);
+                                                var queryHead = new Parse.Query(headClass);
+                                                var queryArmor = new Parse.Query(armorClass);
+
+                                                queryWeapon.get(enemyWar.get("weapon").id, {
+                                                    success: function(weapon) {
+                                                       window.localStorage.setItem("enemyWeapon",JSON.stringify(weapon));
+                                                    }
+                                                });
+
+                                                queryHead.get(enemyWar.get("head").id, {
+                                                    success: function(head) {
+                                                       window.localStorage.setItem("enemyHead",JSON.stringify(head));
+                                                    }
+                                                });
+
+                                                queryArmor.get(enemyWar.get("armor").id, {
+                                                    success: function(armor) {
+                                                       window.localStorage.setItem("enemyArmor",JSON.stringify(armor));
+                                                    }
+                                                });
+
                                                 $('#fight').off('mousedown');
                                                 $('#fight').on("mousedown", function() {
-                                                            fight(enemyWar);//self.fight(enemyWar);
-                                                    });
+
+                                                    var enemyWeapon = JSON.parse(window.localStorage.getItem("enemyWeapon"));
+                                                    var enemyHead = JSON.parse(window.localStorage.getItem("enemyHead"));
+                                                    var enemyArmor = JSON.parse(window.localStorage.getItem("enemyArmor"));
+
+                                                    var myWeapon = JSON.parse(window.localStorage.getItem("weapon"));
+                                                    var myHead = JSON.parse(window.localStorage.getItem("head"));
+                                                    var myArmor = JSON.parse(window.localStorage.getItem("armor"));
+                                                    
+                                                    fight(enemyWar, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myArmor);
+                                                });
                                                 $('#popupWarrior').show(100);
                                                 $('#infoWarrior').empty();
                                                 $('#infoWarrior').append("<p>"+self.warriors[y].get("nick")+"</p><p>Level: "+self.warriors[y].get("level")+"</p>");
