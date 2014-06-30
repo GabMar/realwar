@@ -9,6 +9,8 @@ define(["jquery", "underscore", "parse"],
 
       buyThis: function(itemName){
 
+        $("#buyItem").hide();
+        $("#loadItem").show();
         var query = new Parse.Query(Head);
         query.equalTo("name", itemName);
         query.find({
@@ -41,7 +43,7 @@ define(["jquery", "underscore", "parse"],
                               success: function (data, status, jqXHR) {
 
                                   window.localStorage.removeItem("variabile");
-                                  $("#buyItem").hide();
+                                  $("#loadItem").hide();
                                   $("#sellItem").show();
                                 },
 
@@ -74,6 +76,8 @@ define(["jquery", "underscore", "parse"],
       },
 
       sellThis: function(itemName){
+        $("#sellItem").hide();
+        $("#loadItem").show();
         var query = new Parse.Query(Head);
         query.equalTo("name", itemName);
         query.find({
@@ -105,7 +109,7 @@ define(["jquery", "underscore", "parse"],
                             success: function (data, status, jqXHR) {
 
                                 window.localStorage.removeItem("variabile");
-                                $("#sellItem").hide();
+                                $("#loadItem").hide();
                                 $("#buyItem").show();
                               },
 

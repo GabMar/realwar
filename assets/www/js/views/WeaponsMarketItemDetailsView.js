@@ -47,10 +47,12 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-m
                       query.find({
                         success:function(list) {
                           if (list.length == 0) {
+                            $("#loadItem").hide();
                             $("#buyItem").show();
                           };
 
                           if (list.length == 1) {
+                            $("#loadItem").hide();
                             $("#sellItem").show();
                           };
                         }

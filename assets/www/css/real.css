@@ -640,6 +640,16 @@ h4 {
     color: #051E07;
 }
 
+#loadItem{
+    position: absolute;
+    right: 1em;
+    top: 18em;
+    border-right: none;
+    background-color: red;
+    color: #051E07;
+}
+
+
 #equips{
     position: absolute;
     right: 1em;
