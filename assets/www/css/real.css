@@ -912,12 +912,31 @@ h4 {
 
 #infoRound{
     width: 80%;
-    height: 35%;
+    height: 30%;
     position:fixed; 
     display: block; 
     bottom: 32%;
     margin-left: 4.5%;
     border: 1px solid #63ca3a;
+}
+
+#infoRound h1{
+    text-align: center;
+    font-size: 1.2em;
+    padding: 0px;
+    margin-top: 1%;
+    margin-bottom: 0px;
+    color: white;
+}
+
+#infoRound p{
+    text-align: left;
+    font-size: 1em;
+    padding: 0px;
+    margin-top: 2%;
+    margin-left: 1%;
+    margin-bottom: 0px;
+    color: white;
 }
 
 #backToMap{
@@ -952,6 +971,66 @@ h4 {
 }
 
 #toMap:hover{
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
+}
+
+#previousRound{
+    width: 25%;
+    height: 4%;
+    position:fixed; 
+    display: block; 
+    bottom: 33%;
+    margin-left: 1%;
+    font-size: 1em;
+    text-align: center;
+    font-family: Dungeon;
+    color: rgb(47, 228, 59);
+    border-style: solid;
+    border-left-style: double;
+    border-right-style: double;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-color: rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgb(3, 35, 5);
+    opacity: 1;
+}
+
+#previousRound:hover{
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
+}
+
+#nextRound{
+    width: 25%;
+    height: 4%;
+    position:fixed; 
+    display: block; 
+    bottom: 33%;
+    left: 63%;
+    font-size: 1em;
+    text-align: center;
+    font-family: Dungeon;
+    color: rgb(47, 228, 59);
+    border-style: solid;
+    border-left-style: double;
+    border-right-style: double;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-color: rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgb(3, 35, 5);
+    opacity: 1;
+}
+
+#nextRound:hover{
     color: rgb(3, 35, 5);
     background-color: rgb(47, 228, 59);
     border-color: rgb(3, 35, 5);

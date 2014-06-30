@@ -9,6 +9,8 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     var myAttack = myWeapon.attack;
     var myDefense = myHead.defense+myArmor.defense;
     var myRange = myHead.range;
+    var XPEarned = 0;
+    var coinsEarned = 0;
 
     var enemyLife = enemy.get("life");
     var enemyLevel = enemy.get("level");
@@ -68,10 +70,13 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
                         myLife = myLife - eDamage;
                     }
 
+                    roundResults[round] = "<h1>Round 1</h1><p>You shoots "+enemy.get("nick")+" for "+myDamage+" damage.<p>"+
+                                          "<p>"+enemy.get("nick")+" responds to fire and causes to you "+eDamage+" damage.</p>";
                     round++;
                 }
 
                 else{
+                    roundResults[round] = "<h1>Round 1</h1><p>Headshot on "+enemy.get("nick")+" for "+myDamage+" damage.<p>";
                     round++
                 }
             }
@@ -95,11 +100,14 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
                         enemyLife = enemyLife - myDamage;
                     }
 
+                    roundResults[round] = "<h1>Round 1</h1><p>"+enemy.get("nick")+" shoots you for "+eDamage+" damage.<p>"+
+                                          "<p>You respond to fire and cause to "+enemy.get("nick")+" "+myDamage+" damage.</p>";
                     round++;
 
                 }
 
                 else{
+                    roundResults[round] = "<h1>Round 1</h1><p>Headshot on you for "+myDamage+" damage.<p>";
                     round++;
                 }
             }
@@ -129,10 +137,19 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
                         myLife = myLife - eDamage;
                     }
 
+                    if(myLife > 0){
+                        roundResults[round] = "<h1>Round "+round+"</h1><p>You runs to te right and shoots "+enemy.get("nick")+"'s leg for "+myDamage+" damage.<p>"+
+                                              "<p>"+enemy.get("nick")+" covered himself behind a wall and with a rapid fire causes to you "+eDamage+" damage.</p>"; 
+                    }
+                    else{
+                        roundResults[round] = "<h1>Round "+round+"</h1><p>You runs to te right and shoots "+enemy.get("nick")+"'s heart for "+myDamage+" damage.<p>"+
+                                          "<p>"+enemy.get("nick")+" covered himself behind a wall and with a rapid fire causes to you "+eDamage+" damage.</p>";
+                    }
                     round++;
                 }
 
                 else{
+                    roundResults[round] = "<h1>Round "+round+"</h1><p>You runs to te right and shoots "+enemy.get("nick")+"'s heart for "+myDamage+" damage.<p>";
                     round++
                 }
             }
@@ -155,12 +172,14 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
                     if(myDamage > 0){
                         enemyLife = enemyLife - myDamage;
                     }
-
+                    roundResults[round] = "<h1>Round "+round+"</h1><p>"+enemy.get("nick")+" shoots you for "+eDamage+" damage.<p>"+
+                                          "<p>You respond to fire and cause to "+enemy.get("nick")+" "+myDamage+" damage.</p>";
                     round++;
 
                 }
 
                 else{
+                    roundResults[round] = "<h1>Round "+round+"</h1><p>Headshot on you for "+myDamage+" damage.<p>";
                     round++;
                 }
             }
@@ -177,53 +196,48 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
 
         myKills++;
         enemyDeaths++;
-        myCoins = myCoins + Math.floor(enemyLevel/2);
+        coinsEarned = Math.floor(enemyLevel/2);
+        myCoins = myCoins + coinsEarned;
 
         if(myLevel > enemyLevel){
 
-            myExp = myExp + enemyLevel*myLevel;
+            XPEarned = enemyLevel*myLevel;
 
         }
         else if(myLevel == enemyLevel){
 
-            myExp = myExp + 100*myLevel;
+            XPEarned = 50*myLevel;
         }
 
         else{
 
-            myExp = myExp + 100*myLevel*enemyLevel;
+            XPEarned = 50*myLevel*enemyLevel;
         }
 
-        result = "<h1>You Kill "+enemy.get("nick")+"!</h1><p>XP earned: "+myExp+"</p><p>Coins earned: "+myCoins+"</p>";
+        myExp = myExp + XPEarned;
+
+        result = "<h1>You Kill "+enemy.get("nick")+"!</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: "+coinsEarned+"</p>";
     }
 
     // --------------------------------------
-    //Vince l'avversario, guadagna exp
+    //Vince l'avversario, il giocatore non guadagna nulla
     // --------------------------------------
     else if (enemyLife>0){
         enemyKills++;
         myDeaths++;
-
-        if(enemyLevel > myLevel){
-
-            enemyExp = enemyExp + enemyLevel*myLevel;
-
-        }
-        else if(myLevel == enemyLevel){
-
-            enemyExp = enemyExp + 100*enemyLevel;
-        }
-
-        else{
-
-            enemyExp = enemyExp + 100*myLevel*enemyLevel;
-        }
-
         result = "<h1>You Are Death!</h1><p>You earned no XP and no coins!</p>";
     }
 
+    // --------------------------------------
+    //Parità, il giocatore guadagna una parte di XP
+    // --------------------------------------
     else {
-        result="<h1>Parità</h1>"+"<p>"+myLife+"</p><p>"+enemyLife+"</p>";
+        if(myLevel > enemyLevel){
+            XPEarned = Math.floor((enemyLevel*myLevel)/2);
+        }
+        myExp = myExp + XPEarned;
+        coinsEarned = 0;
+        result="<h1>Parità</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: "+coinsEarned+"</p>";
     }
 
     // --------------------------------------
@@ -233,8 +247,48 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     // --------------------------------------
     //Presentiamo i risultati
     // --------------------------------------
+
+    var currentRound = 1;
+
+    $('#previousRound').hide();
+
     $('#infoFight').show(100);
     $('#popupWarrior').hide(100);
     $('#infoResult').empty();
+    $('#showRound').empty();
     $('#infoResult').append("<h1>"+result+"</h1>");
+    $('#showRound').append(roundResults[1]);
+
+    $('#nextRound').on('mousedown', function() {
+        $('#showRound').empty();
+        $('#showRound').append(roundResults[currentRound+1]);
+        currentRound++;
+        if(currentRound == 1){
+            $('#previousRound').hide();
+        }
+        else if(currentRound == (round-1)){
+            $('#nextRound').hide();
+        }
+        else if(currentRound > 1){
+            $('#previousRound').show();
+        }
+    });
+
+    $('#previousRound').on('mousedown', function() {
+        $('#showRound').empty();
+        $('#showRound').append(roundResults[currentRound-1]);
+        currentRound--;
+        if(currentRound == 1){
+            $('#previousRound').hide();
+        }
+        else if(currentRound == (round-1)){
+            $('#nextRound').hide();
+        }
+
+        else if(currentRound < (round-1)){
+            $('#nextRound').show();
+        }
+    });
+
+
 };
