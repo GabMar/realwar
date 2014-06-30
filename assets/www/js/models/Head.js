@@ -52,8 +52,11 @@ define(["jquery", "underscore", "parse"],
                                    console.log(jqXHR);
                                 }
                       });
-                      object.set("coins", object.get("coins")-window.localStorage.getItem("item_coins"));
+                      var res = object.get("coins")-window.localStorage.getItem("item_coins")
+                      object.set("coins", res);
                       object.save();
+                      $('#detailsCash').html("Your Money: "+object.get('coins')+" $");
+                      window.localStorage.setItem("warrior",JSON.stringify(object));
                       window.localStorage.removeItem("item_coins");
                     } 
                     else {
@@ -121,6 +124,8 @@ define(["jquery", "underscore", "parse"],
                     var gettoni = window.localStorage.getItem("item_coins")/2;
                     object.set("coins", object.get("coins")+gettoni);
                     object.save();
+                    $('#detailsCash').html("Your Money: "+object.get('coins')+" $");
+                    window.localStorage.setItem("warrior",JSON.stringify(object));
                     window.localStorage.removeItem("item_coins");
 
                   }
