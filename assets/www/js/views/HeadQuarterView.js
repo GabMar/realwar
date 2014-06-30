@@ -15,7 +15,7 @@ var HeadQuarterView = Parse.View.extend({
           	"touchend #showScore": "showScore"
         },
 	   
-	   initialize: function ( ) {	
+	   initialize: function () {	
 		   self=this;
 		   self.model = new Warrior();
 		   //self.model.bind("change", self.render, self); apparentemente non fa niente
@@ -71,9 +71,8 @@ var HeadQuarterView = Parse.View.extend({
 						error:function(object,error){
 							alert("Errore3: "+error);
 						}
+
 	   			   });
-	   			   
-	   			   //self.render(); non fa niente
 	   			},
 	   		
 	   			error:function(object,error){
@@ -82,6 +81,7 @@ var HeadQuarterView = Parse.View.extend({
 	   		
 	       });
 	   },
+
 
 
 	   showStats: function() {
@@ -120,7 +120,7 @@ var HeadQuarterView = Parse.View.extend({
         },
 
 	   render: function(eventName) {
-	//	if (self.model != undefined)
+		if(window.localStorage.getItem("warrior") != undefined)
 			{	 
 				
 				//var warrior = self.model.toJSON();
@@ -131,13 +131,11 @@ var HeadQuarterView = Parse.View.extend({
 					localWarrior:warrior,
 					localWeapon:JSON.parse(window.localStorage.getItem("weapon")),
 					localHead:JSON.parse(window.localStorage.getItem("head")),
-					localArmor:JSON.parse(window.localStorage.getItem("armor")),
-					/*range:JSON.parse(window.localStorage.getItem("weapon")).range + 
-							JSON.parse(window.localStorage.getItem("head")).range,
-					defense: JSON.parse(window.localStorage.getItem("armor")).defense + 
-							JSON.parse(window.localStorage.getItem("head")).defense*/
+					localArmor:JSON.parse(window.localStorage.getItem("armor"))
 				}
 				$(self.el).html(self.template(context));
+				$(".ball").hide();
+	    		$(".ball1").hide();
 			}
             return self;
 		   
