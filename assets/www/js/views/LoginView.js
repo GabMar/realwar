@@ -20,8 +20,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		
 		    login: function(e) {
 		    	$("#principal").hide();
-		    	$(".ball").show();
-		    	$(".ball1").show();
+		    	$("#spinner").show();
+		    	
 		        var username = this.$("#login-username").val();
 		        var password = this.$("#login-password").val();
 		        
@@ -32,8 +32,6 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 	            	 	var Warrior = Parse.Object.extend("Warrior");
 	            	 	var warrior = new Warrior();
 						warrior.setLocalWarrior(user.id);
-	            	 	$(".ball").hide();
-	    				$(".ball1").hide();
 	            	 	Parse.history.navigate("structure", {trigger:true});
 
 
