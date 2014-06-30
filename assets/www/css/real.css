@@ -645,7 +645,7 @@ h4 {
     right: 1em;
     top: 18em;
     border-right: none;
-    background-color: red;
+    background-color: grey;
     color: #051E07;
 }
 
@@ -724,6 +724,18 @@ h4 {
 /* FINE MARKET */
 
 /* EQUIPMENT */
+
+#weaponslist{
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    padding-bottom: 46px; /*
+    right: 10px;
+    left: 10px;
+    align-content: center;
+    width: 300px;
+    padding-left: 0px; parte che non serve più */
+} 
 
 #weaponslist li {
     padding: 1rem;
