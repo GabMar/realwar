@@ -1078,3 +1078,8 @@ h4 {
 .avatar_img_sel {
     border: 3px solid blue;
 }
+
+#settings {
+    position: relative;
+    top: 80px;
+}

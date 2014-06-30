@@ -9,7 +9,8 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
           "touchend #backButton": "goBack",
           "touchend #mapButton": "showMap",
           "touchend #headQuarterButton": "headQuarter",
-          "touchend #marketButton": "market"
+          "touchend #marketButton": "market",
+          "touchend .settings": "settings"
         },
 
         showMap: function () { 
@@ -26,6 +27,10 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
 
         market: function () {
           Parse.history.navigate("market", {trigger: true});
+        },
+
+        settings: function() {
+          Parse.history.navigate("settings", {trigger: true});
         },
 
         
