@@ -15,11 +15,9 @@ var HeadQuarterView = Parse.View.extend({
           	"touchend #showScore": "showScore"
         },
 	   
-	   initialize: function () {	
+	   initialize: function () {
 		   self=this;
 		   self.model = new Warrior();
-		   //self.model.bind("change", self.render, self); apparentemente non fa niente
-		   
 		   var id = window.localStorage.getItem('local_user_id');
 		   var warrior = Parse.Object.extend("Warrior");
 		   var weaponClass = Parse.Object.extend("Weapon");
@@ -123,7 +121,6 @@ var HeadQuarterView = Parse.View.extend({
 		if(window.localStorage.getItem("warrior") != undefined)
 			{	 
 				
-				//var warrior = self.model.toJSON();
 				var warrior= JSON.parse(JSON.stringify(self.model));
 				warrior.cid = self.model.cid;
 				$(self.el).empty();
@@ -134,10 +131,9 @@ var HeadQuarterView = Parse.View.extend({
 					localArmor:JSON.parse(window.localStorage.getItem("armor"))
 				}
 				$(self.el).html(self.template(context));
-				$(".ball").hide();
-	    		$(".ball1").hide();
-			}
+				$("#spinner").hide();
             return self;
+        }
 		   
         }
 	
