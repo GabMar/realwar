@@ -13,6 +13,21 @@
             <input type="password" placeholder="password" id="reg-password">
             
             </form>
+            
+                <button class="topcoat-button" id="loadAvatar">Scegli Avatar</button>
+            <div id="avatar_scelta" style="display:none;">
+
+            <img class="avatar_img_s" src="./images/avatar/01.jpg">
+            <img class="avatar_img_s" src="./images/avatar/02.jpg">
+            <img class="avatar_img_s" src="./images/avatar/03.png">
+            <img class="avatar_img_s" src="./images/avatar/04.gif">
+            <img class="avatar_img_s" src="./images/avatar/05.jpg">
+            <img class="avatar_img_s" src="./images/avatar/06.png">
+            <img class="avatar_img_s" src="./images/avatar/07.gif">
+            <img class="avatar_img_s" src="./images/avatar/08.jpg">
+            <img class="avatar_img_s" src="./images/avatar/09.jpg">
+
+            </div>
             <div align="center" style="position:relative; top:110px; ">
                 <button id="registra"> <img src="./images/Registrati Button.jpg" 
                     style="position: relative; width:inherit;"/> 
@@ -20,4 +35,10 @@
             </div>
         </div>
     </body>
+    <script type="text/javascript">
+    $(".avatar_img_s").on('click', function(){
+        $('.avatar_img_s').removeClass("avatar_img_sel");
+        $(this).addClass("avatar_img_sel");
+    });
+    </script>
 </html>

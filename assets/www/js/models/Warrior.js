@@ -19,9 +19,10 @@ define(["jquery", "underscore", "parse"],
         watchId: undefined
       },
 
-      signupWarrior: function(id, username, password) {
+      signupWarrior: function(id, username, password, image) {
         this.set("nick", username);
         this.set("coins", 50);
+        this.set("image", image);
         this.set("userId", {__type: "Pointer", className: "_User",objectId: id});
         var point = new Parse.GeoPoint({latitude: 40.0, longitude: -30.0});
         this.set("position", point);

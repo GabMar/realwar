@@ -1057,3 +1057,24 @@ h4 {
     background-color: rgb(47, 228, 59);
     border-color: rgb(3, 35, 5);
 }
+
+#loadAvatar {
+    position: relative;
+    top: 10px;
+    background-color: green;
+}
+
+#avatar_scelta {
+    position: relative;
+    top: 20px;
+}
+
+.avatar_img_s {
+    position: relative;
+    width: 33%;
+    border-radius: 20px;
+}
+
+.avatar_img_sel {
+    border: 3px solid blue;
+}

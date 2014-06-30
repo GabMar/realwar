@@ -4,7 +4,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 	var RegView = Parse.View.extend({
 
 		events: {
-		      "touchend #registra": "reg"
+		      "touchend #registra": "reg",
+		      "touchend #loadAvatar": "ldAv"
 		    },
 		
 		    
@@ -17,6 +18,7 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		        var username = this.$("#reg-username").val();
 		        var email = this.$("#reg-email").val();
 		        var password = this.$("#reg-password").val();
+		        var image = $('.avatar_img_sel').attr('src');
 		        var user = new Parse.User();
 				user.set("username", username);
 				user.set("password", password);
@@ -26,7 +28,7 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 				  	var id= user.id;
 				    var Warrior = Parse.Object.extend("Warrior");
 					var warrior= new Warrior();
-				 	warrior.signupWarrior(user.id, username, password);
+				 	warrior.signupWarrior(user.id, username, password, image);
 					
 				    
 				},
@@ -38,7 +40,11 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		        
 		    return false;   
 		},
-		
+
+			ldAv: function() {
+				$('#avatar_scelta').show();
+			},
+
 		
 		template: Handlebars.compile(template),
 		
