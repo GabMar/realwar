@@ -28,7 +28,7 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
         weaponList: function () {
             $(this.el).empty();
             var ul = $(this.el).html(this.template);
-            $("#spinner2").hide();
+            $("#spinner").hide();
             _.each(this.model.models, function (weapon) {
                 $(ul).find('#weaponsmarket').append(new WeaponsMarketItemView({ //mi appende dentro this.el un elemento della lista
                     model: weapon
@@ -42,7 +42,7 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
             //ma io lo faccio così per ora
             $(this.el).empty();
             var ul = $(this.el).html(this.template);
-            $("#spinner2").hide();
+            $("#spinner").hide();
             $(ul).find('#btnHd').css("background-color", "#20A715");
             $(ul).find('#btnHd').css("color","#051E07");
             $(ul).find('#btnWpn').css("background-color", "rgb(5, 31, 7)");
@@ -62,7 +62,7 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
         armorList: function () {
             $(this.el).empty();
             var ul = $(this.el).html(this.template);
-            $("#spinner2").hide();
+            $("#spinner").hide();
             $(ul).find('#btnArm').css("background-color", "#20A715");
             $(ul).find('#btnArm').css("color","#051E07");
             $(ul).find('#btnWpn').css("background-color", "rgb(5, 31, 7)");
@@ -81,7 +81,7 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
         render: function (eventName) {
             $(this.el).empty();
             var ul = $(this.el).html(this.template);
-            $("#spinner2").hide();
+            $("#spinner").hide();
             _.each(this.model.models, function (weapon) {
                 $(ul).find('#weaponsmarket').append(new WeaponsMarketItemView({ //mi appende dentro this.el un elemento della lista
                     model: weapon
