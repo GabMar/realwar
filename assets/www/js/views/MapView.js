@@ -179,6 +179,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                                     });
                                                     $('#popupWarrior').show(100);
                                                     $('#infoWarrior').empty();
+                                                    $('#avatarWarrior').append("<img class='smallAvatar' src='"+self.warriors[y].get("image")+"'</img>");
                                                     $('#infoWarrior').append("<p>"+self.warriors[y].get("nick")+"</p><p>Level: "+self.warriors[y].get("level")+"</p>");
                                                 }
                                             }
