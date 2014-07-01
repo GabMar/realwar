@@ -36,7 +36,6 @@ define(["jquery", "underscore", "parse"],
          
         this.save(null, {
           success: function(warrior) {
-            // Execute any logic that should take place after the object is saved.
             alert('New object created with objectId: ' + warrior.id);
             window.localStorage.setItem("local_warrior_id", warrior.id);
             $.ajax({
@@ -50,9 +49,7 @@ define(["jquery", "underscore", "parse"],
                               contentType: "application/json",
                               success: function (data, status, jqXHR) {
 
-                                  window.localStorage.removeItem("variabile");
-                                  $("#buyItem").hide();
-                                  $("#sellItem").show();
+                                  console.log(jqXHR);
                                 },
 
                                 error: function (jqXHR, status) {
@@ -71,9 +68,7 @@ define(["jquery", "underscore", "parse"],
                               contentType: "application/json",
                               success: function (data, status, jqXHR) {
 
-                                  window.localStorage.removeItem("variabile");
-                                  $("#buyItem").hide();
-                                  $("#sellItem").show();
+                                  console.log(jqXHR);
                                 },
 
                                 error: function (jqXHR, status) {
@@ -92,9 +87,7 @@ define(["jquery", "underscore", "parse"],
                               contentType: "application/json",
                               success: function (data, status, jqXHR) {
 
-                                  window.localStorage.removeItem("variabile");
-                                  $("#buyItem").hide();
-                                  $("#sellItem").show();
+                                  console.log(jqXHR);
                                 },
 
                                 error: function (jqXHR, status) {
@@ -102,13 +95,15 @@ define(["jquery", "underscore", "parse"],
                                    console.log(jqXHR);
                                 }
                     });
+            window.localStorage.setItem("warrior",JSON.stringify(warrior));
+            warrior.setLocalWarriorReg(warrior.id);
+
             Parse.User.logIn(username, password, {
              
                   success: function(user) {
                   window.localStorage.setItem("local_user_id", user.id);
                   var Warrior = Parse.Object.extend("Warrior");
                   var warrior = new Warrior();
-                  warrior.setLocalWarrior(user.id);
                   Parse.history.navigate('structure', {trigger:true});
                 
                     }
@@ -173,6 +168,44 @@ define(["jquery", "underscore", "parse"],
             alert("Error: " + error.code + " " + error.message);
           }
         });
+      },
+
+      setLocalWarriorReg: function(warrior_id){
+        var weaponClass = Parse.Object.extend("Weapon");
+        var headClass = Parse.Object.extend("Head");
+        var armorClass = Parse.Object.extend("Armor");
+        var queryWeapon = new Parse.Query(weaponClass);
+        var queryHead = new Parse.Query(headClass);
+        var queryArmor = new Parse.Query(armorClass);
+        queryWeapon.get("Ykli9gHMmg", {
+              success: function(weapon) {
+                  window.localStorage.setItem("weapon",JSON.stringify(weapon));
+                  self.model.set("coins", warrior.get("coins"));
+                  self.model.save();
+              },
+              error:function(object,error){
+                alert("Errore1: "+error);
+              }
+              });
+
+        queryHead.get("rBYFAiiooM", {
+              success: function(head) {
+                window.localStorage.setItem("head",JSON.stringify(head));
+              },
+              error:function(object,error){
+                alert("Errore2: "+error);
+              }
+               });
+            
+        queryArmor.get("COXNCJlA7x", {
+              success: function(armor) {
+                window.localStorage.setItem("armor",JSON.stringify(armor));
+              },
+              error:function(object,error){
+                alert("Errore3: "+error);
+              }
+
+               });
       },
 
       changeAvatarWarrior: function(user_id, image_change){
