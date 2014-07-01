@@ -38,14 +38,14 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
 
             var greenIcon = L.icon({
                 iconUrl: './res/greenMarker.png',
-                iconSize:     [38, 44], // size of the icon
-                iconAnchor:   [19, 44], // point of the icon which will correspond to marker's location
+                iconSize:     [26, 26], // size of the icon
+                iconAnchor:   [13, 13], // point of the icon which will correspond to marker's location
             });
 
             var redIcon = L.icon({
                 iconUrl: './res/redMarker.png',
-                iconSize:     [38, 44], // size of the icon
-                iconAnchor:   [19, 44], // point of the icon which will correspond to marker's location
+                iconSize:     [26, 26], // size of the icon
+                iconAnchor:   [13, 13], // point of the icon which will correspond to marker's location
             });
 
             var circle = undefined;
@@ -167,6 +167,8 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                                     $('#fight').off('mousedown');
                                                     $('#fight').on("mousedown", function() {
 
+                                                        console.log('ciao');
+
                                                         var enemyWeapon = JSON.parse(window.localStorage.getItem("enemyWeapon"));
                                                         var enemyHead = JSON.parse(window.localStorage.getItem("enemyHead"));
                                                         var enemyArmor = JSON.parse(window.localStorage.getItem("enemyArmor"));
@@ -198,7 +200,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                 $('#infoFight').hide(100);
             });
 
-            var interval = setInterval(function(){mapUpdate();}, 2000);
+            var interval = setInterval(function(){mapUpdate();}, 10000);
             $('#backButton').on('mousedown', function(){
                 window.clearInterval(interval);
             });

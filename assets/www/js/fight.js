@@ -247,7 +247,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     else if (enemyLife>0){
         enemyKills++;
         myDeaths++;
-        result = "<h1>You Are Death</h1><p>You earned no XP and no coins</p>";
+        result = "<h1>You Are Dead</h1><p>You earned no XP and no coins</p>";
     }
 
     // --------------------------------------
