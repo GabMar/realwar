@@ -364,15 +364,17 @@ margin-left: 27px;
 
 #hqContent{
 width: 100%;
+height: 60%;
 position: absolute;
-top: 261px;
+top: 230px;
 }
 
 /* FINE PROFILO DEL WARRIOR */
 
 #hqBar{
 z-index: 9;
-top: 229px;
+top: 200px;
+width: 100%;
 position: fixed;
 }
 
@@ -380,6 +382,7 @@ position: fixed;
 @media screen and (max-width: 320px) {
 #menu-orizz {
     font-family: Dungeon;
+    width: 100%;
     text-align: center;
     font-size: 20px;
     color: white;
@@ -390,18 +393,10 @@ position: fixed;
 
 #menu-orizz li {
     background-color: rgb(5, 31, 7);
-    border-style: solid;
-    border-left-style: double;
-    border-right-style: double;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-color: rgb(47, 228, 59);
+    border: 1px solid rgba(47, 228, 59, 0.4);
     display: block;
-    width: 104px;
+    width: 32.5%;
     height: 30px;
-    margin: 0px;
     float: left; /* elementi su singola riga */
     }
 
@@ -415,28 +410,19 @@ position: fixed;
 @media screen and (min-width: 360px) {
 #menu-orizz {
     font-family: Dungeon;
+    width: 100%;
     text-align: center;
     font-size: 20px;
     color: white;
-    margin: 0;
-    padding: 0;
     list-style: none;
     }
 
 #menu-orizz li {
     background-color: rgb(5, 31, 7);
-    border-style: solid;
-    border-left-style: double;
-    border-right-style: double;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-color: rgb(47, 228, 59);
+    border: 1px solid rgba(47, 228, 59, 0.4);
     display: block;
-    width: 118px;
+    width: 32.5%;
     height: 30px;
-    margin: 0px;
     float: left; /* elementi su singola riga */
     }
 
@@ -447,16 +433,34 @@ position: fixed;
     }
 }
 
+#warriorResult{
+    width: 99%;
+    height: 25%;
+    position: absolute;
+    top: 5%;
+    border: 1px solid rgba(47, 228, 59, 0.4);
+}
+
+#warriorResult h1{
+    font-family: Dungeon;
+    margin: 0;
+    margin-left: 2%;
+    font-size: 1.5em;
+    color: #63ca3a;
+    float:left;
+}
+
+
 #kills {
 position: absolute;
-left: 6px;
-top: 30px;
+left: 2%;
+top: 35%;
 width: 115px;
 height: 30px;
 font-size: 20px;
 text-align: center;
 font-family: Dungeon;
-color: rgb(47, 228, 59);
+color: white;
 border-style: solid;
 border-left-style: double;
 border-right-style: double;
@@ -464,8 +468,8 @@ border-left-width: 1px;
 border-right-width: 1px;
 border-top-width: 1px;
 border-bottom-width: 1px;
-border-color: rgb(47, 228, 59);
-background-color: rgb(3, 35, 5);
+border-color: rgba(47, 228, 59, 0.4);
+background-color: rgb(5, 11, 7);
 padding: 0.36em 0em 0.36em;
 border-radius: 4px;
 margin-bottom: 10px;
@@ -473,14 +477,14 @@ margin-bottom: 10px;
 
 #deaths {
 position: absolute;
-right: 6px;
-top: 30px;
+right: 2%;
+top: 35%;
 width: 115px;
 height: 30px;
 font-size: 20px;
 text-align: center;
 font-family: Dungeon;
-color: rgb(47, 228, 59);
+color: white;
 border-style: solid;
 border-left-style: double;
 border-right-style: double;
@@ -488,11 +492,37 @@ border-left-width: 1px;
 border-right-width: 1px;
 border-top-width: 1px;
 border-bottom-width: 1px;
-border-color: rgb(47, 228, 59);
+border-color: rgba(47, 228, 59, 0.4);
 background-color: rgb(5, 11, 7);
 padding: 0.36em 0em 0.36em;
 border-radius: 4px;
 margin-bottom: 10px;
+}
+
+#warriorInfoStats{
+    width: 99%;
+    height: 45%;
+    position: absolute;
+    top: 35%;
+    border: 1px solid rgba(47, 228, 59, 0.4);
+
+}
+
+#warriorInfoStats h1{
+    font-family: Dungeon;
+    margin: 0;
+    margin-left: 2%;
+    font-size: 1.5em;
+    color: #63ca3a;
+    float:left;
+}
+
+#warriorInfoStats p{
+    font-family: Dungeon;
+    margin-left: 2%;
+    font-size: 1em;
+    text-align: left;
+    color: white;
 }
 
 /* EQUIPAGGIAMENTO WARRIOR */
