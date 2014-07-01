@@ -1190,8 +1190,9 @@ h4 {
     position: relative;
     top: 3px;
     height: 40px;
-    width: 100px;
+    width: 33%;
     background-color: black;
+    left: 33%;
 }
 
 .change h3 {
