@@ -1,8 +1,9 @@
 <div id="settings">
+
 	<button class="settings_button change_avatar_untouched"><h3>Cambio Avatar</h3></button>
 	<button class="settings_button change_avatar_touched" style="display:none;">
 	<h3>Cambio Avatar</h3></button></br></br>
-		<div id="change_avatar" style="display:none;">
+		<div id="change_avatar_div" style="display:none;">
 			<img class="avatar_img_s" src="./images/avatar/01.jpg">
             <img class="avatar_img_s" src="./images/avatar/02.jpg">
             <img class="avatar_img_s" src="./images/avatar/03.png">
@@ -13,9 +14,17 @@
             <img class="avatar_img_s" src="./images/avatar/08.jpg">
             <img class="avatar_img_s" src="./images/avatar/09.jpg">
 		</div>
-		<div><button class="change_avatar" style="display:none;"><h3>Change</h3></button></div>
-	<button class="settings_button"><h3>Cambio Username</h3></button></br></br>
-		<div id="change_username" style="display:none;"></div>
+		<div><button class="change" id="change_avatar" style="display:none;"><h3>Change</h3></button></div>
+
+
+	<button class="settings_button change_username_untouched"><h3>Cambio Username</h3></button>
+	<button class="settings_button change_username_touched" style="display:none;">
+	<h3>Cambio Username</h3></button></br></br>
+		<div id="change_username_div" style="display:none;">
+			<input type="text" placeholder="New Username" id="change_username"></br>
+		</div>
+		<div><button class="change" id="change_username" style="display:none;"><h3>Change</h3></button></div>
+
 	<button class="settings_button"><h3>Cambio Password</h3></button></br></br>
 		<div id="change_password" style="display:none;"></div>
 	<button class="settings_button"><h3>Cambio Email</h3></button></br></br></br></br>
