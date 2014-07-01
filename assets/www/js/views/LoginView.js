@@ -4,7 +4,7 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 	var LoginView = Parse.View.extend({
 
 		events: {
-		      "submit form.login-form": "login",
+		      "touchend #login_input": "login",
 		      "touchend #regButton": "goReg",
 		    },
 		
