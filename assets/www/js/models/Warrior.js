@@ -106,11 +106,14 @@ define(["jquery", "underscore", "parse"],
              
                   success: function(user) {
                   window.localStorage.setItem("local_user_id", user.id);
+                  var Warrior = Parse.Object.extend("Warrior");
+                  var warrior = new Warrior();
+                  warrior.setLocalWarrior(user.id);
                   Parse.history.navigate('structure', {trigger:true});
                 
-                  }
+                    }
           
-          });
+                  });
           },
           error: function(warrior, error) {
             // Execute any logic that should take place if the save fails.
@@ -122,12 +125,48 @@ define(["jquery", "underscore", "parse"],
 
       setLocalWarrior: function(user_id){
         var query = new Parse.Query(Warrior);
+        var weaponClass = Parse.Object.extend("Weapon");
+        var headClass = Parse.Object.extend("Head");
+        var armorClass = Parse.Object.extend("Armor");
+        var queryWeapon = new Parse.Query(weaponClass);
+        var queryHead = new Parse.Query(headClass);
+        var queryArmor = new Parse.Query(armorClass);
         query.equalTo("userId", {__type: "Pointer", className: "_User",objectId: user_id});
         query.find({
           success: function(results) {
             for (var i = 0; i < results.length; i++) { 
               var object = results[i];
               window.localStorage.setItem("local_warrior_id", object.id);
+              window.localStorage.setItem("warrior",JSON.stringify(object));
+              queryWeapon.get(object.get("weapon").id, {
+              success: function(weapon) {
+                  window.localStorage.setItem("weapon",JSON.stringify(weapon));
+                  self.model.set("coins", warrior.get("coins"));
+                  self.model.save();
+              },
+              error:function(object,error){
+                alert("Errore1: "+error);
+              }
+              });
+
+               queryHead.get(object.get("head").id, {
+              success: function(head) {
+                window.localStorage.setItem("head",JSON.stringify(head));
+              },
+              error:function(object,error){
+                alert("Errore2: "+error);
+              }
+               });
+            
+               queryArmor.get(object.get("armor").id, {
+              success: function(armor) {
+                window.localStorage.setItem("armor",JSON.stringify(armor));
+              },
+              error:function(object,error){
+                alert("Errore3: "+error);
+              }
+
+               });
             }
           },
           error: function(error) {
@@ -192,4 +231,3 @@ define(["jquery", "underscore", "parse"],
 
   });
   
-  //wow Andrea
