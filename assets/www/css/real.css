@@ -252,6 +252,40 @@ font-size: 20px;
     }
 
 
+/* BARRA DELLA VITA*/
+
+progress {
+    width: 70%;
+    height: 14px;    /* Important Thing */
+    -webkit-appearance: none;
+    border: none;
+}
+
+/* All good till now. Now we'll style the background */
+progress::-webkit-progress-bar {
+    background: black;
+    border-radius: 20px;
+    padding: 2px;
+    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Now the value part */
+progress::-webkit-progress-value {
+    border-radius: 50px;
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+    background:
+        -webkit-linear-gradient(45deg, transparent, transparent 33%, #63ca3a 33%, #63ca3a 66%, transparent 66%),
+        -webkit-linear-gradient(top, #63ca3a, #63ca3a),
+        -webkit-linear-gradient(left, #ba7448, #c4672d);
+}
+
+/* That's it! Now let's try creating a new stripe pattern and animate it using animation and keyframes properties  */
+
+@-webkit-keyframes move {
+    0% {background-position: 0px 0px, 0 0, 0 0}
+    100% {background-position: -100px 0px, 0 0, 0 0}
+}
+
 /* PROFILO DEL WARRIOR */
 
 #headQuarter{
@@ -259,11 +293,46 @@ font-size: 20px;
 }
 
 #warriorInfo{
-z-index: 9;
-top: 45px;
-padding-top: 7px;
-position: fixed;
-background-color: black;
+    width: 100%;
+    height: 30%;
+    z-index: 9;
+    top: 45px;
+    padding-top: 7px;
+    position: fixed;
+    background-color: black;
+}
+
+#warriorImg{
+    float:left;
+    width: 35%;
+    height: 30%;
+}
+
+#warriorStats{
+    display: inline;
+    width: 65%;
+    height: 30%;
+}
+
+#warriorStats h1{
+    text-align: left;
+    margin-left: 50%;
+    font-size: 1.5em;
+    padding: 0px;
+    margin-bottom: 1px;
+    margin-top: 10px;
+    color: #63ca3a;
+    font-family: Dungeon;
+}
+
+#warriorStats p{
+    text-align: left;
+    margin-left: 50%;
+    font-size: 1em;
+    padding: 0px;
+    margin-bottom: 0px;
+    margin-top: 2px;
+    color: white;
 }
 
 .avatar {
@@ -1086,7 +1155,6 @@ h4 {
 }
 
 .avatar_img_s {
-    position: relative;
     width: 25%;
     border-radius: 20px;
     border: 3px solid;
@@ -1095,6 +1163,8 @@ h4 {
 .avatar_img_sel {
     border: 3px solid blue;
 }
+
+
 
 #settings {
     position: relative;
@@ -1116,7 +1186,7 @@ h4 {
     top: -6px;
 }
 
-.change_avatar {
+.change {
     position: relative;
     top: 3px;
     height: 40px;
@@ -1124,7 +1194,7 @@ h4 {
     background-color: black;
 }
 
-.change_avatar h3 {
+.change h3 {
     color:green;
     position: relative;
     top: -5px;

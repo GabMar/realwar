@@ -128,9 +128,11 @@ var HeadQuarterView = Parse.View.extend({
 					localWarrior:JSON.parse(window.localStorage.getItem("warrior")),
 					localWeapon:JSON.parse(window.localStorage.getItem("weapon")),
 					localHead:JSON.parse(window.localStorage.getItem("head")),
-					localArmor:JSON.parse(window.localStorage.getItem("armor"))
+					localArmor:JSON.parse(window.localStorage.getItem("armor")),
+					toXP: warrior.level * 150
 				}
 				$(self.el).html(self.template(context));
+				$('.progress').attr('value', warrior.life);
 				$("#spinner").hide();
             return self;
         }

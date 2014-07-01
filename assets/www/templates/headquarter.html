@@ -1,14 +1,18 @@
 	<div id="warriorInfo">
+		<div id="warriorImg">
 		{{#if localWarrior.image}}
  			<img class="avatar" src="./{{localWarrior.image}}"/>
  		{{else}}
  			<img class="avatar" src="./images/anonym.jpg"/>
 		{{/if}}
-
-		<p>{{localWarrior.nick}}</p>
-		<p>{{localWarrior.coins}} $</p>
-		<p>Level: {{localWarrior.level}}</p>
-		<img class="stars" src="./images/star.png"/>
+		</div>
+		<div id="warriorStats">
+			<h1>{{localWarrior.nick}}</h1>
+			<p>Level: {{localWarrior.level}}</p>
+			<p>Coins: {{localWarrior.coins}} $</p>
+			<p>XP: {{localWarrior.xp}} of {{toXP}}</p>
+			<p>Life: <progress class="progress" max="100">ciao</progress></p>
+		</div>
 	</div>
 
 	<div class="hqBar" id="hqBar">
