@@ -277,6 +277,16 @@ border: 1px solid rgba(0,0,0,0.36);
 border-radius: 15px;
 }
 
+.smallAvatar{
+    position: absolute;
+    width: 20%;
+    height: 95%;
+    border: 1px solid rgba(0,0,0,0.36);
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+
+}
+
 .stars {
 width: 83%;
 margin-bottom: 8px;
@@ -822,7 +832,7 @@ h4 {
     position:fixed;
     display: block;
     bottom: 0px;
-    border: 2px solid #63ca3a;
+    border: 1px solid #63ca3a;
     background:rgba(0, 0, 0, 0.8);
     border-radius: 2px;
     display: none;
@@ -831,8 +841,7 @@ h4 {
 #avatarWarrior{
     width: 20%;
     height: 95%;
-    margin-left: 2px;
-    border: 1px solid #63ca3a;
+    margin-left: 1px;
     float: left;
 
 }
