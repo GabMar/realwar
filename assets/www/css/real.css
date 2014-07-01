@@ -1022,7 +1022,7 @@ h4 {
     height: 30%;
     position:fixed; 
     display: block; 
-    bottom: 32%;
+    bottom: 29%;
     margin-left: 4.5%;
     border: 1px solid #63ca3a;
 }
@@ -1038,7 +1038,7 @@ h4 {
 
 #infoRound p{
     text-align: left;
-    font-size: 1em;
+    font-size: 0.8em;
     padding: 0px;
     margin-top: 2%;
     margin-left: 1%;
@@ -1048,7 +1048,7 @@ h4 {
 
 #backToMap{
     width: 30%;
-    height: 10%;
+    height: 8%;
     position:fixed; 
     display: block; 
     bottom: 21%;
@@ -1088,7 +1088,7 @@ h4 {
     height: 4%;
     position:fixed; 
     display: block; 
-    bottom: 33%;
+    bottom: 31%;
     margin-left: 1%;
     font-size: 1em;
     text-align: center;
@@ -1118,7 +1118,7 @@ h4 {
     height: 4%;
     position:fixed; 
     display: block; 
-    bottom: 33%;
+    bottom: 31%;
     left: 63%;
     font-size: 1em;
     text-align: center;

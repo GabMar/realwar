@@ -198,7 +198,10 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                 $('#infoFight').hide(100);
             });
 
-            setInterval(function(){mapUpdate();}, 2000);
+            var interval = setInterval(function(){mapUpdate();}, 2000);
+            $('#backButton').on('mousedown', function(){
+                window.clearInterval(interval);
+            });
         },
     });
     return MapView;

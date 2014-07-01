@@ -8,7 +8,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     var myDeaths = self.model.deaths;
     var myAttack = myWeapon.attack;
     var myDefense = myHead.defense+myArmor.defense;
-    var myRange = myHead.range;
+    var myRange = myHead.range+myWeapon.range;
     var XPEarned = 0;
     var coinsEarned = 0;
 
@@ -19,17 +19,17 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     var enemyDeaths = enemy.get("deaths");
     var enemyAttack = enemyWeapon.attack;
     var enemyDefense = enemyHead.defense+enemyArmor.defense;
-    var enemyRange = enemyHead.range;
+    var enemyRange = enemyHead.range+enemyWeapon.range;
 
     window.localStorage.removeItem("enemyWeapon");
     window.localStorage.removeItem("enemyHead");
     window.localStorage.removeItem("enemyArmor");
 
+    var roundResults = new Array();
     var round = 1;
     var firstShooter = 0;
-    var roundResults = new Array();
     var result = "";
-  
+
     while(myLife>0 && enemyLife>0 && round<50){
 
         //Primo round del combattimento: si decide chi inizia a sparare e si effettua il primo scontro.
@@ -107,7 +107,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
                 }
 
                 else{
-                    roundResults[round] = "<h1>Round 1</h1><p>Headshot on you for "+myDamage+" damage.<p>";
+                    roundResults[round] = "<h1>Round 1</h1><p>Headshot on you for "+enemyDamage+" damage.<p>";
                     round++;
                 }
             }
@@ -122,7 +122,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
             // --------------------------------------
             if(firstShooter == 0 || firstShooter == 1 ){
 
-                var myDamage = myAttack - Math.floor(enemyDefense/10);
+                var myDamage = (myAttack - Math.floor(enemyDefense/10)) - Math.floor(myLife/20);
 
                 if(myDamage > 0){
                     enemyLife = enemyLife - myDamage;
@@ -131,25 +131,26 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
                 //L'avversario risponde al fuoco solamente se rimane in vita
                 if(enemyLife > 0){
 
-                    var eDamage = enemyAttack - Math.floor(myDefense/10);
+                    var eDamage = enemyAttack - Math.floor(myDefense/10) - Math.floor(enemyLife/20);
 
                     if(eDamage > 0){
                         myLife = myLife - eDamage;
                     }
 
-                    if(myLife > 0){
+                    if(round%2 == 0){
                         roundResults[round] = "<h1>Round "+round+"</h1><p>You runs to te right and shoots "+enemy.get("nick")+"'s leg for "+myDamage+" damage.<p>"+
                                               "<p>"+enemy.get("nick")+" covered himself behind a wall and with a rapid fire causes to you "+eDamage+" damage.</p>"; 
                     }
                     else{
-                        roundResults[round] = "<h1>Round "+round+"</h1><p>You runs to te right and shoots "+enemy.get("nick")+"'s heart for "+myDamage+" damage.<p>"+
-                                          "<p>"+enemy.get("nick")+" covered himself behind a wall and with a rapid fire causes to you "+eDamage+" damage.</p>";
+                        roundResults[round] = "<h1>Round "+round+"</h1><p>You jump on a car and explode three shots to "+enemy.get("nick")+"'s for "+myDamage+" damage.<p>"+
+                                      "<p>"+enemy.get("nick")+" gets away from you seen. He's in a near build and with his gun causes to you "+eDamage+" damage.</p>";
                     }
+                    
                     round++;
                 }
 
                 else{
-                    roundResults[round] = "<h1>Round "+round+"</h1><p>You runs to te right and shoots "+enemy.get("nick")+"'s heart for "+myDamage+" damage.<p>";
+                    roundResults[round] = "<h1>Round "+round+"</h1><p>With a perfect shots you strike "+enemy.get("nick")+"'s heart for "+myDamage+" damage.<p>";
                     round++
                 }
             }
@@ -159,7 +160,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
             // --------------------------------------
             else{
 
-                var eDamage = enemyAttack - Math.floor(myDefense/10);
+                var eDamage = enemyAttack - Math.floor(myDefense/10) - Math.floor(enemyLife/20);
 
                 if(eDamage > 0){
                     myLife = myLife - eDamage;
@@ -167,19 +168,28 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
 
                 if(myLife > 0){
                     
-                    var myDamage = myAttack - Math.floor(enemyDefense/10);
+                    var myDamage = myAttack - Math.floor(enemyDefense/10) - Math.floor(myLife/20);
 
                     if(myDamage > 0){
                         enemyLife = enemyLife - myDamage;
                     }
                     roundResults[round] = "<h1>Round "+round+"</h1><p>"+enemy.get("nick")+" shoots you for "+eDamage+" damage.<p>"+
                                           "<p>You respond to fire and cause to "+enemy.get("nick")+" "+myDamage+" damage.</p>";
+
+                    if(round%2 == 0){
+                        roundResults[round] = "<h1>Round "+round+"</h1><p>"+enemy.get("nick")+" covered himself behind a wall and with a rapid fire causes to you "+eDamage+" damage.</p>"+
+                                              "<p>You runs to te right and shoots "+enemy.get("nick")+"'s leg for "+myDamage+" damage.<p>";
+                    }
+                    else{
+                        roundResults[round] = "<h1>Round "+round+"</h1><p>"+enemy.get("nick")+" gets away from you seen. He's in a near build and with his gun causes to you "+eDamage+" damage.</p>"+
+                                              "<p>You jump on a car and explode three shots to "+enemy.get("nick")+"'s for "+myDamage+" damage.<p>";
+                    }
                     round++;
 
                 }
 
                 else{
-                    roundResults[round] = "<h1>Round "+round+"</h1><p>Headshot on you for "+myDamage+" damage.<p>";
+                    roundResults[round] = "<h1>Round "+round+"</h1><p>You've been striken on your heart for "+eDamage+" damage.<p>";
                     round++;
                 }
             }
@@ -197,6 +207,9 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
         myKills++;
         enemyDeaths++;
         coinsEarned = Math.floor(enemyLevel/2);
+        if(coinsEarned == 0){
+            coinsEarned = 1;
+        }
         myCoins = myCoins + coinsEarned;
 
         if(myLevel > enemyLevel){
@@ -253,7 +266,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
             newLevel++;
         }
 
-        result="<h1>Parità</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: "+coinsEarned+"</p>";
+        result="<h1>"+enemy.get("nick")+"runs away</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: "+coinsEarned+"</p>";
         if(newLevel>myLevel){
             result = result+"<h2>Level "+newLevel+"!</h2>";
         }
@@ -268,6 +281,13 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     // --------------------------------------
 
     var currentRound = 1;
+
+    var description = new Array();
+    description[0] = "<p>You notice an enemy warrior on the left, it's time to fight.</p>";
+    description[1] = "<p>You're been uncovered, but thanks to your expertise you succeed to start fire.</p>";
+    description[2] = "<p>You are ready to shoot, but your enemy is very fast and opens fire against you.</p>";
+
+    roundResults[1] = description[firstShooter]+roundResults[1];
 
     $('#previousRound').hide();
 
@@ -310,16 +330,4 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     });
 
 
-};
-
-function checkLevel(exp, level){
-
-    var newLevel = level;
-
-    while(exp >= newLevel*150){
-        newLevel++;
-    }
-
-
-    return newLevel;
 };
