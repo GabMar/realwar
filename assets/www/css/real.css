@@ -1200,7 +1200,7 @@ h4 {
     top: -5px;
 }
 
-#change_username_input {
+#change_username_input, #change_password_input, #change_email_input {
     position: relative;
     height: 40px;
     width: 70%;
