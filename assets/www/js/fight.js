@@ -216,7 +216,16 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
 
         myExp = myExp + XPEarned;
 
-        result = "<h1>You Kill "+enemy.get("nick")+"!</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: "+coinsEarned+"</p>";
+        var newLevel = myLevel;
+
+        while(myExp >= newLevel*150){
+            newLevel++;
+        }
+
+        result = "<h1>You Kill "+enemy.get("nick")+"</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: "+coinsEarned+"</p>";
+        if(newLevel>myLevel){
+            result = result+"<h2>Level "+newLevel+"</h2>";
+        }
     }
 
     // --------------------------------------
@@ -225,7 +234,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     else if (enemyLife>0){
         enemyKills++;
         myDeaths++;
-        result = "<h1>You Are Death!</h1><p>You earned no XP and no coins!</p>";
+        result = "<h1>You Are Death</h1><p>You earned no XP and no coins</p>";
     }
 
     // --------------------------------------
@@ -236,8 +245,18 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
             XPEarned = Math.floor((enemyLevel*myLevel)/2);
         }
         myExp = myExp + XPEarned;
+
         coinsEarned = 0;
+        
+        var newLevel = myLevel;
+        while(myExp >= newLevel*150){
+            newLevel++;
+        }
+
         result="<h1>Parità</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: "+coinsEarned+"</p>";
+        if(newLevel>myLevel){
+            result = result+"<h2>Level "+newLevel+"!</h2>";
+        }
     }
 
     // --------------------------------------
@@ -291,4 +310,16 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     });
 
 
+};
+
+function checkLevel(exp, level){
+
+    var newLevel = level;
+
+    while(exp >= newLevel*150){
+        newLevel++;
+    }
+
+
+    return newLevel;
 };

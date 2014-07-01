@@ -921,21 +921,28 @@ h4 {
     height: 15%;
     position:fixed; 
     bottom: 70%;
+    float: center;
 }
 
 #infoResult h1{
     text-align: center;
     font-size: 2em;
-    padding: 0px;
     margin-top: 2%;
     margin-bottom: 0px;
-    color: white;
+    color: #63ca3a;
+}
+
+#infoResult h2{
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 2%;
+    margin-bottom: 0px;
+    color: #63ca3a;
 }
 
 #infoResult p{
     text-align: center;
     font-size: 1em;
-    padding: 0px;
     margin-top: 2%;
     margin-bottom: 0px;
     color: white;
