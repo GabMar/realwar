@@ -152,6 +152,38 @@ define(["jquery", "underscore", "parse"],
             alert("Error: " + error.code + " " + error.message);
           }
         });
+      },
+
+      changeUsernameWarrior: function(user_id, username_change){
+        var query = new Parse.Query(Warrior);
+        query.equalTo("userId", {__type: "Pointer", className: "_User",objectId: user_id});
+        query.find({
+          success: function(results) {
+            for (var i = 0; i < results.length; i++) { 
+              var object = results[i];
+              object.set("nick", username_change);
+              object.save();
+              window.localStorage.setItem("warrior",JSON.stringify(object));
+            }
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+        var user = new Parse.Query("User");
+        user.equalTo("objectId", user_id);
+        user.find({
+          success: function(results) {
+            for (var i = 0; i < results.length; i++) { 
+              var object = results[i];
+              object.set("username", username_change);
+              object.save();
+            }
+          },
+          error: function(error) {
+
+          }
+        });
       }
 
       });
