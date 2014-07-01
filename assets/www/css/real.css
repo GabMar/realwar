@@ -1083,3 +1083,16 @@ h4 {
     position: relative;
     top: 80px;
 }
+
+.settings_button {
+    border: 3px solid green;
+    background-color: black;
+    height: 40px;
+    width: 100%;
+    color: green;
+}
+
+.settings_button h3 {
+    position: relative;
+    top: -6px;
+}

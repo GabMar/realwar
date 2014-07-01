@@ -4,11 +4,20 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 	var SettingsView = Parse.View.extend({
 
 		events: {
+			"touchend #logout": "logout"
 		    },
 		
 		    
-		    initialize: function() {
-		      },
+		initialize: function() {
+		  },
+
+	  	logout: function() {
+	  		Parse.User.logOut();
+	  		window.localStorage.clear();
+	  		location.replace("index.html");
+	  	},
+
+
 		
 
 
