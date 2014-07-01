@@ -5,7 +5,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 
 		events: {
 		      "touchend #registra": "reg",
-		      "touchend #loadAvatar": "ldAv"
+		      "touchend .load_avatar_untouched": "load_avatar_untouched",
+		      "touchend .load_avatar_touched": "load_avatar_touched"
 		    },
 		
 		    
@@ -39,10 +40,23 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 				});
 		        
 		    return false;   
-		},
+			},
 
-			ldAv: function() {
+			load_avatar_untouched: function() {
+				$('.load_avatar_untouched').hide();
+				$('.load_avatar_touched').show();
 				$('#avatar_scelta').show();
+				$(".avatar_img_s").on('click', function(){
+		        $('.avatar_img_s').removeClass("avatar_img_sel");
+		        $(this).addClass("avatar_img_sel");
+		    	});
+			},
+
+			load_avatar_touched: function() {
+				$('.load_avatar_touched').hide();
+				$('.load_avatar_untouched').show();
+				$('.avatar_img_s').removeClass("avatar_img_sel");
+				$('#avatar_scelta').hide();
 			},
 
 		

@@ -45,6 +45,7 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 	  	change_avatar_disable: function() {
 	  		$(".change_avatar_touched").hide('fast');
         	$(".change_avatar_untouched").show('fast');
+        	$('.avatar_img_s').removeClass("avatar_img_sel");
   			$('#change_avatar_div').hide();
   			$('#change_avatar').hide();
 	  	},

@@ -4,17 +4,19 @@
         <title>RealWar</title>
     </head>
     <body>
-        <div align="center" style="position:relative; top:15px;"><span style="color:#37FC1F; font-size:40pt; font-family:Agency FB">RealWar</span></div>
-        <div align="center" style="position:relative; top:90px">
-            <span style="color:#37FC1F; font-size:20pt; font-family:Agency FB">Registrazione</span></br></br>
+        <div align="center" style="position:relative; top:15px;"><span style="color:#37FC1F; font-size:40pt; font-family:Dungeon">RealWar</span></div>
+        <div align="center" style="position:relative; top:40px">
+            <span style="color:#37FC1F; font-size:20pt; font-family:Dungeon">Registrazione</span></br></br>
             <form class="reg-form">
-            <input type="text" placeholder="username" id="reg-username"></br>
-            <input type="text" placeholder="email" id="reg-email"></br>
-            <input type="password" placeholder="password" id="reg-password">
+            <input type="text" placeholder="username" class="reg_input_form" id="reg-username"></br>
+            <input type="text" placeholder="email" class="reg_input_form" id="reg-email"></br>
+            <input type="password" placeholder="password" class="reg_input_form" id="reg-password">
             
             </form>
             
-                <button class="topcoat-button" id="loadAvatar">Scegli Avatar</button>
+                <button class="reg load_avatar_untouched" id="loadAvatar"><h3>Scegli Avatar</h3></button>
+                <button class="reg load_avatar_touched" id="loadAvatar" style="display:none;">
+                <h3>Scegli Avatar</h3></button>
             <div id="avatar_scelta" style="display:none;">
 
             <img class="avatar_img_s" src="./images/avatar/01.jpg">
@@ -28,17 +30,9 @@
             <img class="avatar_img_s" src="./images/avatar/09.jpg">
 
             </div>
-            <div align="center" style="position:relative; top:110px; ">
-                <button id="registra"> <img src="./images/Registrati Button.jpg" 
-                    style="position: relative; width:inherit;"/> 
-                </button>    
+            <div align="center" style="position:relative; top:10px;">
+                <button class="reg" id="registra"><h3>Registrati</h3></button>
             </div>
         </div>
     </body>
-    <script type="text/javascript">
-    $(".avatar_img_s").on('click', function(){
-        $('.avatar_img_s').removeClass("avatar_img_sel");
-        $(this).addClass("avatar_img_sel");
-    });
-    </script>
 </html>

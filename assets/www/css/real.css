@@ -1175,11 +1175,6 @@ h4 {
 
 /* SETTINGS */
 
-#loadAvatar {
-    position: relative;
-    top: 10px;
-    background-color: green;
-}
 
 #avatar_scelta {
     position: relative;
@@ -1295,5 +1290,31 @@ h4 {
 
 /* REGISTRAZIONE */
 
+.reg_input_form {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background-color: #E0FFFF;
+}
+
+.reg {
+    position: relative;
+    top: 5px;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+}
+
+.reg h3 {
+    color:#63ca3a;
+    position: relative;
+    top: -5px;
+}
+
+#registra {
+    position: relative;
+    top: 5px;
+}
 
 /* FINE REGISTRAZIONE */
