@@ -1087,8 +1087,9 @@ h4 {
 
 .avatar_img_s {
     position: relative;
-    width: 33%;
+    width: 25%;
     border-radius: 20px;
+    border: 3px solid;
 }
 
 .avatar_img_sel {
@@ -1101,6 +1102,8 @@ h4 {
 }
 
 .settings_button {
+    position: relative;
+    top: 10px;
     border: 3px solid green;
     background-color: black;
     height: 40px;
@@ -1111,4 +1114,18 @@ h4 {
 .settings_button h3 {
     position: relative;
     top: -6px;
+}
+
+.change_avatar {
+    position: relative;
+    top: 3px;
+    height: 40px;
+    width: 100px;
+    background-color: black;
+}
+
+.change_avatar h3 {
+    color:green;
+    position: relative;
+    top: -5px;
 }

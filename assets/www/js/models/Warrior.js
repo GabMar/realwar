@@ -122,18 +122,36 @@ define(["jquery", "underscore", "parse"],
 
       setLocalWarrior: function(user_id){
         var query = new Parse.Query(Warrior);
-            query.equalTo("userId", {__type: "Pointer", className: "_User",objectId: user_id});
-            query.find({
-              success: function(results) {
-                for (var i = 0; i < results.length; i++) { 
-                  var object = results[i];
-                  window.localStorage.setItem("local_warrior_id", object.id);
-                }
-              },
-              error: function(error) {
-                alert("Error: " + error.code + " " + error.message);
-              }
-            });
+        query.equalTo("userId", {__type: "Pointer", className: "_User",objectId: user_id});
+        query.find({
+          success: function(results) {
+            for (var i = 0; i < results.length; i++) { 
+              var object = results[i];
+              window.localStorage.setItem("local_warrior_id", object.id);
+            }
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      },
+
+      changeAvatarWarrior: function(user_id, image_change){
+        var query = new Parse.Query(Warrior);
+        query.equalTo("userId", {__type: "Pointer", className: "_User",objectId: user_id});
+        query.find({
+          success: function(results) {
+            for (var i = 0; i < results.length; i++) { 
+              var object = results[i];
+              object.set("image", image_change);
+              object.save();
+              window.localStorage.setItem("warrior",JSON.stringify(object));
+            }
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
       }
 
       });

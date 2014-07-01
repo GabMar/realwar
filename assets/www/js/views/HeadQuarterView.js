@@ -121,11 +121,11 @@ var HeadQuarterView = Parse.View.extend({
 		if(window.localStorage.getItem("warrior") != undefined)
 			{	 
 				
-				var warrior= JSON.parse(JSON.stringify(self.model));
-				warrior.cid = self.model.cid;
+				//var warrior= JSON.parse(JSON.stringify(self.model));
+				//warrior.cid = self.model.cid;
 				$(self.el).empty();
 				var context={
-					localWarrior:warrior,
+					localWarrior:JSON.parse(window.localStorage.getItem("warrior")),
 					localWeapon:JSON.parse(window.localStorage.getItem("weapon")),
 					localHead:JSON.parse(window.localStorage.getItem("head")),
 					localArmor:JSON.parse(window.localStorage.getItem("armor"))
