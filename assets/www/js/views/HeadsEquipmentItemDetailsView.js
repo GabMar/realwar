@@ -1,11 +1,11 @@
-define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-equipment-item-details.html"],
+define(["jquery", "underscore", "parse", "handlebars", "text!templates/heads-equipment-item-details.html"],
     function ($, _, Parse, Handlebars, template) {
 
-    var WeaponsEquipmentItemDetailsView = Parse.View.extend({
+    var HeadsEquipmentItemDetailsView = Parse.View.extend({
 
       tagName: "div",
       id: "equipmentDetail",
-      weaponId: undefined,
+      headId: undefined,
       self:undefined,
 
         events: {
@@ -13,15 +13,15 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
           "touchend #back": "goBack"
         },
 
-        initialize: function (weaponId) {
+        initialize: function (headId) {
           self=this;
-          self.weaponId=weaponId;
-          localweaponsequip= JSON.parse(window.localStorage.getItem("equipmentWeapons"));
-          for (i=0;i<localweaponsequip.length;i++)
+          self.headId=headId;
+          localheadsequip= JSON.parse(window.localStorage.getItem("equipmentHeads"));
+          for (i=0;i<localheadsequip.length;i++)
           {
-            if(localweaponsequip[i].objectId==self.weaponId)
+            if(localheadsequip[i].objectId==self.headId)
               {
-                self.model=localweaponsequip[i];
+                self.model=localheadsequip[i];
                 break;
               }
           }
@@ -29,18 +29,18 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
 
         equips: function () {
         var warrior = Parse.Object.extend("Warrior");
-        var weaponClass = Parse.Object.extend("Weapon");
+        var headClass = Parse.Object.extend("Head");
         var query = new Parse.Query(warrior);
-        var queryWeapon = new Parse.Query(weaponClass);
+        var queryHead = new Parse.Query(headClass);
          query.equalTo("objectId", window.localStorage.getItem("local_warrior_id"));
          query.find({
            success: function  (results) {
              var warrior = results[0];
                          
-             queryWeapon.get(self.model.objectId, {
-              success: function(weapon) {
-                  window.localStorage.setItem("weapon",JSON.stringify(weapon));
-                  warrior.set("weapon",weapon);
+             queryHead.get(self.model.objectId, {
+              success: function(head) {
+                  window.localStorage.setItem("head",JSON.stringify(head));
+                  warrior.set("head",head);
                   warrior.save();
                   self.goBack();
               },
@@ -60,15 +60,15 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
 
         goBack: function () { //non possiamo mettere direttamente "market" perchè quando stiamo vedendo i dettagli di un'arma in "market" ci siamo già, perciò non farebbe niente
           //Parse.history.navigate("", {trigger: true});
-          Parse.history.navigate("equipment/weapons", {trigger: true});
+          Parse.history.navigate("equipment/heads", {trigger: true});
         },
 
         template: Handlebars.compile(template),
 
         render: function (eventName) {
         vector=[];
-        localweapon=JSON.parse(window.localStorage.getItem("weapon"));
-        if(localweapon.objectId==self.model.objectId)
+        localhead=JSON.parse(window.localStorage.getItem("head"));
+        if(localhead.objectId==self.model.objectId)
           vector["equipped"]=true;
           var z =this.model;// JSON.parse(a);
           vector["model"]=z;
@@ -77,6 +77,6 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
         }
       });
 
-    return WeaponsEquipmentItemDetailsView;
+    return HeadsEquipmentItemDetailsView;
 
   });

@@ -1,16 +1,12 @@
 {{#if localWeapon.image}}
-<img class="detailsImg" src="./{{localWeapon.image}}" />{{else}}
-<img class="detailsImg" src="./images/gun.jpg" />{{/if}}
-<p class="info" id="detailsName">{{name}}</p>
+<img class="detailsImgEquip" src="./{{localWeapon.image}}" />{{else}}
+<img class="detailsImgEquip" src="./images/gun.jpg" />{{/if}}
+
+<p class="info">Name: {{[model].name}}</p>
+<p class="info">Attack: {{[model].attack}}</p>
+<p class="info">Range: {{[model].range}} m</p>
 
 
-<p class="info" id="detailsAttack">Att: {{[model].attack}}</p>
-
-
-<p class="info" id="detailsRange">Range: {{[model].range}} m</p>
-
-
-<div class="lineaorizzontale"></div>
 {{#if [equipped]}}
 <button class="topcoat-button" id="equipped">Equipped</div>
 {{else}}

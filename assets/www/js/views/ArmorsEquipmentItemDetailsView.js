@@ -1,11 +1,11 @@
-define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-equipment-item-details.html"],
+define(["jquery", "underscore", "parse", "handlebars", "text!templates/armors-equipment-item-details.html"],
     function ($, _, Parse, Handlebars, template) {
 
-    var WeaponsEquipmentItemDetailsView = Parse.View.extend({
+    var ArmorsEquipmentItemDetailsView = Parse.View.extend({
 
       tagName: "div",
       id: "equipmentDetail",
-      weaponId: undefined,
+      armorId: undefined,
       self:undefined,
 
         events: {
@@ -13,15 +13,15 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
           "touchend #back": "goBack"
         },
 
-        initialize: function (weaponId) {
+        initialize: function (armorId) {
           self=this;
-          self.weaponId=weaponId;
-          localweaponsequip= JSON.parse(window.localStorage.getItem("equipmentWeapons"));
-          for (i=0;i<localweaponsequip.length;i++)
+          self.armorId=armorId;
+          localarmorsequip= JSON.parse(window.localStorage.getItem("equipmentArmors"));
+          for (i=0;i<localarmorsequip.length;i++)
           {
-            if(localweaponsequip[i].objectId==self.weaponId)
+            if(localarmorsequip[i].objectId==self.armorId)
               {
-                self.model=localweaponsequip[i];
+                self.model=localarmorsequip[i];
                 break;
               }
           }
@@ -29,18 +29,18 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
 
         equips: function () {
         var warrior = Parse.Object.extend("Warrior");
-        var weaponClass = Parse.Object.extend("Weapon");
+        var armorClass = Parse.Object.extend("Armor");
         var query = new Parse.Query(warrior);
-        var queryWeapon = new Parse.Query(weaponClass);
+        var queryArmor = new Parse.Query(armorClass);
          query.equalTo("objectId", window.localStorage.getItem("local_warrior_id"));
          query.find({
            success: function  (results) {
              var warrior = results[0];
                          
-             queryWeapon.get(self.model.objectId, {
-              success: function(weapon) {
-                  window.localStorage.setItem("weapon",JSON.stringify(weapon));
-                  warrior.set("weapon",weapon);
+             queryArmor.get(self.model.objectId, {
+              success: function(armor) {
+                  window.localStorage.setItem("armor",JSON.stringify(armor));
+                  warrior.set("armor",armor);
                   warrior.save();
                   self.goBack();
               },
@@ -60,15 +60,15 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
 
         goBack: function () { //non possiamo mettere direttamente "market" perchè quando stiamo vedendo i dettagli di un'arma in "market" ci siamo già, perciò non farebbe niente
           //Parse.history.navigate("", {trigger: true});
-          Parse.history.navigate("equipment/weapons", {trigger: true});
+          Parse.history.navigate("equipment/armors", {trigger: true});
         },
 
         template: Handlebars.compile(template),
 
         render: function (eventName) {
         vector=[];
-        localweapon=JSON.parse(window.localStorage.getItem("weapon"));
-        if(localweapon.objectId==self.model.objectId)
+        localarmor=JSON.parse(window.localStorage.getItem("armor"));
+        if(localarmor.objectId==self.model.objectId)
           vector["equipped"]=true;
           var z =this.model;// JSON.parse(a);
           vector["model"]=z;
@@ -77,6 +77,6 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
         }
       });
 
-    return WeaponsEquipmentItemDetailsView;
+    return ArmorsEquipmentItemDetailsView;
 
   });

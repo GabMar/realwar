@@ -1,5 +1,5 @@
-define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "collections/UsCollection", "models/Warrior", "models/Weapon","models/Head", "models/Armor","models/User", "views/LoginView", "views/RegView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView","views/WeaponsEquipmentView","views/WeaponsEquipmentItemDetailsView", "views/SettingsView" ],
-    function ($, $p, _, Parse, Spinner, UsCollection, Warrior,Weapon, Head, Armor, User, LoginView, RegView, HeadQuarterView, MapView, StructureView, WeaponsMarketView,WeaponsEquipmentView,WeaponsEquipmentItemDetailsView,SettingsView) {
+define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "collections/UsCollection", "models/Warrior", "models/Weapon","models/Head", "models/Armor","models/User", "views/LoginView", "views/RegView", "views/HeadQuarterView", "views/MapView", "views/StructureView", "views/WeaponsMarketView","views/WeaponsEquipmentView","views/WeaponsEquipmentItemDetailsView","views/HeadsEquipmentView","views/HeadsEquipmentItemDetailsView","views/ArmorsEquipmentView","views/ArmorsEquipmentItemDetailsView", "views/SettingsView" ],
+    function ($, $p, _, Parse, Spinner, UsCollection, Warrior,Weapon, Head, Armor, User, LoginView, RegView, HeadQuarterView, MapView, StructureView, WeaponsMarketView,WeaponsEquipmentView,WeaponsEquipmentItemDetailsView,HeadsEquipmentView,HeadsEquipmentItemDetailsView,ArmorsEquipmentView,ArmorsEquipmentItemDetailsView,SettingsView) {
 
     var AppRouter = Parse.Router.extend({
     me: undefined,
@@ -96,12 +96,28 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "collections/U
               var page = new WeaponsEquipmentView();
               this.changePage(page);
               break;
+            case 'heads':
+              var page = new HeadsEquipmentView();
+              this.changePage(page);
+              break;
+            case 'armors':
+              var page = new ArmorsEquipmentView();
+              this.changePage(page);
+              break;
           } 
         }
         else{
           switch(area){
             case 'weapons':
               var page=new WeaponsEquipmentItemDetailsView(object);
+              this.changePage(page);
+              break;
+            case 'heads':
+              var page=new HeadsEquipmentItemDetailsView(object);
+              this.changePage(page);
+              break;
+            case 'armors':
+              var page=new ArmorsEquipmentItemDetailsView(object);
               this.changePage(page);
               break;
 

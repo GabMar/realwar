@@ -2,11 +2,9 @@
 {{#if [equipped]}}
 <button class="topcoat-button" id="equippedl" >Equipped</button>
 {{/if}}
-	<h4>
-	    {{ [weapon].name }}
-	</h4>
-	<p>
-	    Range: {{ [weapon].range }} | Attack: {{[weapon].attack}}
-	</p>
+
+		<p class="info">{{[weapon].name}}</p>
+		<p class="info">Range: {{ [weapon].range }}</p>
+		<p class="info">Attack: {{[weapon].attack}}</p>
 
 </div>
