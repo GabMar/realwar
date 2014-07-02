@@ -1,0 +1,15 @@
+{{#if localHead.image}}
+<img class="detailsImgEquip" src="./{{localHead.image}}" />{{else}}
+<img class="detailsImgEquip" src="./images/helmet.jpg" />{{/if}}
+
+<p class="info">Name: {{[model].name}}</p>
+<p class="info">Attack: {{[model].defense}}</p>
+
+
+{{#if [equipped]}}
+<button class="topcoat-button" id="equipped">Equipped</div>
+{{else}}
+<button class="topcoat-button" id="equips">Equip</div>
+{{/if}}
+
+<button class="topcoat-button" id="back">back</div>
