@@ -525,6 +525,15 @@ margin-bottom: 10px;
     color: white;
 }
 
+#ScoreList {
+    padding-bottom: 46px;
+}
+
+#ScoreList li {
+    height: 70px;
+    border-bottom: 1px solid rgb(47, 228, 59);
+}
+
 /* EQUIPAGGIAMENTO WARRIOR */
 
 h4 {
@@ -535,7 +544,7 @@ h4 {
     margin-top: 0px;
 }
 
-.imgEuip{
+.imgEquip{
     position: absolute;
     width: 4em;
 }
