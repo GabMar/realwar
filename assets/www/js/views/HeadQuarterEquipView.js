@@ -32,25 +32,15 @@ function ($, _, Parse, Handlebars, WeaponsListCollection, WeaponsEquipmentView, 
         },
 
         goToWeaponsEquip: function () {
-            $('#headQuarter').empty();
-            alert("prova! tocco registrato weapon");
-            var page = new WeaponsEquipmentView();
-            $('#headQuarter').append(page.render().el);
+            Parse.history.navigate("equipment/weapons", {trigger: true});
             },
 
         goToHeadEquip: function () {
-            $('#headQuarter').empty();
-            alert("prova! tocco registrato head");
-            var page = new EquipmentListView();
-            $('#headQuarter').append(page.render().el);
+            Parse.history.navigate("equipment/heads", {trigger: true});
             },
 
         goToArmorEquip: function () {
-            $('#headQuarter').empty();
-            alert("prova! tocco registrato armor");
-            var page = new WeaponsListView();
-            var page = new EquipmentListView();
-            $('#headQuarter').append(page.render().el);
+            Parse.history.navigate("equipment/armors", {trigger: true});
             }
     });
 

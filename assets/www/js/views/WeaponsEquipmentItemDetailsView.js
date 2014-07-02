@@ -4,6 +4,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
     var WeaponsEquipmentItemDetailsView = Parse.View.extend({
 
       tagName: "div",
+      id: "equipmentDetail",
       weaponId: undefined,
       self:undefined,
 
@@ -67,7 +68,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
         render: function (eventName) {
         vector=[];
         localweapon=JSON.parse(window.localStorage.getItem("weapon"));
-        if(localweapon.objectId==self.model.id)
+        if(localweapon.objectId==self.model.objectId)
           vector["equipped"]=true;
           var z =this.model;// JSON.parse(a);
           vector["model"]=z;

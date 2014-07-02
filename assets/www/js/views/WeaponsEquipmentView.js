@@ -3,8 +3,8 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsEquip
 
         var WeaponsEquipmentView = Parse.View.extend({
 
-            //tagName: "ul",
-            id: "weaponslist",
+            tagName: "div",
+            id: "equipmentContainer",
 
             template: Handlebars.compile(template),
 
@@ -18,7 +18,7 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsEquip
                 $(this.el).empty();
                 var ul = $(this.el).html(this.template);
                 _.each(this.model.models, function (weapon) {
-                $(ul).find('#weaponslist').append(new WeaponsEquipmentItemView({ //mi appende dentro this.el un elemento della lista
+                $(ul).find('#equipmentList').append(new WeaponsEquipmentItemView({ //mi appende dentro this.el un elemento della lista
                         model: weapon
                         }).render().el);
                     }, this);
