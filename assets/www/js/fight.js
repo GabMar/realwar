@@ -15,11 +15,13 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     var enemyLife = enemy.get("life");
     var enemyLevel = enemy.get("level");
     var enemyExp = enemy.get("xp");
+    var enemyCoins = enemy.get("coins");
     var enemyKills = enemy.get("kills");
     var enemyDeaths = enemy.get("deaths");
     var enemyAttack = enemyWeapon.attack;
     var enemyDefense = enemyHead.defense+enemyArmor.defense;
     var enemyRange = enemyHead.range+enemyWeapon.range;
+    var enemyLifeBefore = enemyLife;
 
     window.localStorage.removeItem("enemyWeapon");
     window.localStorage.removeItem("enemyHead");
@@ -107,7 +109,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
                 }
 
                 else{
-                    roundResults[round] = "<h1>Round 1</h1><p>Headshot on you for "+enemyDamage+" damage.<p>";
+                    roundResults[round] = "<h1>Round 1</h1><p>Headshot on you for "+eDamage+" damage.<p>";
                     round++;
                 }
             }
@@ -198,14 +200,14 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     }
     //Fine combattimento
 
-
     // --------------------------------------
     //Vince il giocatore, guadagna exp e coins
     // --------------------------------------
-    if(myLife > 0){
+    if(myLife > 0 && enemyLifeBefore>0){
 
         myKills++;
         enemyDeaths++;
+        enemyLife = 0;
         coinsEarned = Math.floor(enemyLevel/2);
         if(coinsEarned == 0){
             coinsEarned = 1;
@@ -247,13 +249,18 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     else if (enemyLife>0){
         enemyKills++;
         myDeaths++;
+        myLife = 0;
         result = "<h1>You Are Dead</h1><p>You earned no XP and no coins</p>";
     }
 
+    else if(enemyLifeBefore == 0){
+        result = "<h1>"+enemy.get("nick")+" Is Already Dead</h1>";
+        roundResults[1] = "<p>Your enemy lies on the asphalt in a river of blood.</p>";
+    }
     // --------------------------------------
     //Parità, il giocatore guadagna una parte di XP
     // --------------------------------------
-    else {
+    else if(enemyLife>0 && myLife>0){
         if(myLevel > enemyLevel){
             XPEarned = Math.floor((enemyLevel*myLevel)/2);
         }
@@ -266,7 +273,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
             newLevel++;
         }
 
-        result="<h1>"+enemy.get("nick")+"runs away</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: "+coinsEarned+"</p>";
+        result="<h1>"+enemy.get("nick")+" Runs Away</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: "+coinsEarned+"</p>";
         if(newLevel>myLevel){
             result = result+"<h2>Level "+newLevel+"!</h2>";
         }
@@ -275,6 +282,11 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     // --------------------------------------
     //Aggiorniamo il database
     // --------------------------------------
+
+    var Warrior = Parse.Object.extend("Warrior");
+    var warrior = new Warrior();
+    warrior.setWarriorAfterFight(window.localStorage.getItem('local_user_id'), myLife, newLevel, myExp, myCoins, myKills, myDeaths);
+    warrior.setWarriorAfterFight(enemy.get("userId").id, enemyLife, enemyLevel, enemyExp, enemyCoins, enemyKills, enemyDeaths); 
 
     // --------------------------------------
     //Presentiamo i risultati
@@ -287,7 +299,9 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     description[1] = "<p>You're been uncovered, but thanks to your expertise you succeed to start fire.</p>";
     description[2] = "<p>You are ready to shoot, but your enemy is very fast and opens fire against you.</p>";
 
+    if(round != 1){
     roundResults[1] = description[firstShooter]+roundResults[1];
+    }
 
     $('#previousRound').hide();
 
@@ -298,21 +312,26 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     $('#infoResult').append("<h1>"+result+"</h1>");
     $('#showRound').append(roundResults[1]);
 
-    $('#nextRound').on('mousedown', function() {
-        $('#showRound').empty();
-        $('#showRound').append(roundResults[currentRound+1]);
-        currentRound++;
-        if(currentRound == 1){
-            $('#previousRound').hide();
-        }
-        else if(currentRound == (round-1)){
-            $('#nextRound').hide();
-        }
-        else if(currentRound > 1){
-            $('#previousRound').show();
-        }
-    });
-
+    if(round = 1){
+        $('#nextRound').hide();
+    }
+    else{
+        $('#nextRound').on('mousedown', function() {
+        
+            $('#showRound').empty();
+            $('#showRound').append(roundResults[currentRound+1]);
+            currentRound++;
+            if(currentRound == 1){
+                $('#previousRound').hide();
+            }
+            else if(currentRound == (round-1)){
+                $('#nextRound').hide();
+            }
+            else if(currentRound > 1){
+                $('#previousRound').show();
+            }
+        });
+    }
     $('#previousRound').on('mousedown', function() {
         $('#showRound').empty();
         $('#showRound').append(roundResults[currentRound-1]);

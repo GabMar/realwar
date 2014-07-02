@@ -256,6 +256,33 @@ define(["jquery", "underscore", "parse"],
 
           }
         });
+      },
+
+      setWarriorAfterFight: function (user_id, life, level, xp, coins, kills, deaths){
+
+        var query = new Parse.Query(Warrior);
+        query.equalTo("userId", {__type: "Pointer", className: "_User",objectId: user_id});
+        query.find({
+
+          success: function(results){
+            var object = results[0];
+            object.set("life", life);
+            object.set("level", level);
+            object.set("xp", xp);
+            object.set("coins", xp);
+            object.set("kills", kills);
+            object.set("deaths",deaths);
+            object.save();
+
+            if(user_id == window.localStorage.getItem("local_user_id")){
+              window.localStorage.setItem("warrior",JSON.stringify(object));
+            }
+          },
+
+          error: function(error){
+            alert("Failed to save warrior after fighting.");
+          }
+        });
       }
 
       });

@@ -136,8 +136,6 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                                 if (mark.getLatLng().equals(locWar)){
                                                     
                                                     var enemyWar = self.warriors[y];
-
-
                                                     var weaponClass = Parse.Object.extend("Weapon");
                                                     var headClass = Parse.Object.extend("Head");
                                                     var armorClass = Parse.Object.extend("Armor");
@@ -165,20 +163,28 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                                     });
 
                                                     $('#fight').off('mousedown');
-                                                    $('#fight').on("mousedown", function() {
+                                                    
+                                                    if(self.model.life>0){
 
-                                                        console.log('ciao');
+                                                        $('#fight').on("mousedown", function() {
 
-                                                        var enemyWeapon = JSON.parse(window.localStorage.getItem("enemyWeapon"));
-                                                        var enemyHead = JSON.parse(window.localStorage.getItem("enemyHead"));
-                                                        var enemyArmor = JSON.parse(window.localStorage.getItem("enemyArmor"));
+                                                            var enemyWeapon = JSON.parse(window.localStorage.getItem("enemyWeapon"));
+                                                            var enemyHead = JSON.parse(window.localStorage.getItem("enemyHead"));
+                                                            var enemyArmor = JSON.parse(window.localStorage.getItem("enemyArmor"));
 
-                                                        var myWeapon = JSON.parse(window.localStorage.getItem("weapon"));
-                                                        var myHead = JSON.parse(window.localStorage.getItem("head"));
-                                                        var myArmor = JSON.parse(window.localStorage.getItem("armor"));
+                                                            var myWeapon = JSON.parse(window.localStorage.getItem("weapon"));
+                                                            var myHead = JSON.parse(window.localStorage.getItem("head"));
+                                                            var myArmor = JSON.parse(window.localStorage.getItem("armor"));
+                                                            
+                                                            fight(enemyWar, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myArmor);
+                                                        });
+                                                    }
+                                                    else{
                                                         
-                                                        fight(enemyWar, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myArmor);
-                                                    });
+                                                        $('#fight').on("mousedown", function() {
+                                                            alert("You have no life. Rest youself.");
+                                                        });
+                                                    }
                                                     $('#popupWarrior').show(100);
                                                     $('#infoWarrior').empty();
                                                     $('#avatarWarrior').append("<img class='smallAvatar' src='"+self.warriors[y].get("image")+"'</img>");
@@ -200,7 +206,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                 $('#infoFight').hide(100);
             });
 
-            var interval = setInterval(function(){mapUpdate();}, 10000);
+            var interval = setInterval(function(){mapUpdate();}, 1000);
             $('#backButton').on('mousedown', function(){
                 window.clearInterval(interval);
             });
