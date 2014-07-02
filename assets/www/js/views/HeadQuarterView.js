@@ -20,14 +20,8 @@ var HeadQuarterView = Parse.View.extend({
 		   self.model = new Warrior();
 		   var id = window.localStorage.getItem('local_user_id');
 		   var warrior = Parse.Object.extend("Warrior");
-		   var weaponClass = Parse.Object.extend("Weapon");
-		   var headClass = Parse.Object.extend("Head");
-		   var armorClass = Parse.Object.extend("Armor");
 		   
 	       var query = new Parse.Query(warrior);
-	       var queryWeapon = new Parse.Query(weaponClass);
-	       var queryHead = new Parse.Query(headClass);
-	       var queryArmor = new Parse.Query(armorClass);
 	       
 	       query.equalTo("userId", {
 	    	   						__type: "Pointer",
@@ -39,38 +33,35 @@ var HeadQuarterView = Parse.View.extend({
 	    	   success: function  (results) {
 	   			   var warrior = results[0];
 	   			   self.model = warrior;
-	   			   window.localStorage.setItem("warrior",JSON.stringify(warrior));
 	   			   self.model.bind("change",self.render,self);
 	   			   
-	   			   queryWeapon.get(warrior.get("weapon").id, {
-	   					success: function(weapon) {
-	   							window.localStorage.setItem("weapon",JSON.stringify(weapon));
-	   							self.model.set("coins", warrior.get("coins"));
-	   							self.model.save();
-	   					},
-	   					error:function(object,error){
-	   						alert("Errore1: "+error);
-	   					}
-	   				});
+   			   		navigator.geolocation.getCurrentPosition(function (position) {
 
-	   			   queryHead.get(warrior.get("head").id, {
-						success: function(head) {
-							window.localStorage.setItem("head",JSON.stringify(head));
-						},
-						error:function(object,error){
-							alert("Errore2: "+error);
-						}
-	   			   });
-	   			
-	   			   queryArmor.get(warrior.get("armor").id, {
-						success: function(armor) {
-							window.localStorage.setItem("armor",JSON.stringify(armor));
-						},
-						error:function(object,error){
-							alert("Errore3: "+error);
-						}
+	   				// aggiorniamo nostra posizione su parse
+                    $.ajax({
+                        type : 'PUT',
+                        headers: {
+                        'X-Parse-Application-Id' : "PHYN9yjJLqmSo0xACd63oypUBUcx4q0eLHBvoozY",
+                        'X-Parse-REST-API-Key' : "VSn4lvHnF3EKZmVPox8rRA7Eol3X9r7M8blvQWfC"
+                        },
+                        url: "https://api.parse.com/1/classes/Warrior/"+window.localStorage.getItem("local_warrior_id"),
+                        data:  JSON.stringify({"position" : self.model.position}),
+                        contentType: "application/json; charset=utf-8",
+                        dataType : "json",
+                        success: function (data, status, jqXHR) {
+                        			self.model.set("position", JSON.stringify(position));
+                              		self.model.save();
+                                },
 
-	   			   });
+                                error: function (jqXHR, status) {
+                                   // error handler
+                                   console.log(jqXHR);
+                                }
+                    });
+	                
+	            }, function() {});
+
+	   			   
 	   			},
 	   		
 	   			error:function(object,error){
