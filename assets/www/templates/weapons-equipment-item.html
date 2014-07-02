@@ -1,6 +1,11 @@
 <div class="weaponsInfo">
+{{#if [weapon].image}}
+ <img class="avatarEquip" src="{{[weapon].image}}"/>
+{{else}}
+<img class="avatarEquip" src="./images/gun.jpg"/>
+{{/if}}
 {{#if [equipped]}}
-<button class="topcoat-button" id="equippedl" >Equipped</button>
+<span class="stamp">Equipped</span>
 {{/if}}
 
 		<p class="info">{{[weapon].name}}</p>

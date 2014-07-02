@@ -1,14 +1,14 @@
 <div class="armorsInfo">
-{{#if image}}
- 	<img class="avatarWeap" src="{{[armor].image}}"/>
+{{#if [armor].image}}
+ <img class="avatarEquip" src="{{[armor].image}}"/>
 {{else}}
-	<img class="avatarWeap" src="./images/armor.jpg"/>
+<img class="avatarEquip" src="./images/armor.jpg"/>
 {{/if}}
+
 
 {{#if [equipped]}}
 <button class="topcoat-button" id="equippedl" >Equipped</button>
 {{/if}}
-
 		<p class="info">{{[armor].name}}</p>
 		<p class="info">Defense: {{ [armor].defense }}</p>
 

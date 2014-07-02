@@ -657,6 +657,16 @@ h4 {
     border-radius: 15px;
 }
 
+.avatarEquip {
+    /*margin-left: 22px;
+    margin-top: 2%;*/
+    float: left;
+    width: 25%;
+    border: 1px solid rgba(0,0,0,0.36);
+    -webkit-border-radius: 6px;
+    border-radius: 15px;
+}
+
 /* BOTTONI DI SELEZIONE */
 
 .full {
@@ -744,6 +754,7 @@ h4 {
     left: 1em;
     float:left;
     position: relative;
+    width: 40%;
 }
 
 #buyItem{
@@ -794,6 +805,21 @@ h4 {
     float:left;
     background-color: #20A715;
     color: #051E07;
+}
+
+.stamp{
+-webkit-transform: rotate(-45deg);
+position: absolute;
+top: 46%;
+padding: 2px;
+left: 1px;
+width: 100px;
+z-index: 99;
+text-align: center;
+background-color:#051E07;
+color:  #20A715;
+font-family: Dungeon;
+border-radius: 5px;
 }
 
 #back{
@@ -886,6 +912,7 @@ h4 {
     margin-bottom: 0px;
     border-color: rgb(47, 228, 59);
     display: block;
+    overflow: auto;
 }
 
 #equipmentDetail{
