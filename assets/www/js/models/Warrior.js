@@ -294,7 +294,7 @@ define(["jquery", "underscore", "parse"],
           error: function(error){
             alert("Failed to save warrior after fighting.");
           }
-        });*/
+        });
       }
 
       });
