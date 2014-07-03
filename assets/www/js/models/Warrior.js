@@ -135,10 +135,8 @@ define(["jquery", "underscore", "parse"],
               window.localStorage.setItem("warrior",JSON.stringify(object));
               queryWeapon.get(object.get("weapon").id, {
               success: function(weapon) {
-                  window.localStorage.setItem("weapon",JSON.stringify(weapon));
-                  self.model.set("coins", warrior.get("coins"));
-                  self.model.save();
-              },
+                  window.localStorage.setItem("weapon",JSON.stringify(weapon));              
+                },
               error:function(object,error){
                 alert("Errore1: "+error);
               }
