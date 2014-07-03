@@ -19,6 +19,8 @@ define(["jquery", "underscore", "parse"],
         heads: undefined,
         armor: undefined,
         armors: undefined,
+        gpsId: undefined,   // andrebbero inseriti e utilizzati, salvando il model
+        watchId: undefined
       },
 
       signupWarrior: function(id, username, password, image) {
@@ -136,7 +138,9 @@ define(["jquery", "underscore", "parse"],
               window.localStorage.setItem("warrior",JSON.stringify(object));
               queryWeapon.get(object.get("weapon").id, {
               success: function(weapon) {
-                  window.localStorage.setItem("weapon",JSON.stringify(weapon));              
+                  window.localStorage.setItem("weapon",JSON.stringify(weapon)); 
+                  //self.model.set("coins", warrior.get("coins"));
+                  //self.model.save();             
                 },
               error:function(object,error){
                 alert("Errore1: "+error);
@@ -179,8 +183,8 @@ define(["jquery", "underscore", "parse"],
         queryWeapon.get("NolqCh0kmx", {
               success: function(weapon) {
                   window.localStorage.setItem("weapon",JSON.stringify(weapon));
-                  //self.model.set("coins", warrior.get("coins"));
-                  //self.model.save();
+                  self.model.set("coins", warrior.get("coins"));
+                  self.model.save();
               },
               error:function(object,error){
                 alert("Errore1: "+error);
