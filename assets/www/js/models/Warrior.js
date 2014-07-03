@@ -5,30 +5,31 @@ define(["jquery", "underscore", "parse"],
         nick: undefined,
         password: undefined,
         email: undefined,
-        coins: undefined,
+        coins: 10,
         life: 100,
         image: undefined,
         position: undefined,
-        level: 0,
+        level: 1,
         xp: 0,
         kills:0,
         deaths:0,
         weapon: undefined,
         weapons: undefined,
-        gpsId: undefined,   // andrebbero inseriti e utilizzati, salvando il model
-        watchId: undefined
+        head: undefined,
+        heads: undefined,
+        armor: undefined,
+        armors: undefined,
       },
 
       signupWarrior: function(id, username, password, image) {
         this.set("nick", username);
-        this.set("coins", 50);
         this.set("image", image);
         this.set("userId", {__type: "Pointer", className: "_User",objectId: id});
         var point = new Parse.GeoPoint({latitude: 40.0, longitude: -30.0});
         this.set("position", point);
-        var id_wep = "Ykli9gHMmg";
+        var id_wep = "NolqCh0kmx";
         var id_he = "rBYFAiiooM";
-        var id_ar = "COXNCJlA7x";
+        var id_ar = "TkEbud8xlf";
         this.set("weapon", {__type: "Pointer", className: "Weapon",objectId: id_wep});
         this.set("head", {__type: "Pointer", className: "Head", objectId: id_he});
         this.set("armor", {__type: "Pointer", className: "Armor", objectId: id_ar});
@@ -45,7 +46,7 @@ define(["jquery", "underscore", "parse"],
                                   'X-Parse-REST-API-Key': "VSn4lvHnF3EKZmVPox8rRA7Eol3X9r7M8blvQWfC"
                               },
                               url: "https://api.parse.com/1/classes/Warrior/"+warrior.id+"",
-                              data: '{"weapons":{"__op":"AddRelation","objects":[{"__type":"Pointer","className":"Weapon","objectId":"Ykli9gHMmg"}]}}',
+                              data: '{"weapons":{"__op":"AddRelation","objects":[{"__type":"Pointer","className":"Weapon","objectId":"'+id_wep+'"}]}}',
                               contentType: "application/json",
                               success: function (data, status, jqXHR) {
 
@@ -64,7 +65,7 @@ define(["jquery", "underscore", "parse"],
                                   'X-Parse-REST-API-Key': "VSn4lvHnF3EKZmVPox8rRA7Eol3X9r7M8blvQWfC"
                               },
                               url: "https://api.parse.com/1/classes/Warrior/"+warrior.id+"",
-                              data: '{"heads":{"__op":"AddRelation","objects":[{"__type":"Pointer","className":"Head","objectId":"rBYFAiiooM"}]}}',
+                              data: '{"heads":{"__op":"AddRelation","objects":[{"__type":"Pointer","className":"Head","objectId":"'+id_he+'"}]}}',
                               contentType: "application/json",
                               success: function (data, status, jqXHR) {
 
@@ -83,7 +84,7 @@ define(["jquery", "underscore", "parse"],
                                   'X-Parse-REST-API-Key': "VSn4lvHnF3EKZmVPox8rRA7Eol3X9r7M8blvQWfC"
                               },
                               url: "https://api.parse.com/1/classes/Warrior/"+warrior.id+"",
-                              data: '{"armors":{"__op":"AddRelation","objects":[{"__type":"Pointer","className":"Armor","objectId":"COXNCJlA7x"}]}}',
+                              data: '{"armors":{"__op":"AddRelation","objects":[{"__type":"Pointer","className":"Armor","objectId":"'+id_ar+'"}]}}',
                               contentType: "application/json",
                               success: function (data, status, jqXHR) {
 
@@ -175,11 +176,11 @@ define(["jquery", "underscore", "parse"],
         var queryWeapon = new Parse.Query(weaponClass);
         var queryHead = new Parse.Query(headClass);
         var queryArmor = new Parse.Query(armorClass);
-        queryWeapon.get("Ykli9gHMmg", {
+        queryWeapon.get("NolqCh0kmx", {
               success: function(weapon) {
                   window.localStorage.setItem("weapon",JSON.stringify(weapon));
-                  self.model.set("coins", warrior.get("coins"));
-                  self.model.save();
+                  //self.model.set("coins", warrior.get("coins"));
+                  //self.model.save();
               },
               error:function(object,error){
                 alert("Errore1: "+error);
@@ -195,7 +196,7 @@ define(["jquery", "underscore", "parse"],
               }
                });
             
-        queryArmor.get("COXNCJlA7x", {
+        queryArmor.get("TkEbud8xlf", {
               success: function(armor) {
                 window.localStorage.setItem("armor",JSON.stringify(armor));
               },
@@ -268,7 +269,7 @@ define(["jquery", "underscore", "parse"],
             object.set("life", life);
             object.set("level", level);
             object.set("xp", xp);
-            object.set("coins", xp);
+            object.set("coins", coins);
             object.set("kills", kills);
             object.set("deaths",deaths);
             object.save();
