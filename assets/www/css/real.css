@@ -2,18 +2,18 @@
 font-family:"Source Sans";
 src:url(../font/SourceSansPro-Regular.otf);
 font-family: 'Orbitron', sans-serif;
-src:url(http://fonts.googleapis.com/css?family=Titillium+Web);
+src:url(http://fonts.googleapis.com/css?family=Orbitron);
 }
 
 @font-face {
 font-family:"Source Sans";
-src:url(../font/SourceSansPro-Light.otf);
+src:url(http://fonts.googleapis.com/css?family=Orbitron);
 font-weight:200;
 }
 
 @font-face {
 font-family:"Source Sans";
-src:url(../font/SourceSansPro-Semibold.otf);
+src:url(http://fonts.googleapis.com/css?family=Orbitron);
 font-weight:600;
 }
 
