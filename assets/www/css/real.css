@@ -1479,7 +1479,7 @@ border-radius: 5px;
 }
 
 .avatar_img_sel {
-    border: 3px solid blue;
+    border: 3px solid rgb(47, 228, 59);
 }
 
 
@@ -1537,27 +1537,83 @@ border-radius: 5px;
 
 /* LOGIN */
 
-.login {
-    position: relative;
-    top: 100px;
-    height: 50px;
+#mainTitle{
+    position: absolute;
+    top:0;
     width: 100%;
-    background-color: black;
+    height: 30%;
 }
 
-.login h3 {
-    color:#63ca3a;
-    position: relative;
-    top: -5px;
+#mainTitle h1{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4em;
+    text-align: center;
+    color: rgb(47, 228, 59);
+    margin-top: 5%;
 }
+
+#principal{
+    height: 85%;
+    width: 97%;
+    margin-top: 30%;
+    margin-left: 1%;
+    border: 2px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+}
+
+.login {
+    width: 90%;
+    height: 60px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 5%;
+    font-size: 2em;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgba(3, 35, 5, 0.8);
+}
+
+.login:hover{
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
+}
+
+.signin {
+    position: absolute;
+    width: 90%;
+    height: 60px;
+    margin-left: 5%;
+    font-size: 2em;
+    text-align: center;
+    left: 0;
+    bottom: 15%;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgba(3, 35, 5, 0.8);
+}
+
+.signin:hover{
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
+}
+
 
 .login_input_form {
-    position: relative;
-    top: 80px;
-    width: 100%;
+    margin-top: 10%;
+    width: 90%;
     height: 50px;
+    margin-left: 4.5%;
     text-align: center;
-    background-color: #E0FFFF;
+    background-color: rgba(169, 255, 137, 1);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
 }
 
 #login_form {
@@ -1578,22 +1634,86 @@ border-radius: 5px;
     background-color: black;
 }
 
-.reg_button h3 {
-    color:#63ca3a;
-    position: relative;
-    top: -5px;
-}
 
 /* FINE LOGIN */
 
 /* REGISTRAZIONE */
 
-.reg_input_form {
-    position: relative;
-    width: 100%;
-    height: 50px;
+#signinMain{
+    width: 97%;
+    margin-top: 30%;
+    margin-left: 1%;
+    border: 2px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+}
+
+#signinMain h1{
     text-align: center;
-    background-color: #E0FFFF;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+    color: rgb(47, 228, 59);
+}
+
+.reg_input_form {
+    margin-top: 3%;
+    width: 90%;
+    height: 50px;
+    margin-left: 4.5%;
+    text-align: center;
+    background-color: rgba(169, 255, 137, 1);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+}
+
+#loadAvatar {
+    width: 90%;
+    height: 60px;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    margin-left: 5%;
+    font-size: 2em;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgba(3, 35, 5, 0.8);
+}
+
+#loadAvatar:hover{
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
+}
+
+#registra{
+    width: 90%;
+    height: 60px;
+    margin-top: 5%;
+    margin-left: 5%;
+    font-size: 2em;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgba(3, 35, 5, 0.8);
+}
+
+#avatar_scelta{
+    width: 90%;
+    margin-left: 5%;
+    border-top: 1px solid rgba(47, 228, 59, 0.4);
+    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+    margin-bottom: 5%;
+
+}
+
+#avatar_scelta img{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 4.5%;
 }
 
 .reg {
@@ -1604,15 +1724,6 @@ border-radius: 5px;
     background-color: black;
 }
 
-.reg h3 {
-    color:#63ca3a;
-    position: relative;
-    top: -5px;
-}
 
-#registra {
-    position: relative;
-    top: 5px;
-}
 
 /* FINE REGISTRAZIONE */

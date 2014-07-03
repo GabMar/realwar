@@ -4,35 +4,36 @@
         <title>RealWar</title>
     </head>
     <body>
-        <div align="center" style="position:relative; top:15px;"><span style="color:#37FC1F; font-size:40pt; font-family:Dungeon">RealWar</span></div>
-        <div align="center" style="position:relative; top:40px">
-            <span style="color:#37FC1F; font-size:20pt; font-family:Dungeon">Registrazione</span></br></br>
-            <form class="reg-form">
-            <input type="text" placeholder="username" class="reg_input_form" id="reg-username"></br>
-            <input type="text" placeholder="email" class="reg_input_form" id="reg-email"></br>
-            <input type="password" placeholder="password" class="reg_input_form" id="reg-password">
-            
-            </form>
-            
-                <button class="reg load_avatar_untouched" id="loadAvatar"><h3>Scegli Avatar</h3></button>
-                <button class="reg load_avatar_touched" id="loadAvatar" style="display:none;">
-                <h3>Scegli Avatar</h3></button>
-            <div id="avatar_scelta" style="display:none;">
 
-            <img class="avatar_img_s" src="./images/avatar/01.jpg">
-            <img class="avatar_img_s" src="./images/avatar/02.jpg">
-            <img class="avatar_img_s" src="./images/avatar/03.png">
-            <img class="avatar_img_s" src="./images/avatar/04.gif">
-            <img class="avatar_img_s" src="./images/avatar/05.jpg">
-            <img class="avatar_img_s" src="./images/avatar/06.png">
-            <img class="avatar_img_s" src="./images/avatar/07.gif">
-            <img class="avatar_img_s" src="./images/avatar/08.jpg">
-            <img class="avatar_img_s" src="./images/avatar/09.jpg">
+        <div id="mainTitle">
+        <h1>RealWar</h1>
+        </div>
+        
+        <div id="signinMain">
+                <h1>Signin</h1>
+                <form class="reg-form">
+                <input type="text" placeholder="username" class="reg_input_form" id="reg-username"></br>
+                <input type="text" placeholder="email" class="reg_input_form" id="reg-email"></br>
+                <input type="password" placeholder="password" class="reg_input_form" id="reg-password">
+                
+                </form>
+                
+                <button class="reg load_avatar_untouched" id="loadAvatar">Choose Avatar</button>
+                <button class="reg load_avatar_touched" id="loadAvatar" style="display:none;">Choose Avatar</button>
+                
+                <div id="avatar_scelta" style="display:none;">
+                    <img class="avatar_img_s" src="./images/avatar/01.jpg">
+                    <img class="avatar_img_s" src="./images/avatar/02.jpg">
+                    <img class="avatar_img_s" src="./images/avatar/03.png">
+                    <img class="avatar_img_s" src="./images/avatar/04.gif">
+                    <img class="avatar_img_s" src="./images/avatar/05.jpg">
+                    <img class="avatar_img_s" src="./images/avatar/06.png">
+                    <img class="avatar_img_s" src="./images/avatar/07.gif">
+                    <img class="avatar_img_s" src="./images/avatar/08.jpg">
+                    <img class="avatar_img_s" src="./images/avatar/09.jpg">
+                </div>
 
-            </div>
-            <div align="center" style="position:relative; top:10px;">
-                <button class="reg" id="registra"><h3>Registrati</h3></button>
-            </div>
+                <button class="login" id="registra">Join</button>
         </div>
     </body>
 </html>
