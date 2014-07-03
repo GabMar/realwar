@@ -1,8 +1,12 @@
-
-		{{#if image}}
- 			<img class="imgEquip" src="{{image}}"/>
- 		{{else}}
- 			<img class="imgEquip" src="./images/anonym.jpg"/>
-		{{/if}}
-
-		<p class="info">{{nick}} | Level: {{ level }}</p>
+<div id="imgScores">
+	{{#if image}}
+		<img src="{{image}}"/>
+	{{else}}
+		<img src="./images/anonym.jpg"/>
+	{{/if}}
+</div>
+<div id="infoScores">
+	<h1>{{nick}}</h1>
+	<p>Level: {{ level }}</p>
+	<p>Kills:   Deaths:</p>
+</div>

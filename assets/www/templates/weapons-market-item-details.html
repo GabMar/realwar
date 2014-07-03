@@ -1,25 +1,32 @@
-{{#if localWeapon.image}}
-<img class="detailsImg" src="./{{localWeapon.image}}" />{{else}}
-<img class="detailsImg" src="./images/gun.jpg" />{{/if}}
-<p class="info" id="detailsName">{{name}}</p>
+<div id="itemMarketDetails">
+	<div id="itemMarketDetailsImg">
+	{{#if localWeapon.image}}
+	<img src="./{{localWeapon.image}}" />{{else}}
+	<img src="./images/gun.jpg" />{{/if}}
+	</div>
 
-{{#if attack}}
-<p class="info" id="detailsAttack">Att: {{attack}}</p>{{else}}
-<p class="info" id="detailsDefense">Def: {{defense}}</p>{{/if}}
+	<div id="itemMarketDetailsInfo">
+		<h1>{{name}}</h1>
+		{{#if attack}}
+		<p>Att: {{attack}}</p>{{else}}
+		<p>Def: {{defense}}</p>{{/if}}
+		{{#if range}}
+		<p>Range: {{range}} m</p>{{/if}}
+		<p>Price: {{cost}} $</p>
+	</div>
 
-{{#if range}}
-<p class="info" id="detailsRange">Range: {{range}} m</p>{{/if}}
+	<div id="itemMarketBuy">
 
-<p class="info" id="detailsPrice">Price: {{cost}} $</p>
+		<p class="info" id="detailsCash">Your Money: {{coins}} $</p>
 
-<div class="lineaorizzontale"></div>
+		<button class="topcoat-button" id="back">Market</button>
 
-<p class="info" id="detailsCash">Your Money: {{coins}} $</p>
+		<button class="topcoat-button" id="buyItem" style="display:none;">Buy</button>
 
-<button class="topcoat-button" id="buyItem" style="display:none;">Buy Item</div>
+		<button class="topcoat-button" id="sellItem" style="display:none;">Sell</button>
 
-<button class="topcoat-button" id="sellItem" style="display:none;">Sell Item</div>
+		<button class="topcoat-button" id="loadItem">Loading...</button>
 
-<button class="topcoat-button" id="loadItem">Loading...</div>
+	</div>
 
-<button class="topcoat-button" id="back">back</div>
+</div>

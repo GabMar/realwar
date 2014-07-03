@@ -1,11 +1,13 @@
 <div class="weaponsInfo">
+	<div id="itemMarketImg">
 		{{#if image}}
- 			<img class="avatarWeap" src="{{image}}"/>
+ 			<img src="{{image}}"/>
  		{{else}}
- 			<img class="avatarWeap" src="./images/gun.jpg"/>
+ 			<img src="./images/gun.jpg"/>
 		{{/if}}
-
-		<p class="info">{{name}}</p>
-		<p class="info">Level Required: {{ range }}</p>
-		<p class="info">Price: {{cost}} $</p>
 	</div>
+	<div id="itemMarketInfo">	
+		<h1>{{name}}</h1>
+		<p>Price: {{cost}} $</p>
+	</div>
+</div>

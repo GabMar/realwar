@@ -4,7 +4,7 @@ function ($, _, Parse, Handlebars, WeaponsListCollection, WeaponsEquipmentView, 
 	var HeadQuarterEquipView = Parse.View.extend({
 
         tagName: "div", //si aggiunge un div con id, non cambia molto
-        id: "HeadQuarterEquipLista",
+        id: "listaEquip",
 
         template: Handlebars.compile(template),
 
