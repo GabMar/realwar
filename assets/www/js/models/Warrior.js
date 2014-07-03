@@ -136,6 +136,7 @@ define(["jquery", "underscore", "parse"],
               var object = results[i];
               window.localStorage.setItem("local_warrior_id", object.id);
               window.localStorage.setItem("warrior",JSON.stringify(object));
+              //alert(JSON.stringify(object.updatedAt));
               queryWeapon.get(object.get("weapon").id, {
               success: function(weapon) {
                   window.localStorage.setItem("weapon",JSON.stringify(weapon)); 
@@ -300,6 +301,33 @@ define(["jquery", "underscore", "parse"],
             alert("Failed to save warrior after fighting.");
           }
         });
+      },
+
+      updateLife: function(user_id) {
+
+        var query = new Parse.Query(Warrior);
+        query.equalTo("userId", {__type: "Pointer", className: "_User",objectId: user_id});
+
+        query.find({
+
+          success: function(results){
+            var object = results[0];
+            var life = object.get('life');
+            if(life < 100){
+            object.set("life", life + 5);
+            $('.progress').attr('value', life + 5);
+            object.save();
+            window.localStorage.setItem("warrior",JSON.stringify(object));
+          }
+          },
+
+          error: function(error){
+            alert("Failed to update warrior life.");
+          }
+        });
+        
+        
+
       }
 
       });

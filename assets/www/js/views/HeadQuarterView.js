@@ -19,9 +19,11 @@ var HeadQuarterView = Parse.View.extend({
 		   self=this;
 		   self.model = new Warrior();
 		   var id = window.localStorage.getItem('local_user_id');
-		   var warrior = Parse.Object.extend("Warrior");
-		   
-	       var query = new Parse.Query(warrior);
+		   var Warrior_life = Parse.Object.extend("Warrior");
+		   var warrior = new Warrior_life();
+		   //warrior.updateLife(id);
+		   setInterval(function(){warrior.updateLife(id);}, 300000);
+	       var query = new Parse.Query(Warrior);
 	       
 	       query.equalTo("userId", {
 	    	   						__type: "Pointer",
