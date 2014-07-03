@@ -48,8 +48,14 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                 iconAnchor:   [13, 13], // point of the icon which will correspond to marker's location
             });
 
+            var greyIcon = L.icon({
+                iconUrl: './res/greyMarker.png',
+                iconSize:     [26, 26], // size of the icon
+                iconAnchor:   [13, 13], // point of the icon which will correspond to marker's location
+            });
+
             var circle = undefined;
-            var radius = JSON.parse(window.localStorage.getItem("weapon")).range + JSON.parse(window.localStorage.getItem("head")).range;
+            var radius = (JSON.parse(window.localStorage.getItem("weapon")).range + JSON.parse(window.localStorage.getItem("head")).range)*2;
 
             navigator.geolocation.getCurrentPosition(function (position) {
                 var coord = new L.LatLng(position.coords.latitude, position.coords.longitude);
@@ -105,7 +111,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
 
                                 if (markers[self.warriors[i].id] == undefined){
                                     markers[self.warriors[i].id] = new L.marker([self.warriors[i].get("position").latitude, self.warriors[i].get("position").longitude], 
-                                                                            {icon: redIcon});
+                                                                            {icon: greyIcon});
                                     markers[self.warriors[i].id].addTo(map); 
                                 }
                                 else {
@@ -121,12 +127,14 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                     
                                     if(distance>radius){
                                         
+                                        markers[self.warriors[i].id].setIcon(greyIcon);
                                         markers[self.warriors[i].id].setLatLng(b).update();
                                         markers[self.warriors[i].id].off('mousedown');
                                     }
                                     
                                     else{
         
+                                        markers[self.warriors[i].id].setIcon(redIcon);
                                         markers[self.warriors[i].id].setLatLng(b).update();
                                         markers[self.warriors[i].id].off('mousedown');
                                         markers[self.warriors[i].id].on('mousedown', function(e){
@@ -206,7 +214,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                 $('#infoFight').hide(100);
             });
 
-            var interval = setInterval(function(){mapUpdate();}, 1000);
+            var interval = setInterval(function(){mapUpdate();}, 3000);
             $('#backButton').on('mousedown', function(){
                 window.clearInterval(interval);
             });

@@ -256,10 +256,11 @@ define(["jquery", "underscore", "parse"],
         });
       },
 
-      setWarriorAfterFight: function (user_id, life, level, xp, coins, kills, deaths){
+      setWarriorAfterFight: function (user_id, life, level, xp, coins, kills, deaths, esito){
 
         var query = new Parse.Query(Warrior);
         query.equalTo("userId", {__type: "Pointer", className: "_User",objectId: user_id});
+
         query.find({
 
           success: function(results){
@@ -275,12 +276,25 @@ define(["jquery", "underscore", "parse"],
             if(user_id == window.localStorage.getItem("local_user_id")){
               window.localStorage.setItem("warrior",JSON.stringify(object));
             }
+            else{
+              var pushQuery = new Parse.Query(Parse.Installation);
+              //pushQuery.equalTo('channels', '[Salx]');
+              pushQuery.equalTo('owner', {__type: "Pointer", className: "_User",objectId: user_id});
+               
+              //Send push notification to query
+              Parse.Push.send({
+                where: pushQuery,
+                data: {
+                  alert: esito
+                }
+              });
+            }
           },
 
           error: function(error){
             alert("Failed to save warrior after fighting.");
           }
-        });
+        });*/
       }
 
       });

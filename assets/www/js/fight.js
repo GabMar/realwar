@@ -31,6 +31,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     var round = 1;
     var firstShooter = 0;
     var result = "";
+    var esito = "";
 
     while(myLife>0 && enemyLife>0 && round<50){
 
@@ -209,6 +210,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
         enemyDeaths++;
         enemyLife = 0;
         coinsEarned = Math.floor(enemyLevel/2);
+        esito = "You've been killed by "+self.model.nick+"!";
         if(coinsEarned == 0){
             coinsEarned = 1;
         }
@@ -249,11 +251,15 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     else if (enemyLife>0){
         enemyKills++;
         myDeaths++;
+        XPEarned = 5*enemyLevel;
+        myExp = myExp + XPEarned;
+        esito = self.model.nick+" attack! You kill him!";
         myLife = 0;
-        result = "<h1>You Are Dead</h1><p>You earned no XP and no coins</p>";
+        result = "<h1>You Are Dead</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: 0</p>";
     }
 
     else if(enemyLifeBefore == 0){
+        esito = self.model.nick+" has found you body on the floor."
         result = "<h1>"+enemy.get("nick")+" Is Already Dead</h1>";
         roundResults[1] = "<p>Your enemy lies on the asphalt in a river of blood.</p>";
     }
@@ -261,6 +267,8 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     //Parità, il giocatore guadagna una parte di XP
     // --------------------------------------
     else if(enemyLife>0 && myLife>0){
+
+        esito = self.model.nick+" attack! You escape safely.";
         if(myLevel > enemyLevel){
             XPEarned = Math.floor((enemyLevel*myLevel)/2);
         }
@@ -285,8 +293,8 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
 
     var Warrior = Parse.Object.extend("Warrior");
     var warrior = new Warrior();
-    warrior.setWarriorAfterFight(window.localStorage.getItem('local_user_id'), myLife, newLevel, myExp, myCoins, myKills, myDeaths);
-    warrior.setWarriorAfterFight(enemy.get("userId").id, enemyLife, enemyLevel, enemyExp, enemyCoins, enemyKills, enemyDeaths); 
+    warrior.setWarriorAfterFight(window.localStorage.getItem('local_user_id'), myLife, newLevel, myExp, myCoins, myKills, myDeaths, esito);
+    warrior.setWarriorAfterFight(enemy.get("userId").id, enemyLife, enemyLevel, enemyExp, enemyCoins, enemyKills, enemyDeaths, esito); 
 
     // --------------------------------------
     //Presentiamo i risultati
