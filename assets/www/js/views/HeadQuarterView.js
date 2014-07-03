@@ -33,7 +33,7 @@ var HeadQuarterView = Parse.View.extend({
 	    	   success: function  (results) {
 	   			   var warrior = results[0];
 	   			   self.model = warrior;
-	   			   self.model.bind("change",self.render,self);
+	   			   self.model.bind("all",self.render,self);
 	   			   
    			   		navigator.geolocation.getCurrentPosition(function (position) {
 
@@ -50,7 +50,7 @@ var HeadQuarterView = Parse.View.extend({
                         dataType : "json",
                         success: function (data, status, jqXHR) {
                         			self.model.set("position", JSON.stringify(position));
-                              		self.model.save();
+                              		//self.model.save();
                                 },
 
                                 error: function (jqXHR, status) {
