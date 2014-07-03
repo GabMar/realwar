@@ -1308,6 +1308,11 @@ border-radius: 5px;
     left: 15%;
 }
 
+#change_avatar_image_div {
+    position: relative;
+    left: 10%;
+}
+
 /* FINE SETTINGS */
 
 /* LOGIN */
