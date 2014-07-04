@@ -22,6 +22,20 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		        var email = this.$("#reg-email").val();
 		        var password = this.$("#reg-password").val();
 		        var image = $('.avatar_img_sel').attr('src');
+		        var email_reg_exp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
+				if ((username == "") || (username == "undefined") || (username.length > 10)) {
+					alert("Il campo Username è obbligatorio, e deve essere inferiore di 10 caratteri!");
+					$('#signinMain').show();
+	    			$('#spinner_reg').hide();
+					return false;
+				}
+		        else if (!email_reg_exp.test(email) || (email == "") || (email == "undefined")) {
+					alert("Inserire un indirizzo email corretto.");
+					$('#signinMain').show();
+	    			$('#spinner_reg').hide();
+					$("#reg-email").select();
+					return false;
+					}else{
 		        var user = new Parse.User();
 				user.set("username", username);
 				user.set("password", password);
@@ -39,10 +53,14 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 				  error: function(user, error) {
 				    // Show the error message somewhere and let the user try again.
 				    alert("Error: " + error.code + " " + error.message);
+				    window.localStorage.clear();
+				    $('#signinMain').show();
+	    			$('#spinner_reg').hide();
 				  }
 				});
 		        
-		    return false;   
+		    return false;  
+		    } 
 			},
 
 			load_avatar_untouched: function() {
