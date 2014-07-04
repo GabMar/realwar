@@ -1301,6 +1301,11 @@ h4 {
     margin-top: 50%;
 }
 
+#spinner_score{
+    position: relative;
+    top: 38%;
+}
+
 @-moz-keyframes spin {
     0% {
         -moz-transform: rotate(0deg);

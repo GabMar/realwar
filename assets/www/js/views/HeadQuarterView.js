@@ -28,43 +28,44 @@ var HeadQuarterView = Parse.View.extend({
 
 
 	   showStats: function() {
-		 $('#Stats').css("background-color", "#20A715");
-         $('#Stats').css("color","#051E07");
-         $('#Score').css("background-color", "rgb(5, 31, 7)");
-         $('#Score').css("color","white");
-         $('#Equip').css("background-color", "rgb(5, 31, 7)");
-         $('#Equip').css("color","white");
-         var page = new HeadQuarterStatsView();
-         this.contents = $("#hqContent");
-         this.contents.empty();
-         this.contents.append($(page.el));
+		$('#Stats').css("background-color", "#20A715");
+		$('#Stats').css("color","#051E07");
+		$('#Score').css("background-color", "rgb(5, 31, 7)");
+		$('#Score').css("color","white");
+		$('#Equip').css("background-color", "rgb(5, 31, 7)");
+		$('#Equip').css("color","white");
+		var page = new HeadQuarterStatsView();
+		this.contents = $("#hqContent");
+		this.contents.empty();
+		this.contents.append($(page.el));
 
 	   },
 
 	   showEquip: function () {
-		 $('#Equip').css("background-color", "#20A715");
-         $('#Equip').css("color","#051E07");
-         $('#Stats').css("background-color", "rgb(5, 31, 7)");
-         $('#Stats').css("color","white");
-         $('#Score').css("background-color", "rgb(5, 31, 7)");
-         $('#Score').css("color","white");
-         var page = new HeadQuarterEquipView();
-         this.contents = $("#hqContent");
-         this.contents.empty();
-         this.contents.append($(page.el));
+		$('#Equip').css("background-color", "#20A715");
+		$('#Equip').css("color","#051E07");
+		$('#Stats').css("background-color", "rgb(5, 31, 7)");
+		$('#Stats').css("color","white");
+		$('#Score').css("background-color", "rgb(5, 31, 7)");
+		$('#Score').css("color","white");
+		var page = new HeadQuarterEquipView();
+		this.contents = $("#hqContent");
+		this.contents.empty();
+		this.contents.append($(page.el));
         },
 
         showScore: function() {
-		 $('#Score').css("background-color", "#20A715");
-         $('#Score').css("color","#051E07");
-         $('#Stats').css("background-color", "rgb(5, 31, 7)");
-         $('#Stats').css("color","white");
-         $('#Equip').css("background-color", "rgb(5, 31, 7)");
-         $('#Equip').css("color","white");
-         var page = new HeadQuarterScoreView();
-         this.contents = $("#hqContent");
-         this.contents.empty();
-         this.contents.append($(page.el));
+    	$('#spinner_equip').show();
+		$('#Score').css("background-color", "#20A715");
+		$('#Score').css("color","#051E07");
+		$('#Stats').css("background-color", "rgb(5, 31, 7)");
+		$('#Stats').css("color","white");
+		$('#Equip').css("background-color", "rgb(5, 31, 7)");
+		$('#Equip').css("color","white");
+		var page = new HeadQuarterScoreView();
+		this.contents = $("#hqContent");
+		this.contents.empty();
+		this.contents.append($(page.el));
 
         },
 
