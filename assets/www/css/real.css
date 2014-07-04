@@ -748,7 +748,7 @@ h4 {
 }
 
 .weaponsInfo{
-    height: 80px;
+    height: 90px;
     width: 100%;
 }
 
@@ -847,7 +847,6 @@ h4 {
 #itemMarketDetails{
     margin-top: 5%;
     width: 97%;
-    height: 38%;
     margin-left: 1%;
     border-top: 1px solid rgba(47, 228, 59, 0.4);
     border-bottom: 1px solid rgba(47, 228, 59, 0.4);
@@ -877,7 +876,8 @@ h4 {
 }
 
 #itemMarketDetailsInfo h1{
-    text-align: left;
+    text-align: right;
+    margin-right: 17px;
     font-size: 1.5em;
     margin-top: 4%;
     color: rgba(47, 228, 59, 0.9);;
@@ -885,7 +885,7 @@ h4 {
 }
 
 #itemMarketDetailsInfo p{
-    text-align: left;
+    text-align: right;
     margin-top: -1%;
     font-size: 1.2em;
     color: white;
@@ -914,7 +914,7 @@ h4 {
 }
 
 #itemMarketBuy p{
-    text-align: left;
+    text-align: right;
     margin-left: 5%;
     margin-top: 5%;
     font-size: 1.2em;
