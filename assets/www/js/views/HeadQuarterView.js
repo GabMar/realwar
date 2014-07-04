@@ -10,9 +10,9 @@ var HeadQuarterView = Parse.View.extend({
 	   template: Handlebars.compile(template),
 
 	    events: {
-	    	"touchend #showStats": "showStats",
-          	"touchend #showEquip": "showEquip",
-          	"touchend #showScore": "showScore"
+	    	"touchend #Stats": "showStats",
+          	"touchend #Equip": "showEquip",
+          	"touchend #Score": "showScore"
         },
 	   
 	   initialize: function () {
@@ -28,11 +28,13 @@ var HeadQuarterView = Parse.View.extend({
 
 
 	   showStats: function() {
-	   	 $('#Equip').removeClass("active");
-         $('#Score').removeClass("active");
-         $('#Stats').addClass("active");
+		 $('#Stats').css("background-color", "#20A715");
+         $('#Stats').css("color","#051E07");
+         $('#Score').css("background-color", "rgb(5, 31, 7)");
+         $('#Score').css("color","white");
+         $('#Equip').css("background-color", "rgb(5, 31, 7)");
+         $('#Equip').css("color","white");
          var page = new HeadQuarterStatsView();
-         //this.structureView = new StructureView();
          this.contents = $("#hqContent");
          this.contents.empty();
          this.contents.append($(page.el));
@@ -40,22 +42,26 @@ var HeadQuarterView = Parse.View.extend({
 	   },
 
 	   showEquip: function () {
-         $('#Stats').removeClass("active");
-         $('#Score').removeClass("active");
-         $('#Equip').addClass("active");
+		 $('#Equip').css("background-color", "#20A715");
+         $('#Equip').css("color","#051E07");
+         $('#Stats').css("background-color", "rgb(5, 31, 7)");
+         $('#Stats').css("color","white");
+         $('#Score').css("background-color", "rgb(5, 31, 7)");
+         $('#Score').css("color","white");
          var page = new HeadQuarterEquipView();
-         //this.structureView = new StructureView();
          this.contents = $("#hqContent");
          this.contents.empty();
          this.contents.append($(page.el));
         },
 
         showScore: function() {
-         $('#Equip').removeClass("active");
-         $('#Stats').removeClass("active");
-         $('#Score').addClass("active");
+		 $('#Score').css("background-color", "#20A715");
+         $('#Score').css("color","#051E07");
+         $('#Stats').css("background-color", "rgb(5, 31, 7)");
+         $('#Stats').css("color","white");
+         $('#Equip').css("background-color", "rgb(5, 31, 7)");
+         $('#Equip').css("color","white");
          var page = new HeadQuarterScoreView();
-         //this.structureView = new StructureView();
          this.contents = $("#hqContent");
          this.contents.empty();
          this.contents.append($(page.el));

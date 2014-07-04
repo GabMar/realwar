@@ -368,7 +368,7 @@ margin-left: 27px;
 width: 98%;
 height: 50%;
 position: absolute;
-top: 39%;
+top: 42%;
 left: 1%;
 border: 1px solid rgba(47, 228, 59, 0.4);
 border-radius: 4px;
@@ -533,7 +533,7 @@ margin-bottom: 10px;
 
 #scores{
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
 }
 
 #imgScores{
