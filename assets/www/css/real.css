@@ -752,16 +752,6 @@ h4 {
     width: 100%;
 }
 
-.info {
-    margin-right: 17px;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    text-align: right;
-    color: white;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 16px;
-}
-
 .avatarWeap {
     /*margin-left: 22px;
     margin-top: 2%;*/
@@ -913,9 +903,9 @@ h4 {
 }
 
 #itemMarketBuy{
-    margin-top: 20%;
-    width: 99%;
-    height: 100%;
+    margin-top: 10%;
+    width: 97%;
+    height: 35%;
     margin-left: 1%;
     border-top: 1px solid rgba(47, 228, 59, 0.4);
     border-bottom: 1px solid rgba(47, 228, 59, 0.4);
@@ -934,7 +924,7 @@ h4 {
 #buyItem{
     width: 35%;
     height: 35%;
-    margin-top: 15%;
+    margin-top: 10%;
     margin-right: 5%;
     float: right;
     font-size: 1em;
@@ -956,8 +946,9 @@ h4 {
 #sellItem{
     width: 35%;
     height: 35%;
-    margin-top: 15%;
     float: right;
+    margin-top: 10%;
+    margin-right: 5%;
     font-size: 1em;
     text-align: center;
     font-family: 'Orbitron', sans-serif;
@@ -977,7 +968,7 @@ h4 {
 #loadItem{
     width: 35%;
     height: 35%;
-    margin-top: 15%;
+    margin-top: 10%;
     margin-right: 5%;
     float: right;
     font-size: 0.8em;
@@ -990,48 +981,10 @@ h4 {
     opacity: 0.5;
 }
 
-
-#equips{
-    position: absolute;
-    right: 1em;
-    top: 18em;
-    border-right: none;
-    background-color: #20A715;
-    color: #051E07;
-}
-
-#equipped{
-    position: absolute;
-    right: 1em;
-    top: 18em;
-    border-right: none;
-}
-
-#equippedl{
-    float:left;
-    background-color: #20A715;
-    color: #051E07;
-}
-
-.stamp{
--webkit-transform: rotate(-45deg);
-position: absolute;
-top: 46%;
-padding: 2px;
-left: 1px;
-width: 100px;
-z-index: 99;
-text-align: center;
-background-color:#051E07;
-color:  #20A715;
-font-family: 'Orbitron', sans-serif;
-border-radius: 5px;
-}
-
 #back{
     width: 35%;
     height: 35%;
-    margin-top: 15%;
+    margin-top: 10%;
     margin-left: 5%;
     font-size: 1em;
     text-align: center;
@@ -1047,12 +1000,6 @@ border-radius: 5px;
     color: rgb(3, 35, 5);
     background-color: rgb(47, 228, 59);
     border-color: rgb(3, 35, 5);
-}
-
-#detailsName{
-    position: absolute;
-    top: 1em;
-    right: 1em;
 }
 
 #detailsAttack{
@@ -1105,36 +1052,85 @@ border-radius: 5px;
     padding-left: 0px; parte che non serve più */
 }
 #equipmentContainer{
-    margin-top:62px;
+    height: 100%;
+    width: 97%;
+    margin-left: 1%;
+    margin-top: 15%;
+    border: 1px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+}
+
+#equipmentContainer h4{
+    text-align: left;
+    font-size: 1.2em;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    margin-left: 2%;
 }
 
 #equipmentList{
     width: 100%;
-    padding-bottom: 46px; /*
-    right: 10px;
-    left: 10px;
-    align-content: center;
-    width: 300px;
-    padding-left: 0px; parte che non serve più */
-}
-#equipmentList li {
-    padding: 1rem;
-    border-style: solid;
-    /*border-left-style: double;*/
-   /*border-right-style: double;*/
-    border-left-width: 0px;
-    border-right-width: 0px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    border-color: rgb(47, 228, 59);
-    display: block;
-    overflow: auto;
+    height: 100%;
+    padding-bottom: 10px; 
 }
 
-#equipmentDetail{
-    margin-top:62px;
+.weaponsEquipInfo{
+    width: 97%;
+    height: 90px;
+    margin-top: 2%;
+    margin-left: 1%;
+    border: 2px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+}
+
+#weaponsEquipInfoImg{
+    width: 30%;
+    margin-left: 1%;
+    margin-top: 2%;
+    border-radius: 4px;
+    float: left;
+}
+
+#weaponsEquipInfoImg img{
+    width: 70%;
+}
+
+.stamp{
+    width: 20%;
+    height: 20px;
+    margin-top: 60px;
+    margin-left: -20%;
+    z-index: 100;
+    text-align: center;
+    background-color:#051E07;
+    color:  #20A715;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8em;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    position: fixed;
+}
+
+#weaponsEquipInfoDetails{
+    width: 65%;
+    margin-left: 35%;
+    margin-top: 2%;
+}
+
+#weaponsEquipInfoDetails h1{
+    text-align: left;
+    font-size: 1.2em;
+    margin-top: 2%;
+    color: rgba(47, 228, 59, 0.9);;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#weaponsEquipInfoDetails p{
+    text-align: left;
+    margin-top: 0;
+    font-size: 0.9em;
+    font-family: 'Orbitron', sans-serif;
+
 }
 
 #weaponslist li {
@@ -1151,6 +1147,143 @@ border-radius: 5px;
     border-color: rgb(47, 228, 59);
     display: block;
     height: 60px;
+}
+
+#equipmentDetail{
+    top: 10%;
+    position: absolute;
+    width: 97%;
+    height: 80%;
+    border: 1px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+    margin-left: 1%;
+}
+
+#itemEquipDetails{
+    margin-top: 5%;
+    width: 97%;
+    height: 38%;
+    margin-left: 1%;
+    border-top: 1px solid rgba(47, 228, 59, 0.4);
+    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+}
+
+
+#itemEquipDetailsImg{
+    width: 40%;
+    margin-left: 5%;
+    margin-top: 5%;
+    float: left;
+}
+
+#itemEquipDetailsImg img{
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-left: 1%;
+    width: 90%;
+}
+}
+
+#itemEquipDetailsInfo{
+    width: 40%;
+    height: 20%;
+    margin-left: 55%;
+}
+
+#itemEquipDetailsInfo h1{
+    text-align: left;
+    font-size: 1.5em;
+    margin-top: 4%;
+    color: rgba(47, 228, 59, 0.9);;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#itemEquipDetailsInfo p{
+    text-align: left;
+    margin-top: -1%;
+    font-size: 1.2em;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+
+#itemEquipButton{
+    margin-top: 10%;
+    width: 97%;
+    height: 20%;
+    margin-left: 1%;
+    border-top: 1px solid rgba(47, 228, 59, 0.4);
+    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+
+}
+
+#itemEquipBuy p{
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: 1.2em;
+
+}
+
+#equips{
+    width: 35%;
+    height: 60%;
+    margin-top: 5%;
+    margin-right: 5%;
+    float: right;
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgb(3, 35, 5);
+    opacity: 1;
+}
+
+#equips:hover{
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
+}
+
+#equipped{
+    width: 35%;
+    height: 60%;
+    margin-top: 5%;
+    margin-right: 5%;
+    float: right;
+    font-size: 0.8em;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgb(3, 35, 5);
+    opacity: 0.5;
+}
+
+#equipBack{
+    width: 35%;
+    height: 60%;
+    margin-top: 5%;
+    margin-left: 5%;
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgb(3, 35, 5);
+    opacity: 1;
+}
+
+#equipBack:hover{
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
 }
 
 

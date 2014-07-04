@@ -1,16 +1,24 @@
-{{#if [model].image}}
-<img class="detailsImgEquip" src="./{{[model].image}}" />{{else}}
-<img class="detailsImgEquip" src="./images/gun.jpg" />{{/if}}
+<div id="itemEquipDetails">
+	<div id="itemEquipDetailsImg">
+		{{#if [model].image}}
+		<img class="detailsImgEquip" src="./{{[model].image}}" />
+		{{else}}
+		<img class="detailsImgEquip" src="./images/gun.jpg" />
+		{{/if}}
+	</div>
 
-<p class="info">Name: {{[model].name}}</p>
-<p class="info">Attack: {{[model].attack}}</p>
-<p class="info">Range: {{[model].range}} m</p>
+	<div id="itemEquipDetailsInfo">
+		<h1>{{[model].name}}</h1>
+		<p>Attack: {{[model].attack}}</p>
+		<p>Range: {{[model].range}} m</p>
+	</div>
+</div>
 
-
-{{#if [equipped]}}
-<button class="topcoat-button" id="equipped">Equipped</div>
-{{else}}
-<button class="topcoat-button" id="equips">Equip</div>
-{{/if}}
-
-<button class="topcoat-button" id="back">back</div>
+<div id="itemEquipButton">
+	{{#if [equipped]}}
+	<button id="equipped">Equipped</button>
+	{{else}}
+	<button id="equips">Equip</button>
+	{{/if}}
+	<button id="equipBack">Back</button>
+</div>

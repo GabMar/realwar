@@ -1,15 +1,17 @@
-<div class="weaponsInfo">
-{{#if [weapon].image}}
- <img class="avatarEquip" src="{{[weapon].image}}"/>
-{{else}}
-<img class="avatarEquip" src="./images/gun.jpg"/>
-{{/if}}
-{{#if [equipped]}}
-<span class="stamp">Equipped</span>
-{{/if}}
-
-		<p class="info">{{[weapon].name}}</p>
+<div class="weaponsEquipInfo">
+	<div id="weaponsEquipInfoImg">
+		{{#if [weapon].image}}
+		<img class="avatarEquip" src="{{[weapon].image}}"/>
+		{{else}}
+		<img class="avatarEquip" src="./images/gun.jpg"/>
+		{{/if}}
+		{{#if [equipped]}}
+		<span class="stamp">Equipped</span>
+		{{/if}}
+	</div>
+	<div id="weaponsEquipInfoDetails">
+		<h1 class="info">{{[weapon].name}}</h1>
 		<p class="info">Range: {{ [weapon].range }}</p>
 		<p class="info">Attack: {{[weapon].attack}}</p>
-
+	</div>
 </div>

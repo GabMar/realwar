@@ -1,15 +1,16 @@
-<div class="armorsInfo">
-{{#if [armor].image}}
- <img class="avatarEquip" src="{{[armor].image}}"/>
-{{else}}
-<img class="avatarEquip" src="./images/armor.jpg"/>
-{{/if}}
-
-
-{{#if [equipped]}}
-<button class="topcoat-button" id="equippedl" >Equipped</button>
-{{/if}}
-		<p class="info">{{[armor].name}}</p>
+<div class="weaponsEquipInfo">
+	<div id="weaponsEquipInfoImg">
+		{{#if [armor].image}}
+ 		<img class="avatarEquip" src="{{[armor].image}}"/>
+		{{else}}
+		<img class="avatarEquip" src="./images/armor.jpg"/>
+		{{/if}}
+		{{#if [equipped]}}
+		<span class="stamp">Equipped</span>
+		{{/if}}
+	</div>
+	<div id="weaponsEquipInfoDetails">
+		<h1 class="info">{{[armor].name}}</h1>
 		<p class="info">Defense: {{ [armor].defense }}</p>
-
+	</div>
 </div>

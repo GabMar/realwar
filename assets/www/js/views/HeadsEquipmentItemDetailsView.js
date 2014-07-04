@@ -10,7 +10,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/heads-equ
 
         events: {
           "touchend #equips": "equips",
-          "touchend #back": "goBack"
+          "touchend #equipBack": "goBack"
         },
 
         initialize: function (headId) {
