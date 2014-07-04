@@ -30,7 +30,7 @@ define(["jquery", "underscore", "parse"],
         var point = new Parse.GeoPoint({latitude: 40.0, longitude: -30.0});
         this.set("position", point);
         var id_wep = "NolqCh0kmx";
-        var id_he = "rBYFAiiooM";
+        var id_he = "Z87hfdZpQb";
         var id_ar = "TkEbud8xlf";
         this.set("weapon", {__type: "Pointer", className: "Weapon",objectId: id_wep});
         this.set("head", {__type: "Pointer", className: "Head", objectId: id_he});
@@ -192,7 +192,7 @@ define(["jquery", "underscore", "parse"],
               }
               });
 
-        queryHead.get("rBYFAiiooM", {
+        queryHead.get("Z87hfdZpQb", {
               success: function(head) {
                 window.localStorage.setItem("head",JSON.stringify(head));
               },
