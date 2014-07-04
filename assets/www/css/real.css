@@ -1,20 +1,6 @@
-@font-face {
-font-family:"Source Sans";
-src:url(../font/SourceSansPro-Regular.otf);
-font-family: 'Orbitron', sans-serif;
-src:url(http://fonts.googleapis.com/css?family=Orbitron);
-}
-
-@font-face {
-font-family:"Source Sans";
-src:url(http://fonts.googleapis.com/css?family=Orbitron);
-font-weight:200;
-}
-
-@font-face {
-font-family:"Source Sans";
-src:url(http://fonts.googleapis.com/css?family=Orbitron);
-font-weight:600;
+@font-face{
+    font-family:'Orbitron';
+    src: url('../font/Orbitron.ttf') format('truetype');
 }
 
 /* {
@@ -28,9 +14,6 @@ margin:0;
 padding:0;
 background:rgb(0, 1, 0);
 color:#000;
-font:16px "Source Sans",helvetica,arial,sans-serif;
-font-weight:200;
-text-rendering:optimizeLegibility;
 }
 
 p {
