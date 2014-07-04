@@ -32,7 +32,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 	            	 	var Warrior = Parse.Object.extend("Warrior");
 	            	 	var warrior = new Warrior();
 						warrior.setLocalWarrior(user.id);
-	            	 	Parse.history.navigate("structure", {trigger:true});
+						setTimeout(function(){Parse.history.navigate("structure", {trigger:true});}, 7000);
+	            	 	
 
 
 		            	

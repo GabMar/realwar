@@ -21,56 +21,7 @@ var HeadQuarterView = Parse.View.extend({
 		   var id = window.localStorage.getItem('local_user_id');
 		   var Warrior_life = Parse.Object.extend("Warrior");
 		   var warrior = new Warrior_life();
-		   //warrior.updateLife(id);
 		   setInterval(function(){warrior.updateLife(id);}, 300000);
-	       var query = new Parse.Query(Warrior);
-	       
-	       query.equalTo("userId", {
-	    	   						__type: "Pointer",
-	    	   						className: "_User",
-	    	   						objectId: id
-	       });
-	       
-	       query.find({
-	    	   success: function  (results) {
-	   			   var warrior = results[0];
-	   			   self.model = warrior;
-	   			   self.model.bind("all",self.render,self);
-	   			   
-   			   		navigator.geolocation.getCurrentPosition(function (position) {
-
-	   				// aggiorniamo nostra posizione su parse
-                    $.ajax({
-                        type : 'PUT',
-                        headers: {
-                        'X-Parse-Application-Id' : "PHYN9yjJLqmSo0xACd63oypUBUcx4q0eLHBvoozY",
-                        'X-Parse-REST-API-Key' : "VSn4lvHnF3EKZmVPox8rRA7Eol3X9r7M8blvQWfC"
-                        },
-                        url: "https://api.parse.com/1/classes/Warrior/"+window.localStorage.getItem("local_warrior_id"),
-                        data:  JSON.stringify({"position" : self.model.position}),
-                        contentType: "application/json; charset=utf-8",
-                        dataType : "json",
-                        success: function (data, status, jqXHR) {
-                        			self.model.set("position", JSON.stringify(position));
-                              		//self.model.save();
-                                },
-
-                                error: function (jqXHR, status) {
-                                   // error handler
-                                   console.log(jqXHR);
-                                }
-                    });
-	                
-	            }, function() {});
-
-	   			   
-	   			},
-	   		
-	   			error:function(object,error){
-					alert(error);
-	   			}
-	   		
-	       });
 	   },
 
 

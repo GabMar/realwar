@@ -62,7 +62,7 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "models/Warrio
       $('#toolbar').css("display","block");
       $('#fire').css("display","none");
       var page = new HeadQuarterView();
-      this.changePageNoRender(page);
+      this.changePage(page);
     },
     
       market: function () {
