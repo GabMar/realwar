@@ -39,7 +39,6 @@ define(["jquery", "underscore", "parse"],
          
         this.save(null, {
           success: function(warrior) {
-            alert('New object created with objectId: ' + warrior.id);
             window.localStorage.setItem("local_warrior_id", warrior.id);
             $.ajax({
                               type: 'PUT',

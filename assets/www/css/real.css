@@ -1306,6 +1306,12 @@ h4 {
     top: 38%;
 }
 
+#spinner_reg{
+    top: 50%;
+    margin: 0px;
+    margin-top: 50%;
+}
+
 @-moz-keyframes spin {
     0% {
         -moz-transform: rotate(0deg);

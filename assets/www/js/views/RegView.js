@@ -16,6 +16,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		      },
 		
 		    reg: function(e) {
+		    	$('#signinMain').hide();
+		    	$('#spinner_reg').show();
 		        var username = this.$("#reg-username").val();
 		        var email = this.$("#reg-email").val();
 		        var password = this.$("#reg-password").val();
