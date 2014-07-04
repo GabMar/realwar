@@ -107,7 +107,7 @@ define(["jquery", "underscore", "parse"],
                   window.localStorage.setItem("local_user_id", user.id);
                   var Warrior = Parse.Object.extend("Warrior");
                   var warrior = new Warrior();
-                  Parse.history.navigate('structure', {trigger:true});
+                  
                 
                     }
           
