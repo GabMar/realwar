@@ -17,7 +17,6 @@ function ($, _, Parse, Handlebars, RankCollection, HeadQuarterScoreView, ScoreIt
         },
 
         render: function (eventName) {
-            $('#spinner_equip').hide();
             var ul = $(this.el).html(this.template);
             for(i=this.classifica.length;i>0;i--){ //for al contrario per ordinamento decrescente
                 $(ul).find('#ScoreList').append(new ScoreItemView({ //mi appende dentro this.el un elemento della lista
