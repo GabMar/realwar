@@ -16,12 +16,13 @@ var HeadQuarterView = Parse.View.extend({
         },
 	   
 	   initialize: function () {
-		   self=this;
-		   self.model = new Warrior();
-		   var id = window.localStorage.getItem('local_user_id');
-		   var Warrior_life = Parse.Object.extend("Warrior");
-		   var warrior = new Warrior_life();
-		   setInterval(function(){warrior.updateLife(id);}, 300000);
+		self=this;
+		self.model = new Warrior();
+		var id = window.localStorage.getItem('local_user_id');
+		var Warrior_life = Parse.Object.extend("Warrior");
+		var warrior = new Warrior_life();
+		setInterval(function(){warrior.updateLife(id);}, 300000);
+		setTimeout(function(){$('.progress').attr('value', JSON.parse(window.localStorage.getItem("warrior")).life);}, 4000);
 	   },
 
 
@@ -62,11 +63,6 @@ var HeadQuarterView = Parse.View.extend({
         },
 
 	   render: function(eventName) {
-		if(window.localStorage.getItem("warrior") != undefined)
-			{	 
-				
-				//var warrior= JSON.parse(JSON.stringify(self.model));
-				//warrior.cid = self.model.cid;
 				$(self.el).empty();
 				var context={
 					localWarrior:JSON.parse(window.localStorage.getItem("warrior")),
@@ -79,10 +75,9 @@ var HeadQuarterView = Parse.View.extend({
 					armor: JSON.parse(window.localStorage.getItem("head")).defense+JSON.parse(window.localStorage.getItem("armor")).defense
 				}
 				$(self.el).html(self.template(context));
-				$('.progress').attr('value', JSON.parse(window.localStorage.getItem("warrior")).life);
 				$("#spinner").hide();
             return self;
-        }
+        
 		   
         }
 	
