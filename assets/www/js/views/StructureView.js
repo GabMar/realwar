@@ -22,6 +22,7 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
         },
 
         goBack: function () {
+          $('#toolbar').css("display","block");
           window.history.back();
         },
 

@@ -60,7 +60,6 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "models/Warrio
       $('#headQuarterButton').addClass("headQuarterButtonActive");
       $('#marketButton').addClass("marketButton");
       $('#toolbar').css("display","block");
-      $('#fire').css("display","none");
       var page = new HeadQuarterView();
       this.changePage(page);
     },
@@ -74,7 +73,6 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "models/Warrio
       $('#headQuarterButton').addClass("headQuarterButton");
       $('#marketButton').addClass("marketButtonActive");
       $('#toolbar').css("display","block");
-      $('#fire').css("display","none");
       var page = new WeaponsMarketView();
       this.changePageNoRender(page);
       },
@@ -82,7 +80,6 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "models/Warrio
     
       map: function () {
          $('#toolbar').css("display","none");
-         $('#fire').css("display","block");
         var page = new MapView({
           model: this.users
         });
