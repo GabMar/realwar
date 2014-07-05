@@ -35,6 +35,9 @@ define(["jquery", "underscore", "parse"],
         this.set("weapon", {__type: "Pointer", className: "Weapon",objectId: id_wep});
         this.set("head", {__type: "Pointer", className: "Head", objectId: id_he});
         this.set("armor", {__type: "Pointer", className: "Armor", objectId: id_ar});
+        var d = new Date();
+        var presentTimestamp = d.getTime();
+        this.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
 
          
         this.save(null, {
@@ -190,8 +193,8 @@ define(["jquery", "underscore", "parse"],
         queryWeapon.get("NolqCh0kmx", {
               success: function(weapon) {
                   window.localStorage.setItem("weapon",JSON.stringify(weapon));
-                  self.model.set("coins", warrior.get("coins"));
-                  self.model.save();
+                  //self.model.set("coins", warrior.get("coins"));
+                  //self.model.save();
               },
               error:function(object,error){
                 alert("Errore1: "+error);
