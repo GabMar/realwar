@@ -1,7 +1,7 @@
 define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsListCollection","views/WeaponsEquipmentView", "text!templates/headquarter-equip.html"],
 function ($, _, Parse, Handlebars, WeaponsListCollection, WeaponsEquipmentView, template) {
-	
-	var HeadQuarterEquipView = Parse.View.extend({
+    
+    var HeadQuarterEquipView = Parse.View.extend({
 
         tagName: "div", //si aggiunge un div con id, non cambia molto
         id: "listaEquip",
@@ -9,17 +9,17 @@ function ($, _, Parse, Handlebars, WeaponsListCollection, WeaponsEquipmentView, 
         template: Handlebars.compile(template),
 
         events: {
-                "tap #hqEquipWeap": "goToWeaponsEquip",
-                "tap #hqEquipHead": "goToHeadEquip",
-                "tap #hqEquipArm": "goToArmorEquip"
+                "touchend #hqEquipWeap": "goToWeaponsEquip",
+                "touchend #hqEquipHead": "goToHeadEquip",
+                "touchend #hqEquipArm": "goToArmorEquip"
             },
 
         initialize: function () {
-        	this.render();
+            this.render();
         },
 
         render: function (eventName) {
-        	var weapon = JSON.parse(window.localStorage.getItem("weapon"));
+            var weapon = JSON.parse(window.localStorage.getItem("weapon"));
                 var head = JSON.parse(window.localStorage.getItem("head"));
                 var armor = JSON.parse(window.localStorage.getItem("armor"));
                 //weapon.cid = this.model.cid;
@@ -45,5 +45,5 @@ function ($, _, Parse, Handlebars, WeaponsListCollection, WeaponsEquipmentView, 
     });
 
     return HeadQuarterEquipView;
-	
+    
 });

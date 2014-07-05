@@ -64,8 +64,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 			},
 
 			load_avatar_untouched: function() {
-				$('.load_avatar_untouched').hide();
-				$('.load_avatar_touched').show();
+				$('.load_avatar_untouched').addClass("load_avatar_touched").removeClass("load_avatar_untouched");
+				//$('.load_avatar_touched').show();
 				$('#avatar_scelta').show();
 				$(".avatar_img_s").on('click', function(){
 		        $('.avatar_img_s').removeClass("avatar_img_sel");
@@ -74,8 +74,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 			},
 
 			load_avatar_touched: function() {
-				$('.load_avatar_touched').hide();
-				$('.load_avatar_untouched').show();
+				$('.load_avatar_touched').addClass("load_avatar_untouched").removeClass("load_avatar_touched");
+				//$('.load_avatar_untouched').show();
 				$('.avatar_img_s').removeClass("avatar_img_sel");
 				$('#avatar_scelta').hide();
 			},
