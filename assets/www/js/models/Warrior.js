@@ -142,7 +142,11 @@ define(["jquery", "underscore", "parse"],
               var presentTimestamp = d.getTime();
               var life = object.get("life");
               var restLife = Math.round((presentTimestamp - lastUpdateTimestamp)/60000);
-              if ((life + restLife) > 100){ object.set("life", 100);}else{object.set("life", (life + restLife));};
+              if ((life + restLife) > 100){ 
+                object.set("life", 100);
+              }else if(life < 0){
+                object.set("life", 100);
+              }else{object.set("life", (life + restLife));};
               object.set("lastUpdateTimestamp", presentTimestamp);
               object.save();
               window.localStorage.setItem("warrior",JSON.stringify(object));
