@@ -134,8 +134,15 @@ define(["jquery", "underscore", "parse"],
             for (var i = 0; i < results.length; i++) { 
               var object = results[i];
               window.localStorage.setItem("local_warrior_id", object.id);
+              var lastUpdateTimestamp = object.get("lastUpdateTimestamp");
+              var d = new Date();
+              var presentTimestamp = d.getTime();
+              var life = object.get("life");
+              var restLife = Math.round((presentTimestamp - lastUpdateTimestamp)/60000);
+              if ((life + restLife) > 100){ object.set("life", 100);}else{object.set("life", (life + restLife));};
+              object.set("lastUpdateTimestamp", presentTimestamp);
+              object.save();
               window.localStorage.setItem("warrior",JSON.stringify(object));
-              //alert(JSON.stringify(object.updatedAt));
               queryWeapon.get(object.get("weapon").id, {
               success: function(weapon) {
                   window.localStorage.setItem("weapon",JSON.stringify(weapon)); 
@@ -219,6 +226,9 @@ define(["jquery", "underscore", "parse"],
             for (var i = 0; i < results.length; i++) { 
               var object = results[i];
               object.set("image", image_change);
+              var d = new Date();
+              var presentTimestamp = d.getTime();
+              object.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
               object.save();
               window.localStorage.setItem("warrior",JSON.stringify(object));
             }
@@ -237,6 +247,9 @@ define(["jquery", "underscore", "parse"],
             for (var i = 0; i < results.length; i++) { 
               var object = results[i];
               object.set("nick", username_change);
+              var d = new Date();
+              var presentTimestamp = d.getTime();
+              object.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
               object.save();
               window.localStorage.setItem("warrior",JSON.stringify(object));
             }
@@ -276,6 +289,9 @@ define(["jquery", "underscore", "parse"],
             object.set("coins", coins);
             object.set("kills", kills);
             object.set("deaths",deaths);
+            var d = new Date();
+            var presentTimestamp = d.getTime();
+            object.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
             object.save();
 
             if(user_id == window.localStorage.getItem("local_user_id")){
@@ -315,6 +331,9 @@ define(["jquery", "underscore", "parse"],
             if(life < 100){
             object.set("life", life + 5);
             $('.progress').attr('value', life + 5);
+            var d = new Date();
+            var presentTimestamp = d.getTime();
+            object.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
             object.save();
             window.localStorage.setItem("warrior",JSON.stringify(object));
           }
