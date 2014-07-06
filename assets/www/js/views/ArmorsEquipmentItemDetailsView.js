@@ -28,33 +28,9 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/armors-eq
         },
 
         equips: function () {
-        var warrior = Parse.Object.extend("Warrior");
-        var armorClass = Parse.Object.extend("Armor");
-        var query = new Parse.Query(warrior);
-        var queryArmor = new Parse.Query(armorClass);
-         query.equalTo("objectId", window.localStorage.getItem("local_warrior_id"));
-         query.find({
-           success: function  (results) {
-             var warrior = results[0];
-                         
-             queryArmor.get(self.model.objectId, {
-              success: function(armor) {
-                  window.localStorage.setItem("armor",JSON.stringify(armor));
-                  warrior.set("armor",armor);
-                  warrior.save();
-                  self.goBack();
-              },
-              error:function(object,error){
-                alert("Errore1: "+error);
-              }
-            });
-             },
-        
-          error:function(object,error){
-          alert(error);
-          }
-        
-         });
+        var Armor = Parse.Object.extend("Armor");
+        var armor = new Armor();
+        armor.equipThis(self, self.model.objectId);
      },
 
 

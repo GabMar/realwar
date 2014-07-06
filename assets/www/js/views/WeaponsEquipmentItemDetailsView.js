@@ -28,33 +28,9 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/weapons-e
         },
 
         equips: function () {
-        var warrior = Parse.Object.extend("Warrior");
-        var weaponClass = Parse.Object.extend("Weapon");
-        var query = new Parse.Query(warrior);
-        var queryWeapon = new Parse.Query(weaponClass);
-         query.equalTo("objectId", window.localStorage.getItem("local_warrior_id"));
-         query.find({
-           success: function  (results) {
-             var warrior = results[0];
-                         
-             queryWeapon.get(self.model.objectId, {
-              success: function(weapon) {
-                  window.localStorage.setItem("weapon",JSON.stringify(weapon));
-                  warrior.set("weapon",weapon);
-                  warrior.save();
-                  self.goBack();
-              },
-              error:function(object,error){
-                alert("Errore1: "+error);
-              }
-            });
-             },
-        
-          error:function(object,error){
-          alert(error);
-          }
-        
-         });
+        var Weapon = Parse.Object.extend("Weapon");
+        var weapon = new Weapon();
+        weapon.equipThis(self, self.model.objectId);
      },
 
 

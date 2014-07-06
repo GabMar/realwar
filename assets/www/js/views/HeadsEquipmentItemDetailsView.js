@@ -28,33 +28,9 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/heads-equ
         },
 
         equips: function () {
-        var warrior = Parse.Object.extend("Warrior");
-        var headClass = Parse.Object.extend("Head");
-        var query = new Parse.Query(warrior);
-        var queryHead = new Parse.Query(headClass);
-         query.equalTo("objectId", window.localStorage.getItem("local_warrior_id"));
-         query.find({
-           success: function  (results) {
-             var warrior = results[0];
-                         
-             queryHead.get(self.model.objectId, {
-              success: function(head) {
-                  window.localStorage.setItem("head",JSON.stringify(head));
-                  warrior.set("head",head);
-                  warrior.save();
-                  self.goBack();
-              },
-              error:function(object,error){
-                alert("Errore1: "+error);
-              }
-            });
-             },
-        
-          error:function(object,error){
-          alert(error);
-          }
-        
-         });
+        var Head = Parse.Object.extend("Head");
+        var head = new Head();
+        head.equipThis(self, self.model.objectId);
      },
 
 

@@ -148,6 +148,36 @@ define(["jquery", "underscore", "parse"],
             alert("Error: " + error.code + " " + error.message);
           }
         });
+      },
+
+      equipThis: function(self, weapon_id){
+        var warrior = Parse.Object.extend("Warrior");
+        var weaponClass = Parse.Object.extend("Weapon");
+        var query = new Parse.Query(warrior);
+        var queryWeapon = new Parse.Query(weaponClass);
+         query.equalTo("objectId", window.localStorage.getItem("local_warrior_id"));
+         query.find({
+           success: function  (results) {
+             var warrior = results[0];
+                         
+             queryWeapon.get(weapon_id, {
+              success: function(weapon) {
+                  window.localStorage.setItem("weapon",JSON.stringify(weapon));
+                  warrior.set("weapon",weapon);
+                  warrior.save();
+                  self.goBack();
+              },
+              error:function(object,error){
+                alert("Errore1: "+error);
+              }
+            });
+             },
+        
+          error:function(object,error){
+          alert(error);
+          }
+        
+         });
       }
 
       });
