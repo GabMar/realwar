@@ -162,6 +162,9 @@ define(["jquery", "underscore", "parse"],
               success: function(armor) {
                   window.localStorage.setItem("armor",JSON.stringify(armor));
                   warrior.set("armor",armor);
+                  var d = new Date();
+                  var presentTimestamp = d.getTime();
+                  warrior.set("lastUpdateTimestamp", (presentTimestamp));
                   warrior.save();
                   self.goBack();
               },
