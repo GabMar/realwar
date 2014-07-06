@@ -37,7 +37,7 @@ define(["jquery", "underscore", "parse"],
         this.set("armor", {__type: "Pointer", className: "Armor", objectId: id_ar});
         var d = new Date();
         var presentTimestamp = d.getTime();
-        this.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
+        this.set("lastUpdateTimestamp", (presentTimestamp));
 
          
         this.save(null, {
@@ -141,12 +141,13 @@ define(["jquery", "underscore", "parse"],
               var d = new Date();
               var presentTimestamp = d.getTime();
               var life = object.get("life");
-              var restLife = Math.round((presentTimestamp - lastUpdateTimestamp)/60000);
+              var difference = Math.round(presentTimestamp - lastUpdateTimestamp);
+              var restLife = Math.round(difference/60000);
               if ((life + restLife) > 100){ 
                 object.set("life", 100);
               }else if(life < 0){
                 object.set("life", 100);
-              }else{object.set("life", (life + restLife));};
+              }else {object.set("life", (life + restLife));};
               object.set("lastUpdateTimestamp", presentTimestamp);
               object.save();
               window.localStorage.setItem("warrior",JSON.stringify(object));
@@ -235,7 +236,7 @@ define(["jquery", "underscore", "parse"],
               object.set("image", image_change);
               var d = new Date();
               var presentTimestamp = d.getTime();
-              object.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
+              object.set("lastUpdateTimestamp", (presentTimestamp));
               object.save();
               window.localStorage.setItem("warrior",JSON.stringify(object));
             }
@@ -256,7 +257,7 @@ define(["jquery", "underscore", "parse"],
               object.set("nick", username_change);
               var d = new Date();
               var presentTimestamp = d.getTime();
-              object.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
+              object.set("lastUpdateTimestamp", (presentTimestamp));
               object.save();
               window.localStorage.setItem("warrior",JSON.stringify(object));
             }
@@ -298,7 +299,7 @@ define(["jquery", "underscore", "parse"],
             object.set("deaths",deaths);
             var d = new Date();
             var presentTimestamp = d.getTime();
-            object.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
+            object.set("lastUpdateTimestamp", (presentTimestamp));
             object.save();
 
             if(user_id == window.localStorage.getItem("local_user_id")){
@@ -340,7 +341,7 @@ define(["jquery", "underscore", "parse"],
             $('.progress').attr('value', life + 5);
             var d = new Date();
             var presentTimestamp = d.getTime();
-            object.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
+            object.set("lastUpdateTimestamp", (presentTimestamp));
             object.save();
             window.localStorage.setItem("warrior",JSON.stringify(object));
           }

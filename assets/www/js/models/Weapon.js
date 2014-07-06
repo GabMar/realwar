@@ -58,7 +58,7 @@ define(["jquery", "underscore", "parse"],
                       object.set("coins", res);
                       var d = new Date();
                       var presentTimestamp = d.getTime();
-                      object.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
+                      object.set("lastUpdateTimestamp", (presentTimestamp));
                       object.save();
                       $('#detailsCash').html("Your Money: "+object.get('coins')+" $");
                       window.localStorage.setItem("warrior",JSON.stringify(object));
@@ -130,7 +130,7 @@ define(["jquery", "underscore", "parse"],
                     object.set("coins", object.get("coins")+gettoni);
                     var d = new Date();
                     var presentTimestamp = d.getTime();
-                    object.set("lastUpdateTimestamp", (presentTimestamp + 7200000));
+                    object.set("lastUpdateTimestamp", (presentTimestamp));
                     object.save();
                     $('#detailsCash').html("Your Money: "+object.get('coins')+" $");
                     window.localStorage.setItem("warrior",JSON.stringify(object));
