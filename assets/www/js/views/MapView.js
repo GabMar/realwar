@@ -32,6 +32,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
             L.tileLayer('http://{s}.tiles.mapbox.com/v3/tarabor.ii291l53/{z}/{x}/{y}.png', {
                 maxZoom: 17,
             }).addTo(map);
+            $('#map').hide();
 
             var marker;
             var markers = new Array();
@@ -204,6 +205,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                 } 
                             }
                         }
+
                     });
                     map.panTo(new L.LatLng(position.coords.latitude, position.coords.longitude));
                 }, function() {});
@@ -215,6 +217,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
             });
 
             var interval = setInterval(function(){mapUpdate();}, 3000);
+            setInterval(function(){$('#spinner').hide();$('#map').show();}, 5000);
             $('#backButton').on('mousedown', function(){
                 window.clearInterval(interval);
             });

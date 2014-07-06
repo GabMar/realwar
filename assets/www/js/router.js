@@ -79,6 +79,7 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "models/Warrio
 
     
       map: function () {
+      $('#spinner').show();
          $('#toolbar').css("display","none");
         var page = new MapView({
           model: this.users
