@@ -1,35 +1,35 @@
-	<div id="warriorInfo">
-		<div id="warriorImg">
-		{{#if localWarrior.image}}
- 			<img class="avatar" src="./{{localWarrior.image}}"/>
- 		{{else}}
- 			<img class="avatar" src="./images/anonym.jpg"/>
-		{{/if}}
-		</div>
-		<div id="warriorStats">
-			<h1>{{localWarrior.nick}}</h1>
-			<p>Level: {{localWarrior.level}}</p>
-			<p>Coins: {{localWarrior.coins}} $</p>
-			<p>XP: {{localWarrior.xp}} of {{toXP}}</p>
-			<p>Life: <progress class="progress" max="100">ciao</progress></p>
-		</div>
+<div id="warriorInfo">
+	<div id="warriorImg">
+	{{#if localWarrior.image}}
+			<img class="avatar" src="./{{localWarrior.image}}"/>
+		{{else}}
+			<img class="avatar" src="./images/anonym.jpg"/>
+	{{/if}}
 	</div>
-
-	<div class="shop-button-bar full" id="hqBar">
-    <div class="shop-button-bar__item">
-        <button id="Stats" class="shop-button-bar__button full">Stats</button>
-    </div>
-    <div class="shop-button-bar__item">
-        <button id="Equip" class="shop-button-bar__button full">Equip</button>
-    </div>
-    <div class="shop-button-bar__item">
-        <button id="Score" class="shop-button-bar__button full">Rank</button>
-    </div>
+	<div id="warriorStats">
+		<h1>{{localWarrior.nick}}</h1>
+		<p>Level: {{localWarrior.level}}</p>
+		<p>Coins: {{localWarrior.coins}} $</p>
+		<p>XP: {{localWarrior.xp}} of {{toXP}}</p>
+		<p>Life: <progress class="progress" max="100">ciao</progress></p>
 	</div>
-	
+</div>
 
-	<div id="hqContent">
-		
+<div class="shop-button-bar full" id="hqBar">
+<div class="shop-button-bar__item">
+    <button id="Stats" class="shop-button-bar__button full">Stats</button>
+</div>
+<div class="shop-button-bar__item">
+    <button id="Equip" class="shop-button-bar__button full">Equip</button>
+</div>
+<div class="shop-button-bar__item">
+    <button id="Score" class="shop-button-bar__button full">Rank</button>
+</div>
+</div>
+
+
+<div id="hqContent">
+	<div id="hqStatsContent">	
 		<div id="warriorResult">
 			<h1>Score</h1>	
 			<div id="kills">Kills {{localWarrior.kills}}</div>
@@ -37,13 +37,10 @@
 		</div>
 
 		<div id="warriorInfoStats">
-			<h1>Base Stats</h1></br>
+			<h1>Base Stats</h1>
 			<p>Attack: {{attack}}</p>
 			<p>Range: {{range}}</p>
 			<p>Armor: {{armor}}</p>
 		</div>
-
-	<div id="scores">
-	</div>
-	
+	</div>	
 </div>

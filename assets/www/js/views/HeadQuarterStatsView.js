@@ -4,7 +4,7 @@ function ($, _, Parse, Handlebars, WeaponsListCollection, HeadQuarterStatsView, 
     var HeadQuarterStatsView = Parse.View.extend({
 
         tagName: "div",
-        id: "warriorStats",
+        id: "hqStatsContent",
 
         template: Handlebars.compile(template),
 

@@ -1,0 +1,1978 @@
+@font-face {
+    font-family:'Orbitron';
+    src: url('../font/Orbitron.ttf') format('truetype');
+}
+
+body {
+	height: 100%;
+    margin:0;
+    padding:0;
+    background:rgb(0, 1, 0);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+@media screen and (max-width: 320px){
+
+	h1 {
+	    font-size: 1.2em;
+	    color: #63ca3a;
+	    font-family: 'Orbitron', sans-serif;
+	    text-align: left;
+	}
+
+	p {
+	    font-size: 0.8em;
+	    color: white;
+	    font-family: 'Orbitron', sans-serif;
+	    text-align: left;
+	}
+}
+
+@media screen and (min-width: 321px){
+
+	h1 {
+	    font-size: 1.5em;
+	    color: #63ca3a;
+	    font-family: 'Orbitron', sans-serif;
+	    text-align: left;
+	}
+
+	p {
+	    font-size: 1em;
+	    color: white;
+	    font-family: 'Orbitron', sans-serif;
+	    text-align: left;
+	}
+}
+
+/*DIV PRINCIPALI*/
+
+#contents {
+	height: 100%;
+	width: 100%;
+}
+
+#map {
+    position: absolute;
+    bottom: 0;
+    top: 8%;
+    height: 95%;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+/*FINE DIV PRINCIPALI*/
+
+/*BOTTOM BAR*/
+
+.headQuarterButtonActive {
+    position: relative;
+    width: 33%;
+    height: 100%;
+    border: none;
+    background-color: #63ca3a;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/pentagonOn.png);
+}
+
+.headQuarterButton {
+    position: relative;
+    width: 33%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/pentagonOff.png);
+}
+
+.mapButton {
+    position: relative;
+    width: 33%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/mapOff.png);
+}
+
+.mapButtonActive {
+    position: relative;
+    width: 33%;
+    height: 100%;
+    border: none;
+    background-color: #63ca3a;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/mapOn.png);
+}
+
+.marketButton {
+    position: relative;
+    width: 33%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/gunOff.png);
+}
+
+.marketButtonActive {
+    position: relative;
+    width: 33%;
+    height: 100%;
+    border: none;
+    background-color: #63ca3a;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-clip: border-box;
+    background-image: url(../images/gunOn.png);
+}
+
+/*FINE BOTTOM BAR*/
+
+/*TOP BAR*/
+
+.backButton {
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    top: 6px;
+    left: -9px;
+    border: none;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-image: url(../images/back.png);
+    background-size: contain;
+}
+
+@media screen and (max-width: 320px){
+
+	.backButton {
+	    left: -7px;
+	}
+}
+
+@media screen and (min-width: 321px){
+
+	.backButton {
+	    left: -9px;
+	}
+}
+
+/*FINE TOP BAR*/
+
+/*HEADQUARTER*/
+
+#headQuarter {
+    width: 100%;
+    height: 92%;
+    position: absolute;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 320px){
+
+	#headQuarter {
+	    top: 7%;
+	}
+
+}
+
+@media screen and (min-width: 321px){
+
+	#headQuarter {
+	    top: 8%;
+	}
+
+}
+
+	/*PROFILO DEL WARRIOR*/
+
+	#warriorImg{
+	    float:left;
+	    width: 40%;
+	}
+
+	@media screen and (max-width: 320px){
+
+		#warriorInfo p{
+			margin-top: -2.5%;
+		}
+
+		#warriorImg{
+		    margin-left: 4%;
+		    margin-top: 1%;
+		}
+
+	}
+
+	@media screen and (min-width: 321px){
+
+		#warriorInfo {
+		    width: 100%;
+		    height: 35%;
+		}
+
+		#warriorImg{
+		    margin-left: 5%;
+		    margin-top: 7%;
+		}
+
+		.avatar {
+			width: 80%;
+			border: 1px solid rgba(47, 228, 59, 0.8);
+			border-radius: 15px;
+		}
+
+		#warriorStats {
+			width: 50%;
+		    height: 30%;
+		    display: inline;
+		    float: left;
+		    margin-left: 3%;
+		    margin-top: 2%;
+		}
+
+		#warriorStats p{
+			margin-top: -6%;
+		}
+
+	}
+
+		/*BARRA DELLA VITA*/
+
+		progress {
+		    height: 14px;    /* Important Thing */
+		    -webkit-appearance: none;
+		    border: none;
+		}
+
+		progress::-webkit-progress-bar {
+		    background: black;
+		    border-radius: 20px;
+		    padding: 2px;
+		    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+		}
+
+		progress::-webkit-progress-value {
+		    border-radius: 50px;
+		    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+		    background:
+		        -webkit-linear-gradient(45deg, transparent, transparent 33%, #63ca3a 33%, #63ca3a 66%, transparent 66%),
+		        -webkit-linear-gradient(top, #63ca3a, #63ca3a),
+		        -webkit-linear-gradient(left, #ba7448, #c4672d);
+		}
+
+		@media screen and (max-width: 320px){
+
+			progress {
+			    width: 30%;
+			}
+
+		}
+
+		@media screen and (min-width: 321px){
+
+			progress {
+			    width: 70%;
+			}
+
+		}
+
+		/*FINE BARRA DELLA VITA*/
+
+	/* FINE PROFILO DEL WARRIOR */
+
+	/*MENU DELL'HEADQUARTER*/
+
+	#hqBar {
+		z-index: 9;
+		width: 100%;
+	}
+
+	@media screen and (max-width: 320px){
+
+		#hqBar{
+			margin-top: 0;
+		}
+
+	}
+
+	@media screen and (min-width: 321px){
+
+		#hqBar{
+			top: 36%;
+			position: fixed;
+		}
+
+	}
+
+	.shop-button-bar {
+      z-index: 10;
+      position: fixed;
+      display: table;
+      table-layout: fixed;
+      white-space: no-wrap;
+	}
+
+	.shop-button-bar__item {
+	  display: table-cell;
+	  width: auto;
+	}
+
+	.shop-button-bar__item:first-child > .shop-button-bar__button {
+	  border-right: none;
+	  background-color: #20A715;
+	  color: #051E07;
+	}
+
+	.shop-button-bar__item:last-child > .shop-button-bar__button {
+	  border-left: none;
+	}
+
+	.shop-button-bar__button {
+	  margin: 0;
+	  border: 1px solid #2FE43B;
+	  border-radius: inherit;
+	  background-color: rgb(5, 31, 7);
+	  -webkit-box-shadow: inset 0 1px #fff;
+	  box-shadow: inset 0 1px #fff;
+	  color: white;
+	  font-family: 'Orbitron', sans-serif;
+	  font-size: 18px;
+	  text-align: center;
+	  line-height: 2rem;
+	}
+
+	.shop-button-bar__button,
+	.shop-button-bar__button:active,
+	.shop-button-bar__button.is-active {
+	  -webkit-box-shadow: inset 0 1px rgba(0,0,0,0.12);
+	  box-shadow: inset 0 1px rgba(0,0,0,0.12);
+	}
+
+
+	.shop-button-bar__button:focus {
+	  background-color: #20A715;
+	  color: #051E07;
+	}
+
+	/*FINE MENU DELL'HEADQUARTER*/
+
+	/*HEADQUARTER STATS*/
+
+	#hqContent {
+	    width: 98%;
+	    height: 52%;
+	    margin-top: 5%;
+	    margin-left: 1%;
+	    border: 1px solid rgba(47, 228, 59, 0.4);
+	    border-radius: 4px;
+	    overflow: auto;
+	}
+
+	@media screen and (max-width: 320px){
+		
+		#hqContent {
+		    height: 50%;
+		    margin-top: 18%;
+		}
+
+	}
+
+	@media screen and (min-width: 321px){
+
+		#hqContent {
+		    height: 52%;
+		    margin-top: 5%;
+		}
+
+	}
+
+	#hqStatsContent{
+		width: 100%;
+		height: 96%;
+	}
+
+		/*RISULTATI DEL WARRIOR*/
+
+		#warriorResult{
+		    width: 96%;
+		    height: 40%;
+		    margin-top: 2%;
+		    margin-left: 1.8%;
+		    border-top: 1px solid rgba(47, 228, 59, 0.4);
+		    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+		    border-radius: 4px;
+		}
+
+		#warriorResult h1{
+		    margin-top: 2%;
+		    margin-left: 2%;
+		}
+
+		#kills {
+			width: 40%;
+			height: 30%;
+			float: left;
+			margin-left: 2%;
+			padding: 0.50em 0em 0.25em;
+			font-size: 1.4em;
+			text-align: center;
+			border-top: 1px solid rgba(47, 228, 59, 0.4);
+			border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+			border-radius: 4px;
+			background-color: rgb(5, 11, 7);
+		}
+
+		#deaths {
+			width: 40%;
+			height: 30%;
+			float: right;
+			margin-right: 2%;
+			padding: 0.50em 0em 0.25em;
+			font-size: 1.4em;
+			text-align: center;
+			border-top: 1px solid rgba(47, 228, 59, 0.4);
+			border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+			border-radius: 4px;
+			background-color: rgb(5, 11, 7);
+		}
+
+		@media screen and (max-width: 320px){
+
+			#kills {
+				font-size: 1.0em;
+			}
+
+			#deaths {
+				font-size: 1.0em;
+			}
+
+		}
+
+		@media screen and (min-width: 321px){
+
+			#kills {
+				font-size: 1.4em;
+			}
+
+			#deaths {
+				font-size: 1.4em;
+			}
+
+		}
+
+		/*FINE RISULTATI DEL WARRIOR*/
+
+		/*WARRIOR BASE STATS*/
+
+		#warriorInfoStats{
+		    width: 96%;
+		    height: 55%;
+		    margin-top: 2%;
+		    margin-left: 1.8%;
+		    border-top: 1px solid rgba(47, 228, 59, 0.4);
+		    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+		    border-radius: 4px;
+		}
+
+		#warriorInfoStats h1{
+		    margin-top: 2%;
+		    margin-left: 2%;
+		}
+
+		#warriorInfoStats p{
+		    margin-left: 2%;
+		}
+
+		@media screen and (max-width: 320px){
+
+			#warriorInfoStats{
+			    height: 51%;
+			}
+
+		    #warriorInfoStats p{
+		    	margin-top: -2%;
+		    }
+
+		}
+
+		@media screen and (min-width: 321px){
+
+			#warriorInfoStats{
+			    height: 55%;
+			}
+
+			#warriorInfoStats p{
+			    margin-top: 2%;
+			}
+
+		}
+
+		/*FINE WARRIOR BASE STATS*/
+
+	/*FINE HEADQUARTER STATS*/
+
+	/*HEADQUARTER EQUIP*/
+
+	#listaEquip{
+	    width: 100%;
+	    height: 90%;
+	}
+
+	#HeadQuarterEquipList{
+		width: 96%;
+		height: 96%;
+		-webkit-padding-start: 0px;
+		margin-left: 2%;
+		margin-top: 2%;
+	    padding-bottom: 1%;
+	} 
+
+	#HeadQuarterEquipList li {
+	    height: 33%; 
+	    margin-bottom: 1%;
+	    border: 2px double rgba(47, 228, 59, 0.4);
+	    border-radius: 4px;
+	    display: block;
+	}
+
+	#imgEquip {
+	    width: 25%;
+	    margin-left: 2%;
+	    margin-top: 2%;
+	    float: left;
+	}
+
+	#imgEquip img {
+	    border-radius: 10px;
+	    width: 80%;
+	}
+
+	#infoItemEquip{
+	    width: 60%;
+	    height: 80%;
+	    margin-left: 30%;
+	}
+
+	#infoItemEquip h1{
+	    font-size: 1.2em;
+	    margin-top: 2%;
+	    margin-left: 2%;
+	    color: rgba(47, 228, 59, 0.9);
+	}
+
+	#infoItemEquip p{
+	    font-size: 1em;
+	}
+
+	@media screen and (max-width: 320px){
+
+		#imgEquip{
+		    width: 23%;
+		    margin-left: 2%;
+		    margin-top: 2%;
+		    float: left;
+		}
+
+		#imgEquip img{
+		    width: 75%;
+		}
+
+		#infoItemEquip h1{
+		    font-size: 0.9em;
+		}
+
+		#infoItemEquip p{
+		    font-size: 0.8em;
+		    margin-top: -2%;
+		    margin-left: 2%;
+		}
+
+	}
+
+	@media screen and (min-width: 321px){
+
+		#imgEquip {
+		    width: 25%;
+		    height: 80%;
+		}
+
+		#imgEquip img {
+		    width: 80%;
+		    height: 80%;
+		}
+
+		#infoItemEquip h1{
+		    font-size: 1.2em;
+		}
+
+		#infoItemEquip p{
+		    font-size: 1em;
+		    margin-top: -4%;
+		    margin-left: 2%;
+		}
+
+	}
+
+		/*EQUIPMENT*/
+
+		#equipmentContainer {
+		    width: 100%;
+		    height: 92%;
+		    position: absolute;
+		    top: 7%;
+		    overflow: hidden;
+		}
+
+		#equipListContainer{
+			width: 98%;
+		    height: 88%;
+		    margin-top: 5%;
+		    margin-left: 1%;
+		    border: 1px solid rgba(47, 228, 59, 0.4);
+		    border-radius: 4px;
+		    overflow: auto;
+		}
+
+		#equipmentContainer h4 {
+		    font-size: 1.2em;
+		    margin-top: 4%;
+		    margin-bottom: 4%;
+		    margin-left: 2%;
+		}
+
+		#equipmentList {
+		    padding-bottom: 1%;
+		    -webkit-padding-start: 0px;
+		}
+
+		#equipmentList li {
+		    width: 97%;
+		    height: 90px;
+		    margin-top: 2%;
+		    margin-left: 1%;
+		    border: 2px solid rgba(47, 228, 59, 0.4);
+		    border-radius: 4px;
+		    display: block;
+		}
+
+		#weaponsEquipInfoImg {
+		    width: 30%;
+		    margin-left: 3%;
+		    float: left;
+		}
+
+		#weaponsEquipInfoImg img {
+		    width: 70%;
+		    border-radius: 5px;
+		}
+
+		.stamp{
+		    z-index: 100;
+		    text-align: center;
+		    margin-left: -2%;
+		    background-color:#051E07;
+		    color:  #20A715;
+		    font-size: 1em;
+		    border-bottom-left-radius: 2px;
+		    border-bottom-right-radius: 2px;
+		}
+
+		#weaponsEquipInfoDetails{
+		    width: 65%;
+		    margin-left: 35%;
+		    margin-top: 2%;
+		}
+
+		#weaponsEquipInfoDetails h1{
+		    margin-top: 2%;
+		    margin-left: 2%;
+		    color: rgba(47, 228, 59, 0.9);
+		}
+
+		#weaponsEquipInfoDetails p{
+		    margin-left: 2%;
+		    margin-top: -4%;
+		}
+
+		@media screen and (max-width: 320px){
+	
+			#equipmentContainer h4 {
+			    font-size: 1em;
+			}
+
+			#weaponsEquipInfoImg img {
+			    margin-bottom: -15%;
+			}
+
+			.stamp{
+			    font-size: 0.8em;
+			}
+
+			#weaponsEquipInfoDetails h1{
+			    font-size: 0.9em;
+			}
+
+			#weaponsEquipInfoDetails p{
+			    font-size: 0.7em;
+			}
+
+		}
+
+		@media screen and (min-width: 321px){
+		
+			#equipmentContainer h4 {
+			    font-size: 1.2em;
+			}
+
+
+			#weaponsEquipInfoImg img {
+			    margin-bottom: -20%;
+			}
+
+			.stamp{
+			    font-size: 1em;
+			}
+
+
+			#weaponsEquipInfoDetails h1{
+			    font-size: 1.2em;
+			}
+
+			#weaponsEquipInfoDetails p{
+			    font-size: 0.9em;
+			}
+
+		}
+
+			/*EQUIPMENT DETAILS*/
+
+			#equipmentDetail {
+			    top: 10%;
+			    position: absolute;
+			    width: 97%;
+			    height: 80%;
+			    border: 1px solid rgba(47, 228, 59, 0.4);
+			    border-radius: 4px;
+			    margin-left: 1%;
+			}
+
+			#itemEquipDetails {
+			    margin-top: 5%;
+			    width: 97%;
+			    height: 38%;
+			    margin-left: 1%;
+			    border-top: 1px solid rgba(47, 228, 59, 0.4);
+			    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+			    border-radius: 4px;
+			}
+
+			#itemEquipDetailsImg {
+			    width: 40%;
+			    margin-left: 5%;
+			    margin-top: 5%;
+			    float: left;
+			}
+
+			#itemEquipDetailsImg img {
+			    margin-top: 1%;
+			    margin-left: 1%;
+			    width: 90%;
+			    border: 2px solid rgba(47, 228, 59, 1);
+			    border-radius: 10px;
+			}
+
+			#itemEquipDetailsInfo {
+			    width: 40%;
+			    height: 20%;
+			    margin-left: 55%;
+			    margin-top: 4%;
+			}
+
+			#itemEquipDetailsInfo h1 {
+			    margin-top: 4%;
+			    margin-left: 1%;
+			    color: rgba(47, 228, 59, 0.9);
+			}
+
+			#itemEquipDetailsInfo p {
+			    margin-top: -1%;
+			    margin-left: 1%;
+			}
+
+			#itemEquipButton {
+			    margin-top: 10%;
+			    width: 97%;
+			    height: 20%;
+			    margin-left: 1%;
+			    border-top: 1px solid rgba(47, 228, 59, 0.4);
+			    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+			    border-radius: 4px;
+			}
+
+			#itemEquipBuy p{
+			    text-align: left;
+			    margin-left: 5%;
+			    margin-top: 5%;
+			    font-size: 1.2em;
+			}
+
+			#equips {
+			    width: 80%;
+			    height: 60%;
+			    margin-top: 5%;
+			    margin-left: 10%;
+			    font-size: 1em;
+			    text-align: center;
+			    color: rgb(47, 228, 59);
+			    border: 1px solid rgb(47, 228, 59);
+			    border-radius: 4px;
+			    background-color: rgb(3, 35, 5);
+			    opacity: 1;
+			    font-family: 'Orbitron', sans-serif;
+			}
+
+			#equips:hover {
+			    color: rgb(3, 35, 5);
+			    background-color: rgb(47, 228, 59);
+			    border-color: rgb(3, 35, 5);
+			}
+
+			#equipped {
+			    width: 80%;
+			    height: 60%;
+			    margin-top: 5%;
+			    margin-left: 10%;
+			    font-size: 0.8em;
+			    text-align: center;
+			    color: rgb(47, 228, 59);
+			    border: 1px solid rgb(47, 228, 59);
+			    border-radius: 4px;
+			    background-color: rgb(3, 35, 5);
+			    opacity: 0.5;
+			    font-family: 'Orbitron', sans-serif;
+			}
+
+			@media screen and (max-width: 320px){
+
+				#itemEquipDetailsInfo h1 {
+				    font-size: 1em;
+				}
+
+				#itemEquipDetailsInfo p {
+				    font-size: 0.8em;
+				}
+
+			}
+
+			@media screen and (min-width: 321px){
+
+				#itemEquipDetailsInfo h1 {
+				    font-size: 1.5em;
+				}
+
+				#itemEquipDetailsInfo p {
+				    font-size: 1.2em;
+				}
+
+			}
+
+			/*FINE EQUIPMENT DETAILS*/
+
+		/*FINE EQUIPMENT*/
+
+	/*FINE HEADQUARTER EQUIP*/
+
+	/*HEADQUARTER RANK*/
+
+	#ScoreList {    
+	    padding-bottom: 1%;
+	    -webkit-padding-start: 0px;
+	}
+
+	#ScoreList li {
+	    width: 95%;
+	    margin-top: 2%;
+	    margin-left: 2%;
+	    display: block;
+	    border-top: 1px solid rgba(47, 228, 59, 0.4);
+	    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+	    border-radius: 4px;
+	}
+	
+	#imgScores {
+	    width: 26%;
+	    margin-left: 2%;
+	    float: left;
+	}
+
+	#imgScores img {
+	    border-radius: 10px;
+	    margin-top: 3%;
+	    width: 90%;
+	}
+
+	#infoScores {
+	    width: 60%;
+	    margin-left: 30%;
+	}
+
+	#infoScores h1 {
+	    margin-top: 1%;
+	    margin-left: 2%;
+	    color: rgba(47, 228, 59, 0.9);;
+	}
+
+	#infoScores p {
+	    margin-top: -4%;
+	    margin-left: 2%;
+	}
+
+	@media screen and (max-width: 320px){
+
+		#scores	{
+	    	overflow: hidden;
+		}
+
+		#imgScores {
+		    width: 26%;
+		    margin-left: 2%;
+		    margin-top: 2%;
+		}
+
+		#infoScores h1 {
+		    font-size: 1em;
+		}
+
+		#infoScores p {
+		    font-size: 0.8em;
+		}
+
+	}
+
+	@media screen and (min-width: 321px){
+
+		#imgScores {
+		    margin-left: 2%;
+		    margin-top: 1%;
+		    height: 80%;
+		}
+
+		#infoScores h1 {
+		    font-size: 1.2em;
+		}
+
+		#infoScores p {
+		    font-size: 1em;
+		}
+
+	}	
+
+	/*FINE HEADQUARTER RANK*/
+
+/*FINE HEADQUARTER*/
+
+/*ELEMENTI DELLA MAPPA*/
+
+.leaflet-control-attribution {
+    display: none;
+}
+
+	/*POPUP WARRIOR*/
+
+	#popupWarrior {
+	    width: 99%;
+	    height: 11%;
+	    z-index: 20;
+	    position:fixed;
+	    display: block;
+	    bottom: 0px;
+	    border: 1px solid #63ca3a;
+	    background:rgba(0, 0, 0, 0.8);
+	    border-radius: 2px;
+	    display: none;
+	}
+
+	#avatarWarrior {
+	    width: 20%;
+	    height: 95%;
+	    margin-left: 1px;
+	    float: left;
+
+	}
+
+	.smallAvatar{
+	    position: absolute;
+	    width: 20%;
+	    height: 95%;
+	    border: 1px solid rgba(0,0,0,0.36);
+	    -webkit-border-radius: 6px;
+	    border-radius: 6px;
+	}
+
+	#infoWarrior {
+	    width: 45%;
+	    height: 95%;
+	    margin-left: 2px;
+	    float: left;
+	}
+
+	#infoWarrior p {
+	    font-size: 1.5em;
+	    padding: 0px;
+	    margin-top: 2%;
+	    margin-left: 1%;
+	    margin-bottom: 0px;
+	}
+
+	#fightButton {
+	    width: 30%;
+	    height: 95%;
+	    margin-left: 5px;
+	    float: left;
+	}
+
+	#fight {
+	    width: 95%;
+	    height: 90%;
+	    margin-top: 5%;
+	    margin-left: 7%;
+	    font-size: 1.8em;
+	    text-align: center;
+	    font-family: 'Orbitron', sans-serif;
+	    color: rgb(47, 228, 59);
+	    border: 1px solid rgb(47, 228, 59);
+	    border-radius: 4px;
+	    background-color: rgb(3, 35, 5);
+	    opacity: 1;
+	}
+
+	#fight:hover {
+	    color: rgb(3, 35, 5);
+	    background-color: rgb(47, 228, 59);
+	    border-color: rgb(3, 35, 5);
+	}
+
+	/*FINE POPUP WARRIOR*/
+
+	/*RIEPILOGO COMBATTIMENTO*/
+
+	#infoFight{
+
+	    width: 90%;
+	    height: 65%;
+	    z-index: 20;
+	    position:fixed;
+	    display: block;
+	    margin-left: 4%;
+	    bottom: 20%;
+	    border: 2px solid #63ca3a;
+	    background:rgba(0, 0, 0, 0.8);
+	    border-radius: 2px;
+	    font-family: 'Orbitron', sans-serif;
+	    display: none;
+
+	}
+
+	#infoResult{
+	    width: 90%;
+	    height: 15%;
+	    position:fixed; 
+	    bottom: 70%;
+	    float: center;
+	}
+
+	#infoResult h1{
+	    text-align: center;
+	    font-size: 2em;
+	    margin-top: 2%;
+	    margin-bottom: 0px;
+	    color: #63ca3a;
+	}
+
+	#infoResult h2{
+	    text-align: center;
+	    font-size: 1.5em;
+	    margin-top: 2%;
+	    margin-bottom: 0px;
+	    color: #63ca3a;
+	}
+
+	#infoResult p{
+	    text-align: center;
+	    font-size: 1em;
+	    margin-top: 2%;
+	    margin-bottom: 0px;
+	    color: white;
+	}
+
+	#infoRound {
+	    width: 80%;
+	    height: 30%;
+	    position:fixed; 
+	    display: block; 
+	    bottom: 29%;
+	    margin-left: 4.5%;
+	    border: 1px solid #63ca3a;
+	}
+
+	#infoRound h1 {
+	    text-align: center;
+	    font-size: 1.2em;
+	    padding: 0px;
+	    margin-top: 1%;
+	    margin-bottom: 0px;
+	    color: white;
+	}
+
+	#infoRound p {
+	    font-size: 1em;
+	    padding: 0px;
+	    margin-top: 2%;
+	    margin-left: 1%;
+	    margin-bottom: 0px;
+	}
+
+	#backToMap {
+	    width: 30%;
+	    height: 8%;
+	    position:fixed; 
+	    display: block; 
+	    bottom: 21%;
+	    margin-left: 29.5%;
+	}
+
+	#toMap{
+	    width: 95%;
+	    height: 90%;
+	    margin-top: 5%;
+	    margin-left: 7%;
+	    font-size: 20px;
+	    text-align: center;
+	    font-family: 'Orbitron', sans-serif;
+	    color: rgb(47, 228, 59);
+		border: 1px solid rgb(47, 228, 59);
+		border-radius: 4px;
+		background-color: rgb(3, 35, 5);
+	    background-color: rgb(3, 35, 5);
+	    opacity: 1;
+	}
+
+	#toMap:hover{
+	    color: rgb(3, 35, 5);
+	    background-color: rgb(47, 228, 59);
+	    border-color: rgb(3, 35, 5);
+	}
+
+	#previousRound{
+	    width: 25%;
+	    height: 4%;
+	    position:fixed; 
+	    display: block; 
+	    bottom: 31%;
+	    margin-left: 1%;
+	    font-size: 1em;
+	    text-align: center;
+	    font-family: 'Orbitron', sans-serif;
+	    color: rgb(47, 228, 59);
+	    border: 1px solid rgb(47, 228, 59);
+	    border-radius: 4px;
+	    background-color: rgb(3, 35, 5);
+	    opacity: 1;
+	}
+
+	#previousRound:hover{
+	    color: rgb(3, 35, 5);
+	    background-color: rgb(47, 228, 59);
+	    border-color: rgb(3, 35, 5);
+	}
+
+	#nextRound{
+	    width: 25%;
+	    height: 4%;
+	    position:fixed; 
+	    display: block; 
+	    bottom: 31%;
+	    left: 63%;
+	    font-size: 1em;
+	    text-align: center;
+	    font-family: 'Orbitron', sans-serif;
+	   color: rgb(47, 228, 59);
+		border: 1px solid rgb(47, 228, 59);
+		border-radius: 4px;
+		background-color: rgb(3, 35, 5);
+		opacity: 1;
+	}
+
+	#nextRound:hover{
+	    color: rgb(3, 35, 5);
+	    background-color: rgb(47, 228, 59);
+	    border-color: rgb(3, 35, 5);
+	}
+
+	/*FINE RIEPILOGO COMBATTIMENTO*/
+
+/*FINE ELEMENTI DELLA MAPPA*/
+
+/*MARKET*/
+
+#marketContainer {
+	width: 100%;
+    height: 92%;
+    position: absolute;
+    top: 7%;
+    overflow: hidden;
+}
+
+#weaponsmarketcontainer {
+    width: 98%;
+    margin-left: 1%;
+    border: 1px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+    overflow: auto;
+}
+
+#weaponsmarket {
+    padding-bottom: 1%;
+    -webkit-padding-start: 0px; 
+}
+
+#weaponsmarket li {
+    width: 95%;
+    margin-left: 2%;
+    margin-top: 2%;
+    border: 2px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+    display: block;
+}
+
+#itemMarketImg{
+    width: 30%;
+    margin-left: 3%;
+    float: left;
+}
+
+#itemMarketImg img {
+	width: 70%;
+    border-radius: 5px;
+}
+
+#itemMarketInfo{
+    width: 60%;
+    height: 20%;
+    margin-left: 30%;
+}
+
+#itemMarketInfo h1{
+    text-align: left;
+    margin-top: 4%;
+    color: rgba(47, 228, 59, 0.9);
+    margin-left: 1%;
+}
+
+#itemMarketInfo p{
+    text-align: left;
+    margin-top: -2%;
+    margin-left: 1%;
+}
+
+	@media screen and (max-width: 320px){
+
+		#marketContainer {
+		    top: 8%;
+		}
+
+		#weaponsmarketcontainer {
+		    height: 82%;
+		    margin-top: 15%;
+		}
+
+		#weaponsmarket li {
+		    height: 80px;
+		}
+
+		#itemMarketImg img{
+			max-height: 65px;
+		}
+
+		#itemMarketInfo h1 {
+		    font-size: 1em;
+		}
+
+		#itemMarketInfo p{
+		    font-size: 0.8em;
+		}
+
+	}
+
+	@media screen and (min-width: 321px){
+
+		#marketContainer {
+		    top: 7%;
+		}
+
+		#weaponsmarketcontainer {
+		    height: 84%;
+		    margin-top: 12%;
+		}
+
+		#weaponsmarket li {
+		    height: 90px;
+		}
+
+		#itemMarketImg img{
+			max-height: 75px;
+		}
+
+		#itemMarketInfo h1{
+		    font-size: 1.2em;
+		}
+
+		#itemMarketInfo p{
+		    font-size: 1em;
+		}
+
+	}
+
+	/*MARKET DETTAGLI OGGETTO*/
+
+	#itemMarketDetails {
+	    margin-top: 5%;
+	    width: 97%;
+	    margin-left: 1%;
+	    border-top: 1px solid rgba(47, 228, 59, 0.4);
+	    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+	    border-radius: 4px;
+	    
+	}
+
+	#itemMarketDetailsImg {
+	    width: 40%;
+	    margin-left: 5%;
+	    margin-top: 5%;
+	    float: left;
+	}
+
+	#itemMarketDetailsImg img {
+	    border-radius: 10px;
+	    margin-top: 1%;
+	    margin-left: 1%;
+	    max-height: 125px;
+	    width: 90%;
+	}
+
+	#itemMarketDetailsInfo {
+	    width: 40%;
+	    height: 20%;
+	    margin-left: 55%;
+	}
+
+	#itemMarketDetailsInfo h1 {
+	    margin-top: 4%;
+	    color: rgba(47, 228, 59, 0.9);
+	}
+
+	#itemMarketBuy {
+	    margin-top: 10%;
+	    width: 97%;
+	    height: 45%;
+	    margin-left: 1%;
+	    border-top: 1px solid rgba(47, 228, 59, 0.4);
+	    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+	    border-radius: 4px;
+	}
+
+	#itemMarketBuy p{
+	    margin-left: 5%;
+	    margin-top: 5%;
+	}
+
+	#buyItem{
+	    width: 80%;
+	    height: 35%;
+	    margin-left: 10%;
+	    margin-bottom: 5%;
+	    font-size: 1em;
+	    text-align: center;
+	    font-family: 'Orbitron', sans-serif;
+	    color: rgb(47, 228, 59);
+	    border: 1px solid rgb(47, 228, 59);
+	    border-radius: 4px;
+	    background-color: rgb(3, 35, 5);
+	    opacity: 1;
+	}
+
+	#buyItem:hover{
+	    color: rgb(3, 35, 5);
+	    background-color: rgb(47, 228, 59);
+	    border-color: rgb(3, 35, 5);
+	}
+
+	#sellItem{
+	   	width: 80%;
+	    height: 35%;
+	    margin-left: 10%;
+	    margin-bottom: 5%;
+	    font-size: 1em;
+	    text-align: center;
+	    font-family: 'Orbitron', sans-serif;
+	    color: rgb(47, 228, 59);
+	    border: 1px solid rgb(47, 228, 59);
+	    border-radius: 4px;
+	    background-color: rgb(3, 35, 5);
+	    opacity: 1;
+	}
+
+	#sellItem:hover{
+	    color: rgb(3, 35, 5);
+	    background-color: rgb(47, 228, 59);
+	    border-color: rgb(3, 35, 5);
+	}
+
+	#loadItem{
+	    width: 80%;
+	    height: 35%;
+	    margin-left: 10%;
+	    margin-bottom: 5%;
+	    font-size: 0.8em;
+	    text-align: center;
+	    font-family: 'Orbitron', sans-serif;
+	    color: rgb(47, 228, 59);
+	    border: 1px solid rgb(47, 228, 59);
+	    border-radius: 4px;
+	    background-color: rgb(3, 35, 5);
+	    opacity: 0.5;
+	}
+
+	@media screen and (max-width: 320px){
+
+		#itemMarketDetailsImg {
+	    	margin-top: 2%;
+		}
+		
+		#itemMarketDetailsImg img {
+	    	max-height: 90px;
+	   	}
+
+		#itemMarketDetailsInfo h1 {
+		    font-size: 1em;
+		}
+
+		#itemMarketDetailsInfo p {
+		    margin-top: -2%;
+		    font-size: 0.8em;
+		}
+
+		#itemMarketBuy p{
+		    font-size: 1em;
+		}
+
+	}	
+
+	@media screen and (min-width: 321px){
+
+		#itemMarketDetailsImg img {
+	    	max-height: 125px;
+	   	}
+
+		#itemMarketDetailsInfo h1 {
+		    font-size: 1.5em;
+		}
+
+		#itemMarketDetailsInfo p {
+		    margin-top: -1%;
+		    font-size: 1.2em;
+		}
+
+		#itemMarketBuy p{
+		    font-size: 1.2em;
+		}
+
+	}
+
+
+	/*FINE MARKET DETTAGLI OGGETTO*/
+
+/*FINE MARKET*/
+
+/*LOGIN*/
+
+#mainTitle {
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 20%;
+}
+
+#mainTitle h1 {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    color: rgb(47, 228, 59);
+    margin-top: 5%;
+}
+
+#principal {
+    height: 85%;
+    width: 97%;
+    margin-top: 30%;
+    margin-left: 1%;
+    border: 2px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+}
+
+.login_input_form {
+    margin-top: 10%;
+    width: 90%;
+    height: 50px;
+    margin-left: 4.5%;
+    text-align: center;
+    background-color: rgba(169, 255, 137, 1);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+}
+
+.login {
+    width: 90%;
+    height: 60px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 5%;
+    font-size: 2em;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgba(3, 35, 5, 0.8);
+}
+
+.login:hover {
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
+}
+
+.signin {
+    position: absolute;
+    width: 90%;
+    height: 60px;
+    margin-left: 5%;
+    font-size: 2em;
+    text-align: center;
+    left: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgba(3, 35, 5, 0.8);
+}
+
+.signin:hover {
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
+}
+
+@media screen and (max-width: 320px){
+
+	#mainTitle h1 {
+	    font-size: 3.8em;
+	}
+
+	.signin {
+	    bottom: 2%;
+	}
+
+}
+
+@media screen and (min-width: 321px){
+
+	#mainTitle h1 {
+	    font-size: 4em;
+	}
+
+}
+
+/*FINE LOGIN*/
+
+/*SIGNIN*/
+
+#signinMain {
+    width: 97%;
+    margin-top: 30%;
+    margin-left: 1%;
+    border: 2px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+}
+
+#signinMain h1 {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+}
+
+.reg_input_form {
+    width: 90%;
+    height: 50px;
+    margin-left: 4.5%;
+    text-align: center;
+    background-color: rgba(169, 255, 137, 1);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+}
+
+#loadAvatar {
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgba(3, 35, 5, 0.8);
+}
+
+#registra{
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgba(3, 35, 5, 0.8);
+}
+
+#registra:hover{
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
+}
+
+#avatar_scelta{
+    width: 95%;
+    margin-left: 1%;
+    border-top: 1px solid rgba(47, 228, 59, 0.4);
+    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+    margin-bottom: 5%;
+}
+
+#avatar_scelta img{
+	margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 4.5%;
+}
+
+.avatar_img_s {
+    width: 25%;
+    border-radius: 20px;
+    border: 2px solid rgba(47, 228, 59, 0);
+}
+
+.avatar_img_sel {
+    border: 2px solid rgba(47, 228, 59, 1);
+}
+
+@media screen and (max-width: 320px){
+
+	#signinMain {
+	    height: 60%;
+	}
+
+	#signinMain h1 {
+	    font-size: 1.5em;
+	}
+
+	.reg_input_form {
+	    width: 90%;
+	    height: 50px;
+	    margin-left: 4.5%;
+	    text-align: center;
+	    background-color: rgba(169, 255, 137, 1);
+	    font-family: 'Orbitron', sans-serif;
+	    font-size: 2em;
+	}
+
+	#loadAvatar {
+	    height: 50px;
+	    margin-top: 4%;
+	    font-size: 1.8em;
+	}
+
+	#loadAvatar:hover{
+	    color: rgb(3, 35, 5);
+	    background-color: rgb(47, 228, 59);
+	    border-color: rgb(3, 35, 5);
+	}
+
+	#registra{
+	    width: 90%;
+	    height: 50px;
+	    margin-top: 4%;
+	    margin-bottom: 2%;
+	    font-size: 1.8em;
+	}
+
+	#avatar_scelta{
+	    margin-top: 4%;
+	}
+
+}
+
+@media screen and (min-width: 321px){
+
+	.signin {
+	    bottom: 15%;
+	}
+
+	#signinMain h1 {
+	    font-size: 2em;
+	}
+
+	.reg_input_form {
+	    margin-top: 3%;
+	}
+
+	#loadAvatar {
+	    height: 60px;
+	    margin-top: 5%;
+	    margin-bottom: 10%;
+	    font-size: 2em;
+	}
+
+	#loadAvatar:hover{
+	    color: rgb(3, 35, 5);
+	    background-color: rgb(47, 228, 59);
+	    border-color: rgb(3, 35, 5);
+	}
+
+	#registra{
+	    width: 90%;
+	    height: 60px;
+	    margin-top: 5%;
+	    margin-left: 5%;
+	    font-size: 2em;
+	}
+
+}
+
+/*FINE SIGNIN*/
+
+/*SPINNER*/
+	
+#spinner{
+    top: 50%;
+    margin: 0px;
+    margin-top: 50%;
+}
+
+#spinner2{
+    top: 50%;
+    margin: 0px;
+    margin-top: 50%;
+}
+
+#spinner_score{
+    position: relative;
+    top: 38%;
+}
+
+#spinner_reg{
+    top: 50%;
+    margin: 0px;
+    margin-top: 50%;
+}
+
+.fontSpinner{
+	font-family: 'Orbitron', sans-serif;
+	color: rgba(47, 228, 59, 1);
+	text-align: center;
+}
+
+@media screen and (max-width: 320px){
+
+	.fontSpinner{
+		font-size: 2em;
+	}
+
+}
+
+@media screen and (min-width: 321px){
+
+	.fontSpinner{
+		font-size: 3em;
+	}
+
+}
+
+/*FINE SPINNER*/
+
+/*IMPOSTAZIONI*/
+
+#settings {
+    width: 100%;
+    height: 92%;
+    position: absolute;
+    top: 8%;
+    overflow: hidden;
+}
+
+#settingsContainer {
+    width: 98%;
+    margin-top: 2%;
+    margin-left: 1%;
+    border: 1px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+    overflow: auto;
+}
+
+#oneSettingContainer{
+	width: 98%;
+	margin-left: 1%; 
+}
+
+
+.settings_button {
+    width: 90%;
+    height: 50px;
+    margin-top: 4%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgba(3, 35, 5, 0.8);
+}
+
+.settings_button:hover{
+	    color: rgb(3, 35, 5);
+	    background-color: rgb(47, 228, 59);
+	    border-color: rgb(3, 35, 5);
+}
+
+#change_avatar_div {
+    width: 94%;
+    margin-left: 2%;
+    border-top: 1px solid rgba(47, 228, 59, 0.4);
+    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+    margin-bottom: 5%;
+}
+
+#change_username_div, #change_password_div, #change_email_div{
+	width: 94%;
+    margin-left: 2%;
+    border-top: 1px solid rgba(47, 228, 59, 0.4);
+    border-bottom: 1px solid rgba(47, 228, 59, 0.4);
+    border-radius: 4px;
+    margin-bottom: 5%;
+}
+
+#change_avatar_div img{
+	margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 4.5%;
+}
+
+
+.change {
+    width: 40%;
+    height: 40px;
+    margin-top: 0;
+    margin-left: 30%;
+    margin-bottom: 2%;
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(47, 228, 59);
+    border: 1px solid rgb(47, 228, 59);
+    border-radius: 4px;
+    background-color: rgba(3, 35, 5, 0.8);
+}
+
+.change:hover{
+    color: rgb(3, 35, 5);
+    background-color: rgb(47, 228, 59);
+    border-color: rgb(3, 35, 5);
+}
+
+#change_username_input, #change_password_input, #change_email_input {
+    width: 90%;
+    height: 40px;
+    margin-left: 4.5%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    text-align: center;
+    background-color: rgba(169, 255, 137, 1);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+}
+
+#logout {
+	width: 90%;
+    height: 50px;
+    margin-top: 4%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: rgba(255, 11, 11, 1);
+    border: 1px solid rgba(255, 11, 11, 1);
+    border-radius: 4px;
+    background-color: rgba(255, 11, 11, 0.2);
+}
+
+#logout:hover{
+    color: black;
+    background-color: rgba(255, 11, 11, 1);
+    border-color: rgba(255, 11, 11, 1);
+}
+
+@media screen and (max-width: 320px){
+
+	#settingsContainer {
+	    height: 85%;
+	}
+
+}
+
+@media screen and (min-width: 321px){
+
+	#settingsContainer {
+	    height: 90%;
+	}
+
+}
+
+/*FINE IMPOSTAZIONI*/

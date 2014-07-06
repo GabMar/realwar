@@ -3,9 +3,8 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
 
     var WeaponsMarketView = Parse.View.extend({
 
-        //commento così this.el sarà solo un semplice div
-        //tagName: "ul",
-        //id: "weaponsmarket",
+        tagName: "div",
+        id: "marketContainer",
 
         events: {
                 "touchend #btnWpn": "weaponList",
