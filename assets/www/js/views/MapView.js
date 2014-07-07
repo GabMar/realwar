@@ -29,7 +29,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
            
             var map = L.map('map', {center: new L.LatLng(42.350711, 13.399961),zoom: 17,zoomControl: false} );
 
-            L.tileLayer('http://{s}.tiles.mapbox.com/v3/tarabor.ii291l53/{z}/{x}/{y}.png', {
+            L.tileLayer('http://{s}.tiles.mapbox.com/v3/salx.in338m4n/{z}/{x}/{y}.png', {
                 maxZoom: 17,
             }).addTo(map);
             $('#map').hide();
