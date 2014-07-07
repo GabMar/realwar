@@ -330,11 +330,11 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
             $('#infoResult').append(html);
         }
     }
-
+ 
     // --------------------------------------
     //Aggiorniamo il database
     // --------------------------------------
-
+    $('#popupWarrior').hide(100);
     var Warrior = Parse.Object.extend("Warrior");
     var warrior = new Warrior();
     warrior.setWarriorAfterFight(window.localStorage.getItem('local_user_id'), myLife, newLevel, myExp, myCoins, myKills, myDeaths, esito);
