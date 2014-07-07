@@ -30,7 +30,6 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     var roundResults = new Array();
     var round = 1;
     var firstShooter = 0;
-    var result = "";
     var esito = "";
 
     while(myLife>0 && enemyLife>0 && round<50){
@@ -83,13 +82,11 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
 	                	myLife = myLife - eDamage;
 	                }
 
-                    roundResults[round] = "<h1>Round 1</h1><p>You shoots "+enemy.get("nick")+" for "+myDamage+" damage.<p>"+
-                                          "<p>"+enemy.get("nick")+" responds to fire and causes to you "+eDamage+" damage.</p>";
                     round++;
                 }
 
                 else{
-                    roundResults[round] = "<h1>Round 1</h1><p>Headshot on "+enemy.get("nick")+" for "+myDamage+" damage.<p>";
+
                     round++
                 }
             }
@@ -123,14 +120,12 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
                     	enemyLife = enemyLife - myDamage;
                     }
 
-                    roundResults[round] = "<h1>Round 1</h1><p>"+enemy.get("nick")+" shoots you for "+eDamage+" damage.<p>"+
-                                          "<p>You respond to fire and cause to "+enemy.get("nick")+" "+myDamage+" damage.</p>";
                     round++;
 
                 }
 
                 else{
-                    roundResults[round] = "<h1>Round 1</h1><p>Headshot on you for "+eDamage+" damage.<p>";
+
                     round++;
                 }
             }
@@ -169,22 +164,12 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
                     	eDamage = 1;
                     	myLife = myLife - eDamage;
                     }
-
-                    if((round%2) == 0){
-                        roundResults[round] = "<h1>Round "+round+"</h1><p>You runs to te right and shoots "+enemy.get("nick")+"'s leg for "+myDamage+" damage.<p>"+
-                                              "<p>"+enemy.get("nick")+" covered himself behind a wall and with a rapid fire causes to you "+eDamage+" damage.</p>"; 
-                    }
-
-                    else{
-                        roundResults[round] = "<h1>Round "+round+"</h1><p>You jump on a car and explode three shots to "+enemy.get("nick")+"'s for "+myDamage+" damage.<p>"+
-                                      "<p>"+enemy.get("nick")+" gets away from you seen. He's in a near build and with his gun causes to you "+eDamage+" damage.</p>";
-                    }
                     
                     round++;
                 }
 
                 else{
-                    roundResults[round] = "<h1>Round "+round+"</h1><p>With a perfect shots you strike "+enemy.get("nick")+"'s heart for "+myDamage+" damage.<p>";
+                   
                     round++;
                 }
             }
@@ -218,20 +203,12 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
                     	enemyLife = enemyLife - myDamage;
                     }
 
-                    if((round%2) == 0){
-                        roundResults[round] = "<h1>Round "+round+"</h1><p>"+enemy.get("nick")+" covered himself behind a wall and with a rapid fire causes to you "+eDamage+" damage.</p>"+
-                                              "<p>You runs to te right and shoots "+enemy.get("nick")+"'s leg for "+myDamage+" damage.<p>";
-                    }
-                    else{
-                        roundResults[round] = "<h1>Round "+round+"</h1><p>"+enemy.get("nick")+" gets away from you seen. He's in a near build and with his gun causes to you "+eDamage+" damage.</p>"+
-                                              "<p>You jump on a car and explode three shots to "+enemy.get("nick")+"'s for "+myDamage+" damage.<p>";
-                    }
                     round++;
 
                 }
 
                 else{
-                    roundResults[round] = "<h1>Round "+round+"</h1><p>You've been striken on your heart for "+eDamage+" damage.<p>";
+
                     round++;
                 }
             }
@@ -280,9 +257,8 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
             newLevel++;
         }
 
-        result = "<h1>You Kill "+enemy.get("nick")+"</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: "+coinsEarned+"</p>";
         if(newLevel>myLevel){
-            result = result+"<h2>Level "+newLevel+"</h2>";
+            //Visualizzare l'avanzamento di livello
         }
     }
 
@@ -296,13 +272,11 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
         myExp = myExp + XPEarned;
         esito = self.model.nick+" attack! You kill him!";
         myLife = 0;
-        result = "<h1>You Are Dead</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: 0</p>";
     }
 
     else if(enemyLifeBefore == 0){
+    	//Bisogna visualizzare che il combattimento non è avventuo
         esito = self.model.nick+" has found you body on the floor."
-        result = "<h1>"+enemy.get("nick")+" Is Already Dead</h1>";
-        roundResults[1] = "<p>Your enemy lies on the asphalt in a river of blood.</p>";
     }
     // --------------------------------------
     //Parità, il giocatore guadagna una parte di XP
@@ -322,9 +296,8 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
             newLevel++;
         }
 
-        result="<h1>"+enemy.get("nick")+" Runs Away</h1><p>XP earned: "+XPEarned+"</p><p>Coins earned: "+coinsEarned+"</p>";
         if(newLevel>myLevel){
-            result = result+"<h2>Level "+newLevel+"!</h2>";
+            //Visualizzare l'avanzamento di livello
         }
     }
 
@@ -340,63 +313,4 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     // --------------------------------------
     //Presentiamo i risultati
     // --------------------------------------
-
-    var currentRound = 1;
-
-    var description = new Array();
-    description[0] = "<p>You notice an enemy warrior on the left, it's time to fight.</p>";
-    description[1] = "<p>You're been uncovered, but thanks to your expertise you succeed to start fire.</p>";
-    description[2] = "<p>You are ready to shoot, but your enemy is very fast and opens fire against you.</p>";
-
-    if(round != 1){
-    roundResults[1] = description[firstShooter]+roundResults[1];
-    }
-
-    $('#previousRound').hide();
-
-    $('#infoFight').show(100);
-    $('#popupWarrior').hide(100);
-    $('#infoResult').empty();
-    $('#showRound').empty();
-    $('#infoResult').append("<h1>"+result+"</h1>");
-    $('#showRound').append(roundResults[1]);
-
-    if(round == 1){
-        $('#nextRound').hide();
-    }
-    else{
-        $('#nextRound').on('mousedown', function() {
-        
-            $('#showRound').empty();
-            $('#showRound').append(roundResults[currentRound+1]);
-            currentRound++;
-            if(currentRound == 1){
-                $('#previousRound').hide();
-            }
-            else if(currentRound == (round-1)){
-                $('#nextRound').hide();
-            }
-            else if(currentRound > 1){
-                $('#previousRound').show();
-            }
-        });
-    }
-
-    $('#previousRound').on('mousedown', function() {
-        $('#showRound').empty();
-        $('#showRound').append(roundResults[currentRound-1]);
-        currentRound--;
-        if(currentRound == 1){
-            $('#previousRound').hide();
-        }
-        else if(currentRound == (round-1)){
-            $('#nextRound').hide();
-        }
-
-        else if(currentRound < (round-1)){
-            $('#nextRound').show();
-        }
-    });
-
-
 };
