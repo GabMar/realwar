@@ -310,7 +310,4 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     warrior.setWarriorAfterFight(window.localStorage.getItem('local_user_id'), myLife, newLevel, myExp, myCoins, myKills, myDeaths, esito);
     warrior.setWarriorAfterFight(enemy.get("userId").id, enemyLife, enemyLevel, enemyExp, enemyCoins, enemyKills, enemyDeaths, esito); 
 
-    // --------------------------------------
-    //Presentiamo i risultati
-    // --------------------------------------
 };
