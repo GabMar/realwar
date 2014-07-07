@@ -1,4 +1,4 @@
-function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myArmor){
+function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myArmor,FightView){
 
     var myLife = self.model.life;
     var myLevel = self.model.level;
@@ -258,7 +258,18 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
         }
 
         if(newLevel>myLevel){
-            //Visualizzare l'avanzamento di livello
+            fightview=new FightView("won",XPEarned,coinsEarned,enemy.get("nick"),newLevel);
+            html= fightview.render().el;
+            $('#infoFight').show(100);
+            $('#infoResult').empty();
+            $('#infoResult').append(html);
+        }
+        else{
+            fightview=new FightView("won",XPEarned,coinsEarned,enemy.get("nick"));
+            html= fightview.render().el;
+            $('#infoFight').show(100);
+            $('#infoResult').empty();
+            $('#infoResult').append(html);
         }
     }
 
@@ -272,11 +283,19 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
         myExp = myExp + XPEarned;
         esito = self.model.nick+" attack! You kill him!";
         myLife = 0;
+        fightview=new FightView("loose",XPEarned);
+        html= fightview.render().el;
+        $('#infoFight').show(100);
+        $('#infoResult').empty();
+        $('#infoResult').append(html);
     }
 
     else if(enemyLifeBefore == 0){
-    	//Bisogna visualizzare che il combattimento non è avventuo
-        esito = self.model.nick+" has found you body on the floor."
+    	fightview=new FightView("none");
+        html= fightview.render().el;
+        $('#infoFight').show(100);
+        $('#infoResult').empty();
+        $('#infoResult').append(html);
     }
     // --------------------------------------
     //Parità, il giocatore guadagna una parte di XP
@@ -297,7 +316,18 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
         }
 
         if(newLevel>myLevel){
-            //Visualizzare l'avanzamento di livello
+            fightview=new FightView("tielevel",XPEarned,coinsEarned,enemy.get("nick"),newLevel);
+            html= fightview.render().el;
+            $('#infoFight').show(100);
+            $('#infoResult').empty();
+            $('#infoResult').append(html);
+        }
+        else{
+            fightview=new FightView("tie",XPEarned,coinsEarned,enemy.get("nick"));
+            html= fightview.render().el;
+            $('#infoFight').show(100);
+            $('#infoResult').empty();
+            $('#infoResult').append(html);
         }
     }
 

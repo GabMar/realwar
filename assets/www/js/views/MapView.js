@@ -1,5 +1,5 @@
-define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html", "text!templates/marker-popup.html","models/Warrior", "models/Weapon", "models/Head", "models/Armor",], 
-function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head, Armor) {
+define(["jquery", "underscore", "parse", "handlebars", "text!templates/map.html", "text!templates/marker-popup.html","models/Warrior", "models/Weapon", "models/Head", "models/Armor","views/FightView"], 
+function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head, Armor,FightView) {
 
     var MapView = Parse.View.extend({
 
@@ -185,7 +185,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                                             var myHead = JSON.parse(window.localStorage.getItem("head"));
                                                             var myArmor = JSON.parse(window.localStorage.getItem("armor"));
                                                             
-                                                            fight(enemyWar, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myArmor);
+                                                            fight(enemyWar, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myArmor,FightView);
                                                         });
                                                     }
                                                     else{
