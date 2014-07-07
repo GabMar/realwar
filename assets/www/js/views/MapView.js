@@ -130,15 +130,15 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                         
                                         markers[self.warriors[i].id].setIcon(greyIcon);
                                         markers[self.warriors[i].id].setLatLng(b).update();
-                                        markers[self.warriors[i].id].off('mousedown');
+                                        markers[self.warriors[i].id].off('click');
                                     }
                                     
                                     else{
         
                                         markers[self.warriors[i].id].setIcon(redIcon);
                                         markers[self.warriors[i].id].setLatLng(b).update();
-                                        markers[self.warriors[i].id].off('mousedown');
-                                        markers[self.warriors[i].id].on('mousedown', function(e){
+                                        markers[self.warriors[i].id].off('click');
+                                        markers[self.warriors[i].id].on('click', function(e){
                                             var mark = e.target;
                                             for(var y = 1; y<self.warriors.length; y++){
                                                 var locWar = new L.LatLng(self.warriors[y].get("position").latitude, self.warriors[y].get("position").longitude);
@@ -171,11 +171,11 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                                         }
                                                     });
 
-                                                    $('#fight').off('mousedown');
+                                                    $('#fight').off('click');
                                                     
                                                     if(self.model.life>0){
 
-                                                        $('#fight').on("mousedown", function() {
+                                                        $('#fight').on("click", function() {
 
                                                             var enemyWeapon = JSON.parse(window.localStorage.getItem("enemyWeapon"));
                                                             var enemyHead = JSON.parse(window.localStorage.getItem("enemyHead"));
@@ -190,7 +190,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                                     }
                                                     else{
                                                         
-                                                        $('#fight').on("mousedown", function() {
+                                                        $('#fight').on("click", function() {
                                                             alert("You have no life. Rest youself.");
                                                         });
                                                     }
@@ -212,13 +212,13 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                 
             }
 
-            $('#toMap').on('mousedown', function(){
+            $('#toMap').on('click', function(){
                 $('#infoFight').hide(100);
             });
 
             var interval = setInterval(function(){mapUpdate();}, 3000);
             setInterval(function(){$('#spinner').hide();$('#map').show();}, 5000);
-            $('#backButton').on('mousedown', function(){
+            $('#backButton').on('click', function(){
                 window.clearInterval(interval);
             });
         },
