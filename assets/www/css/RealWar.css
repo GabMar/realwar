@@ -179,6 +179,7 @@ body {
 @media screen and (max-width: 320px){
 
 	.backButton {
+		top: 2px;
 	    left: -7px;
 	}
 }
@@ -233,6 +234,11 @@ body {
 		#warriorImg{
 		    margin-left: 4%;
 		    margin-top: 1%;
+		}
+
+		.avatar {
+			border: 1px solid rgba(47, 228, 59, 0.8);
+			border-radius: 15px;
 		}
 
 	}
@@ -617,7 +623,8 @@ body {
 
 		#infoItemEquip p{
 		    font-size: 0.8em;
-		    margin-top: -2%;
+		    margin-top: -1%;
+		    margin-bottom: -1%;
 		    margin-left: 2%;
 		}
 
@@ -632,7 +639,7 @@ body {
 
 		#imgEquip img {
 		    width: 80%;
-		    height: 80%;
+		    max-height: 80%;
 		}
 
 		#infoItemEquip h1{
@@ -761,6 +768,7 @@ body {
 
 			#weaponsEquipInfoImg img {
 			    margin-bottom: -20%;
+			    max-height: 80%;
 			}
 
 			.stamp{
@@ -942,7 +950,7 @@ body {
 	#imgScores img {
 	    border-radius: 10px;
 	    margin-top: 3%;
-	    width: 90%;
+	    max-width: 90%;
 	}
 
 	#infoScores {
@@ -967,6 +975,10 @@ body {
 	    	overflow: hidden;
 		}
 
+		#ScoreList li {
+		    height: 90px;
+		}
+
 		#imgScores {
 		    width: 26%;
 		    margin-left: 2%;
@@ -985,10 +997,17 @@ body {
 
 	@media screen and (min-width: 321px){
 
+		#ScoreList li {
+		    height: 90px;
+		}
+
 		#imgScores {
 		    margin-left: 2%;
 		    margin-top: 1%;
-		    height: 80%;
+		}
+
+		#imgScores img{
+			max-height: 75px;
 		}
 
 		#infoScores h1 {
@@ -1545,7 +1564,7 @@ body {
 }
 
 #principal {
-    height: 85%;
+    height: 75%;
     width: 97%;
     margin-top: 30%;
     margin-left: 1%;
@@ -1586,13 +1605,12 @@ body {
 }
 
 .signin {
-    position: absolute;
+	position: absolute;
     width: 90%;
     height: 60px;
-    margin-left: 5%;
+    left: 5%;
     font-size: 2em;
     text-align: center;
-    left: 0;
     font-family: 'Orbitron', sans-serif;
     color: rgb(47, 228, 59);
     border: 1px solid rgb(47, 228, 59);
@@ -1613,7 +1631,7 @@ body {
 	}
 
 	.signin {
-	    bottom: 2%;
+	    top: 85%;
 	}
 
 }
@@ -1623,6 +1641,11 @@ body {
 	#mainTitle h1 {
 	    font-size: 4em;
 	}
+
+	.signin {
+	    top: 75%;
+	}
+
 
 }
 
