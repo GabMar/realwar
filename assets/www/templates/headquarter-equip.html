@@ -1,19 +1,9 @@
+<div id="equipWarriorImage">
+	<img src="./images/WarriorMod.png"/>
+</div>
  <ul class="list__container" id="HeadQuarterEquipList">
-	<li id="hqEquipWeap">
-		<div id="imgEquip">
-			<img src="./images/mirino.jpg"/>
-		</div>
-		<div id="infoItemEquip">
-			<h1>{{[weapon].name}}</h1>
-			<p>Attack: {{ [weapon].attack }}</p>
-			<p>Range: {{ [weapon].range }}</p> 
-		</div>
-	</li>
 
-	<li id="hqEquipHead">
-		<div id="imgEquip">
-			<img src="./images/5013.gif"/>
-		</div>
+ 	<li id="hqEquipHead">
 		<div id="infoItemEquip">
 			<h1>{{[head].name}}</h1>
 			<p>Defense: {{ [head].defense }}</p>
@@ -21,10 +11,15 @@
 		</div>
 	</li>
 
-	<li id="hqEquipArm">
-		<div id="imgEquip">
-			<img src="./images/shield.png"/>
+	<li id="hqEquipWeap">
+		<div id="infoItemEquip">
+			<h1>{{[weapon].name}}</h1>
+			<p>Attack: {{ [weapon].attack }}</p>
+			<p>Range: {{ [weapon].range }}</p> 
 		</div>
+	</li>
+
+	<li id="hqEquipArm">
 		<div id="infoItemEquip">
 			<h1>{{[armor].name}}</h1>
 			<p>Defense: {{ [armor].defense }} </p>

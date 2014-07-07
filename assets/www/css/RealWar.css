@@ -585,18 +585,32 @@ body {
 	    height: 90%;
 	}
 
+	#equipWarriorImage {
+		float: left;
+		margin-left: 5%;
+		margin-top: 2%;
+		max-height: 96%;
+		width: 36%;
+	}
+
+	#equipWarriorImage img{
+		max-height: 100%;
+	}
+
 	#HeadQuarterEquipList{
-		width: 96%;
+		width: 60%;
 		height: 96%;
 		-webkit-padding-start: 0px;
-		margin-left: 2%;
+		margin-left: 4%;
 		margin-top: 2%;
 	    padding-bottom: 1%;
 	} 
 
 	#HeadQuarterEquipList li {
 	    height: 33%; 
+	    width: 100%;
 	    margin-bottom: 1%;
+	    margin-left: 55%;
 	    border: 2px double rgba(47, 228, 59, 0.4);
 	    border-radius: 4px;
 	    display: block;
@@ -615,9 +629,8 @@ body {
 	}
 
 	#infoItemEquip{
-	    width: 60%;
+	    width: 90%;
 	    height: 80%;
-	    margin-left: 30%;
 	}
 
 	#infoItemEquip h1{
