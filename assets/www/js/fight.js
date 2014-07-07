@@ -31,6 +31,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     var round = 1;
     var firstShooter = 0;
     var esito = "";
+    var newLevel = myLevel;
 
     while(myLife>0 && enemyLife>0 && round<50){
 
@@ -250,8 +251,6 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
         }
 
         myExp = myExp + XPEarned;
-
-        var newLevel = myLevel;
 
         while(myExp >= (newLevel*150)){
             newLevel++;
