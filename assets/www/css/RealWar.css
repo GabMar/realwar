@@ -4,13 +4,20 @@
 }
 
 body {
-	height: 100%;
+    -webkit-touch-callout: none;
+    /* no callouts during tap and hold */
+    -webkit-text-size-adjust: none;
+    /* no fonts auto inflation */
+    -webkit-user-select: none;
+    /* no copy and paste, etc. */
+    height: 100%;
     margin:0;
     padding:0;
     background:rgb(0, 1, 0);
     color: white;
-    font-family: 'Orbitron', sans-serif;
+    font-family:'Orbitron', sans-serif;
 }
+
 
 @media screen and (max-width: 320px){
 
