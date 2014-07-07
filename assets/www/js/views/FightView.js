@@ -5,7 +5,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/fight/com
 
       tagName: "div",
       id: "infoResult",
-      self:undefined,
+      me:undefined,
       esito:undefined,
       XpEarned:undefined,
       coinsEarned:undefined,
@@ -14,41 +14,41 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/fight/com
       template: undefined,
 
       initialize: function (esito,XpEarned,coinsEarned,nick,newlevel) {
-          self=this;
-          self.esito=esito;
+          me=this;
+          me.esito=esito;
           switch(esito){
             case "loose":
-              self.XpEarned=XpEarned;
-              self.template=Handlebars.compile(templateloose);
+              me.XpEarned=XpEarned;
+              me.template=Handlebars.compile(templateloose);
               break;
             case "won":
-              self.XpEarned=XpEarned;
-              self.template=Handlebars.compile(templatewon);
-              self.coinsEarned=coinsEarned;
-              self.nick=nick;
+              me.XpEarned=XpEarned;
+              me.template=Handlebars.compile(templatewon);
+              me.coinsEarned=coinsEarned;
+              me.nick=nick;
               break;
             case "wonlevel":
-              self.XpEarned=XpEarned;
-              self.template=Handlebars.compile(templatewon);
-              self.coinsEarned=coinsEarned;
-              self.nick=nick;
-              self.newlevel=newlevel;
+              me.XpEarned=XpEarned;
+              me.template=Handlebars.compile(templatewon);
+              me.coinsEarned=coinsEarned;
+              me.nick=nick;
+              me.newlevel=newlevel;
               break;
             case "tie":
-              self.XpEarned=XpEarned;
-              self.template=Handlebars.compile(templatetie);
-              self.coinsEarned=coinsEarned;
-              self.nick=nick;
+              me.XpEarned=XpEarned;
+              me.template=Handlebars.compile(templatetie);
+              me.coinsEarned=coinsEarned;
+              me.nick=nick;
               break;
             case "tielevel":
-              self.XpEarned=XpEarned;
-              self.template=Handlebars.compile(templatewon);
-              self.coinsEarned=coinsEarned;
-              self.nick=nick;
-              self.newlevel=newlevel;
+              me.XpEarned=XpEarned;
+              me.template=Handlebars.compile(templatewon);
+              me.coinsEarned=coinsEarned;
+              me.nick=nick;
+              me.newlevel=newlevel;
               break;
             case "none":
-              self.template=Handlebars.compile(templatenone);
+              me.template=Handlebars.compile(templatenone);
               break;
 
 
@@ -60,31 +60,31 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/fight/com
         render: function (eventName) {
         vector=[];
         
-        switch(self.esito){
+        switch(me.esito){
             case "loose":
-              vector["XpEarned"]=self.XpEarned;
+              vector["XpEarned"]=me.XpEarned;
               break;
             case "won":
-              vector["XpEarned"]=self.XpEarned;
-              vector["coinsEarned"]=self.coinsEarned;
-              vector["nick"]=self.nick;
+              vector["XpEarned"]=me.XpEarned;
+              vector["coinsEarned"]=me.coinsEarned;
+              vector["nick"]=me.nick;
               break;
             case "wonlevel":
-              vector["XpEarned"]=self.XpEarned;
-              vector["coinsEarned"]=self.coinsEarned;
-              vector["nick"]=self.nick;
-              vector["newlevel"]=self.newlevel;
+              vector["XpEarned"]=me.XpEarned;
+              vector["coinsEarned"]=me.coinsEarned;
+              vector["nick"]=me.nick;
+              vector["newlevel"]=me.newlevel;
               break;
             case "tie":
-              vector["XpEarned"]=self.XpEarned;
-              vector["coinsEarned"]=self.coinsEarned;
-              vector["nick"]=self.nick;
+              vector["XpEarned"]=me.XpEarned;
+              vector["coinsEarned"]=me.coinsEarned;
+              vector["nick"]=me.nick;
               break;
             case "tielevel":
-              vector["XpEarned"]=self.XpEarned;
-              vector["coinsEarned"]=self.coinsEarned;
-              vector["nick"]=self.nick;
-              vector["newlevel"]=self.newlevel;
+              vector["XpEarned"]=me.XpEarned;
+              vector["coinsEarned"]=me.coinsEarned;
+              vector["nick"]=me.nick;
+              vector["newlevel"]=me.newlevel;
               break;
             case "none":
               break;
