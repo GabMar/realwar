@@ -1,6 +1,15 @@
+/* CUSTOM FONTS */
 @font-face {
     font-family:'Orbitron';
     src: url('../font/Orbitron.ttf') format('truetype');
+}
+/* END CUSTOM FONTS */
+
+/* STANDARD FOR MOBILE */
+* {
+    /* transparent link and button selection */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 
 body {
@@ -17,7 +26,7 @@ body {
     color: white;
     font-family:'Orbitron', sans-serif;
 }
-
+/* END STANDARD MOBILE */
 
 @media screen and (max-width: 320px){
 
@@ -181,6 +190,13 @@ body {
 	.backButton {
 		top: 2px;
 	    left: -7px;
+	    height: 28px;
+	}
+
+	.backButton:active {
+	    border: none;
+	    left: -7px;
+	    -webkit-transform: scale3d(0.9, 0.9, 1);
 	}
 }
 
@@ -189,6 +205,17 @@ body {
 	.backButton {
 	    left: -9px;
 	}
+
+	.backButton:active {
+	    border: none;
+	    -webkit-transform: scale3d(0.9, 0.9, 1);
+	}
+
+}
+
+.settings:active {
+	border: none;
+	-webkit-transform: scale3d(0.9, 0.9, 1);
 }
 
 /*FINE TOP BAR*/
