@@ -269,6 +269,10 @@ body {
 		    margin-top: 1%;
 		}
 
+		#warriorImg img{
+			min-height: 90px;
+		}
+
 		.avatar {
 			border: 1px solid rgba(47, 228, 59, 0.8);
 			border-radius: 15px;
@@ -1029,6 +1033,11 @@ body {
 		    width: 26%;
 		    margin-left: 2%;
 		    margin-top: 2%;
+		}
+
+		#imgScores img{
+			min-height: 70px;
+			max-height: 80px;
 		}
 
 		#infoScores h1 {
@@ -1965,7 +1974,7 @@ body {
     overflow: auto;
 }
 
-#oneSettingContainer{
+.oneSettingContainer{
 	width: 98%;
 	margin-left: 1%; 
 }
