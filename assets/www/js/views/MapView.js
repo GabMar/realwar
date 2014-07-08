@@ -194,7 +194,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
                                                             alert("You have no life. Rest youself.");
                                                         });
                                                     }
-                                                    $('#popupWarrior').show(100);
+                                                    $('#popupWarrior').show();
                                                     $('#infoWarrior').empty();
                                                     $('#avatarWarrior').append("<img class='smallAvatar' src='"+self.warriors[y].get("image")+"'</img>");
                                                     $('#infoWarrior').append("<p>"+self.warriors[y].get("nick")+"</p><p>Level: "+self.warriors[y].get("level")+"</p>");
@@ -213,7 +213,7 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
             }
 
             $('#toMap').on('click', function(){
-                $('#infoFight').hide(100);
+                $('#infoFight').hide();
             });
 
             var interval = setInterval(function(){mapUpdate();}, 3000);

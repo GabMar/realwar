@@ -11,6 +11,7 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     var myRange = myHead.range+myWeapon.range;
     var XPEarned = 0;
     var coinsEarned = 0;
+    var newLevel = myLevel;
 
     var enemyLife = enemy.get("life");
     var enemyLevel = enemy.get("level");
@@ -257,13 +258,15 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
         }
 
         if(newLevel>myLevel){
-            fightview=new FightView("won",XPEarned,coinsEarned,enemy.get("nick"),newLevel);
+            
+            fightview=new FightView("wonlevel",XPEarned,coinsEarned,enemy.get("nick"), enemyWeapon ,newLevel);
             html= fightview.render().el;
             $('#infoFight').show(100);
             $('#infoResult').empty();
             $('#infoResult').append(html);
         }
         else{
+            
             fightview=new FightView("won",XPEarned,coinsEarned,enemy.get("nick"));
             html= fightview.render().el;
             $('#infoFight').show(100);
@@ -276,17 +279,33 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     //Vince l'avversario, il giocatore non guadagna nulla
     // --------------------------------------
     else if (enemyLife>0){
+        
         enemyKills++;
         myDeaths++;
         XPEarned = 5*enemyLevel;
         myExp = myExp + XPEarned;
+
+        while(myExp >= (newLevel*150)){
+            newLevel++;
+        }
+
         esito = self.model.nick+" attack! You kill him!";
         myLife = 0;
-        fightview=new FightView("loose",XPEarned);
-        html= fightview.render().el;
-        $('#infoFight').show(100);
-        $('#infoResult').empty();
-        $('#infoResult').append(html);
+        
+        if(newLevel>myLevel){
+            fightview=new FightView("looselevel",XPEarned,coinsEarned,enemy.get("nick"), enemyWeapon ,newLevel);
+            html= fightview.render().el;
+            $('#infoFight').show(100);
+            $('#infoResult').empty();
+            $('#infoResult').append(html);
+        }
+        else{
+            fightview=new FightView("loose",XPEarned,coinsEarned,enemy.get("nick"));
+            html= fightview.render().el;
+            $('#infoFight').show(100);
+            $('#infoResult').empty();
+            $('#infoResult').append(html);
+        }
     }
 
     else if(enemyLifeBefore == 0){
@@ -302,14 +321,17 @@ function fight(enemy, enemyWeapon, enemyHead, enemyArmor, myWeapon, myHead, myAr
     else if(enemyLife>0 && myLife>0){
 
         esito = self.model.nick+" attack! You escape safely.";
+        
         if(myLevel > enemyLevel){
             XPEarned = Math.floor((enemyLevel*myLevel)/2);
         }
+        
         myExp = myExp + XPEarned;
 
-        coinsEarned = 0;
+        while(myExp >= (newLevel*150)){
+            newLevel++;
+        }
         
-        var newLevel = myLevel;
         while(myExp >= newLevel*150){
             newLevel++;
         }

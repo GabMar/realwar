@@ -4,7 +4,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/fight/com
     var FightView = Parse.View.extend({
 
       tagName: "div",
-      id: "infoResult",
+      id: "infoResultBig",
       me:undefined,
       esito:undefined,
       XpEarned:undefined,
@@ -13,13 +13,18 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/fight/com
       newlevel:undefined,
       template: undefined,
 
-      initialize: function (esito,XpEarned,coinsEarned,nick,newlevel) {
+      initialize: function (esito,XpEarned,coinsEarned,nick,enemyWeapon,newlevel) {
           me=this;
           me.esito=esito;
           switch(esito){
             case "loose":
               me.XpEarned=XpEarned;
               me.template=Handlebars.compile(templateloose);
+              break;
+            case "looselevel":
+              me.XpEarned=XpEarned;
+              me.template=Handlebars.compile(templateloose);
+              me.newlevel=newlevel;
               break;
             case "won":
               me.XpEarned=XpEarned;
@@ -49,6 +54,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/fight/com
               break;
             case "none":
               me.template=Handlebars.compile(templatenone);
+              me.nick=nick;
               break;
 
 
@@ -64,6 +70,9 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/fight/com
             case "loose":
               vector["XpEarned"]=me.XpEarned;
               break;
+            case "looselevel":
+              vector["XpEarned"]=me.XpEarned;
+              vector["newlevel"]=me.newlevel;
             case "won":
               vector["XpEarned"]=me.XpEarned;
               vector["coinsEarned"]=me.coinsEarned;
@@ -87,12 +96,15 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/fight/com
               vector["newlevel"]=me.newlevel;
               break;
             case "none":
+              vector["nick"]=me.nick;
               break;
 
             }
 
-
         $(this.el).html(this.template(vector));
+        $('#toMap').on('click', function(){
+                $('#infoFight').hide();
+            });
         return this;
         }
       });

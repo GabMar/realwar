@@ -82,6 +82,7 @@ body {
     height: 95%;
     width: 100%;
     overflow-y: hidden;
+    background-color: black;
 }
 
 /*FINE DIV PRINCIPALI*/
@@ -194,8 +195,7 @@ body {
 @media screen and (max-width: 320px){
 
 	.backButton {
-		top: 2px;
-	    left: -7px;
+		top: 5px;
 	    height: 28px;
 	}
 
@@ -1080,15 +1080,16 @@ body {
 	/*POPUP WARRIOR*/
 
 	#popupWarrior {
-	    width: 99%;
-	    height: 11%;
+	    width: 98%;
+	    height: 13%;
 	    z-index: 20;
 	    position:fixed;
 	    display: block;
-	    bottom: 0px;
+	    bottom: 0;
+	    margin-left: 0.5%;
 	    border: 1px solid #63ca3a;
 	    background:rgba(0, 0, 0, 0.8);
-	    border-radius: 2px;
+	    border-radius: 5px;
 	    display: none;
 	}
 
@@ -1117,16 +1118,16 @@ body {
 	}
 
 	#infoWarrior p {
-	    font-size: 1.5em;
+	    font-size: 1.4em;
 	    padding: 0px;
-	    margin-top: 2%;
-	    margin-left: 1%;
+	    margin-top: 5%;
+	    margin-left: 2%;
 	    margin-bottom: 0px;
 	}
 
 	#fightButton {
 	    width: 30%;
-	    height: 95%;
+	    height: 80%;
 	    margin-left: 5px;
 	    float: left;
 	}
@@ -1134,7 +1135,7 @@ body {
 	#fight {
 	    width: 95%;
 	    height: 90%;
-	    margin-top: 5%;
+	    margin-top: 10%;
 	    margin-left: 7%;
 	    font-size: 1.8em;
 	    text-align: center;
@@ -1159,26 +1160,21 @@ body {
 	#infoFight{
 
 	    width: 90%;
-	    height: 65%;
+	    height: 40%;
 	    z-index: 20;
 	    position:fixed;
 	    display: block;
 	    margin-left: 4%;
-	    bottom: 20%;
+	    margin-top: 30%;
 	    border: 2px solid #63ca3a;
 	    background:rgba(0, 0, 0, 0.8);
-	    border-radius: 2px;
-	    font-family: 'Orbitron', sans-serif;
+	    border-radius: 5px;
 	    display: none;
 
 	}
 
 	#infoResult{
-	    width: 90%;
-	    height: 15%;
-	    position:fixed; 
-	    bottom: 70%;
-	    float: center;
+	    width: 100%;
 	}
 
 	#infoResult h1{
@@ -1189,42 +1185,35 @@ body {
 	    color: #63ca3a;
 	}
 
-	#infoResult h2{
-	    text-align: center;
-	    font-size: 1.5em;
-	    margin-top: 2%;
-	    margin-bottom: 0px;
-	    color: #63ca3a;
-	}
-
-	#infoResult p{
-	    text-align: center;
-	    font-size: 1em;
-	    margin-top: 2%;
-	    margin-bottom: 0px;
-	    color: white;
-	}
-
 	#infoRound {
-	    width: 80%;
-	    height: 30%;
-	    position:fixed; 
-	    display: block; 
-	    bottom: 29%;
+	    width: 90%;
+	    height: 70%;
+	    margin-top: 5%;
 	    margin-left: 4.5%;
-	    border: 1px solid #63ca3a;
 	}
 
-	#infoRound h1 {
+	#infoRound h3 {
+		font-family: 'Orbitron', sans-serif;
 	    text-align: center;
-	    font-size: 1.2em;
+	    font-size: 1.4em;
 	    padding: 0px;
 	    margin-top: 1%;
 	    margin-bottom: 0px;
 	    color: white;
 	}
 
+	#infoRound h2{
+		font-family: 'Orbitron', sans-serif;
+	    text-align: center;
+	    font-size: 1.6em;
+	    padding: 0px;
+	    margin-top: 1%;
+	    margin-bottom: 0px;
+	    color: #63ca3a;
+	}
+
 	#infoRound p {
+		font-family: 'Orbitron', sans-serif;
 	    font-size: 1em;
 	    padding: 0px;
 	    margin-top: 2%;
@@ -1233,19 +1222,40 @@ body {
 	}
 
 	#backToMap {
-	    width: 30%;
-	    height: 8%;
-	    position:fixed; 
-	    display: block; 
-	    bottom: 21%;
-	    margin-left: 29.5%;
+	    width: 40%;
+	    height: 10%;
+	    margin-top: 15%;
+	    margin-left: 30%
+	}
+
+	@media screen and (max-width: 320px){
+
+		#infoFight{
+	    	height: 45%;
+	    }
+
+		#infoWarrior p {
+		    font-size: 1.2em;
+		}
+
+		#backToMap {
+			margin-top: 10%;
+		}
+
+		#infoRound h3 {
+	    	font-size: 1.2em;
+		}
+
+		#infoRound h2{
+	    	font-size: 1.4em;
+		}
+
 	}
 
 	#toMap{
-	    width: 95%;
-	    height: 90%;
-	    margin-top: 5%;
-	    margin-left: 7%;
+	    width: 100%;
+	    height: 50px;
+	    margin-bottom: 4%;
 	    font-size: 20px;
 	    text-align: center;
 	    font-family: 'Orbitron', sans-serif;
