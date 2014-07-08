@@ -3,6 +3,12 @@
     font-family:'Orbitron';
     src: url('../font/Orbitron.ttf') format('truetype');
 }
+
+@font-face {
+    font-family:'Facebook';
+    src: url('../font/Facebook.otf') format('opentype');
+}
+
 /* END CUSTOM FONTS */
 
 /* STANDARD FOR MOBILE */
@@ -1047,7 +1053,8 @@ body {
 		}
 
 		#imgScores img{
-			max-height: 75px;
+			min-height: 80px;
+			max-height: 90px;
 		}
 
 		#infoScores h1 {
@@ -1627,7 +1634,7 @@ body {
     width: 90%;
     height: 60px;
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 4%;
     margin-left: 5%;
     font-size: 2em;
     text-align: center;
@@ -1642,6 +1649,26 @@ body {
     color: rgb(3, 35, 5);
     background-color: rgb(47, 228, 59);
     border-color: rgb(3, 35, 5);
+}
+
+#fbButton{
+	width: 90%;
+    height: 60px;
+    margin-top: 2%;
+    margin-bottom: 6%;
+    margin-left: 5%;
+    font-size: 2em;
+    text-align: center;
+    font-family: 'Facebook', sans-serif;
+    color: white;
+    border: 1px solid rgb(59, 89, 152);
+    border-radius: 4px;
+    background-color: rgba(59, 89, 152, 0.5);
+}
+
+#fbButton:hover {
+    background-color: rgb(59, 89, 152);
+    border-color: rgb(59, 89, 152);
 }
 
 .signin {
@@ -1666,6 +1693,12 @@ body {
 
 @media screen and (max-width: 320px){
 
+
+	.login_input_form {
+	    margin-top: 5%;
+	    height: 45px;
+	}
+
 	#mainTitle h1 {
 	    font-size: 3.8em;
 	}
@@ -1683,7 +1716,7 @@ body {
 	}
 
 	.signin {
-	    top: 75%;
+	    top: 85%;
 	}
 
 }
