@@ -21,7 +21,7 @@ define(["jquery", "underscore", "parse"],
 
       loginFacebook: function() {
         var fbLoginSuccess = function (userData) {
-          facebookConnectPlugin.api("me?fields=id,email", ["user_birthday"],
+          facebookConnectPlugin.api("me?fields=id,email", ["email"],
             function (result) {
               var password = result.id;
               var email = result.email;
