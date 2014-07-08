@@ -38,6 +38,7 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		        	 
 		             success: function(user) {
 	            	 	window.localStorage.setItem("local_user_id", user.id);
+	            	 	window.localStorage.setItem("loggedWithFacebook", false);
 	            	 	var Warrior = Parse.Object.extend("Warrior");
 	            	 	var warrior = new Warrior();
 						warrior.setLocalWarrior(user.id);

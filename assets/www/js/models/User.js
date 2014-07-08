@@ -50,6 +50,7 @@ define(["jquery", "underscore", "parse"],
                         Parse.User.logIn(username, password, {
                           success: function(user) {
                           window.localStorage.setItem("local_user_id", user.id);
+                          window.localStorage.setItem("loggedWithFacebook", true);
                           var Warrior = Parse.Object.extend("Warrior");
                           var warrior = new Warrior();
                           warrior.setLocalWarrior(user.id);
