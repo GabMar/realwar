@@ -52,7 +52,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 	  		var Warrior = Parse.Object.extend("Warrior");
     		var warrior = new Warrior();
     		var id = window.localStorage.getItem('local_user_id');
-    		var image = $('.avatar_img_sel').attr('src');
+    		var temp = $('.avatar_img_sel').attr('src');
+    		var image = './'+temp;
     		warrior.changeAvatarWarrior(id, image);
     		alert("avatar cambiato");
     		$(".change_avatar_touched").addClass("change_avatar_untouched").removeClass("change_avatar_touched");

@@ -21,7 +21,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		        var username = this.$("#reg-username").val();
 		        var email = this.$("#reg-email").val();
 		        var password = this.$("#reg-password").val();
-		        var image = $('.avatar_img_sel').attr('src');
+		        var temp = $('.avatar_img_sel').attr('src');
+		        var image = './'+temp;
 		        var email_reg_exp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
 				if ((username == "") || (username == "undefined") || (username.length > 10)) {
 					alert("Il campo Username è obbligatorio, e deve essere inferiore di 10 caratteri!");
