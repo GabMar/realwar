@@ -21,6 +21,14 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
 		
 		    
 		initialize: function() {
+			var connected = window.localStorage.getItem("loggedWithFacebook");
+			if(connected == "true"){
+				setTimeout(function(){
+					$('#setting_user').hide();
+					$('#setting_email').hide();
+					$('#setting_password').hide();
+				}, 20);
+			}
 		  },
 
 	  	logout: function() {
