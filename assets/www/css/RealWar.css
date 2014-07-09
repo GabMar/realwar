@@ -952,6 +952,11 @@ body {
 
 			@media screen and (max-width: 320px){
 
+				#itemEquipDetails {
+				    min-height: 38%;
+				    max-height: 42%;
+				}
+
 				#itemEquipDetailsInfo h1 {
 				    font-size: 1em;
 				}
@@ -1570,6 +1575,11 @@ body {
 	}
 
 	@media screen and (max-width: 320px){
+
+		#itemMarketDetails {
+	    	min-height: 100px;
+	    	max-height: 130px;
+		}
 
 		#itemMarketDetailsImg {
 	    	margin-top: 2%;
