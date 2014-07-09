@@ -17,6 +17,7 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/ArmorsEquipm
             },
 
             render: function (eventName) {
+                $('#spinner').hide();
                 var armors = this.model.toJSON();
                 armors.cid = this.model.cid;
                 var armor_equipped = JSON.parse(window.localStorage.getItem("armor"));

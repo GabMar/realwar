@@ -17,6 +17,7 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsEquip
             },
 
             render: function (eventName) {
+                $('#spinner').hide();
                 var weapons = this.model.toJSON();
                 weapons.cid = this.model.cid;
                 var weapon_equipped = JSON.parse(window.localStorage.getItem("weapon"));

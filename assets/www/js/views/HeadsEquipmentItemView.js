@@ -17,6 +17,7 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/HeadsEquipme
             },
 
             render: function (eventName) {
+                $('#spinner').hide();
                 var heads = this.model.toJSON();
                 heads.cid = this.model.cid;
                 var head_equipped = JSON.parse(window.localStorage.getItem("head"));

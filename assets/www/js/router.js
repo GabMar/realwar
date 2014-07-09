@@ -90,14 +90,17 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "models/Warrio
         if (object==undefined) {
           switch(area){
             case 'weapons':
+            $('#spinner').show();
               var page = new WeaponsEquipmentView();
               this.changePage(page);
               break;
             case 'heads':
+            $('#spinner').show();
               var page = new HeadsEquipmentView();
               this.changePage(page);
               break;
             case 'armors':
+            $('#spinner').show();
               var page = new ArmorsEquipmentView();
               this.changePage(page);
               break;
