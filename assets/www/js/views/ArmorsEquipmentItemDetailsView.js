@@ -34,8 +34,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/armors-eq
      },
 
 
-        goBack: function () { //non possiamo mettere direttamente "market" perchè quando stiamo vedendo i dettagli di un'arma in "market" ci siamo già, perciò non farebbe niente
-          //Parse.history.navigate("", {trigger: true});
+        goBack: function () { 
           Parse.history.navigate("equipment/armors", {trigger: true});
         },
 

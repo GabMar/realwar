@@ -3,7 +3,7 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsListC
 
         var EquipmentListView = Parse.View.extend({
 
-            //tagName: "ul",
+            
             id: "weaponslist",
 
             template: Handlebars.compile(template),

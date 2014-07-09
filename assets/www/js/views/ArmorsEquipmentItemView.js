@@ -35,11 +35,6 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/ArmorsEquipm
             goToDetails: function ()  {
                 dest="equipment/armors/"+this.model.id;
                 Parse.history.navigate(dest, {trigger: true});
-                /*var weids = new ArmorsEquipmentItemDetailsView({
-                    model: this.model
-                 });
-                $('#armorslistcontainer').empty();
-                $('#armorslistcontainer').append(weids.render().el);*/
             }
         });
 

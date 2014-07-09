@@ -29,7 +29,6 @@ define(["jquery", "underscore", "parse", "models/Warrior"],
 		
 		fetch: function(options) {
             options || (options = {});
-            //options.dataType="xml";
             Parse.Collection.prototype.fetch.call(this, options);
         }
 		

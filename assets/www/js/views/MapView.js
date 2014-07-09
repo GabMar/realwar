@@ -12,7 +12,6 @@ function($, _, Parse, Handlebars, template, popupTemplate,Warrior, Weapon, Head,
 
 
         initialize: function() {
-            //this.model.on("reset", this.render, this);
             self=this;
             this.model=JSON.parse(window.localStorage.getItem("warrior"));
             this.on("inTheDom", this.addMap);

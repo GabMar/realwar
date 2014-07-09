@@ -21,7 +21,6 @@ define(["jquery", "underscore", "parse", "models/Head", "models/Warrior"],
                             self.trigger("fetched");
                             a=JSON.stringify(self.models);
                             window.localStorage.setItem("equipmentHeads",a);
-                            //window.localStorage.setItem("armi",JSON.stringify(head));
                         }
                     });
                 });
@@ -33,7 +32,6 @@ define(["jquery", "underscore", "parse", "models/Head", "models/Warrior"],
 
             fetch: function(options) {
                 options || (options = {});
-                //options.dataType="xml";
                 Parse.Collection.prototype.fetch.call(this, options);
             }
 

@@ -42,16 +42,15 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "models/Warrio
     
       structure: function () {
         if(!this.structureView) {
-          this.structureView = new StructureView(); //provare a rendere variabile globale
+          this.structureView = new StructureView(); 
           this.structureView.render();
-          //this.contents = this.structureView.$el.find("#content #contents");
         }
         this.contents = this.structureView.$el.find("#content #contents");
 
         this.headQuarter();
       },
 
-    headQuarter: function(){ //al cambio delle pagine spengo e accendo i bottoni
+    headQuarter: function(){ 
       $('#spinner').show();
       $('#mapButton').removeClass("mapButtonActive");
       $('#headQuarterButton').removeClass("headQuarterButton");
@@ -151,7 +150,6 @@ define(["jquery","jqueryparse", "underscore", "parse", "Spinner", "models/Warrio
            this.currentView.off();
         }
         this.currentView = page;
-        //page.render();
         this.contents.append($(page.el));
         this.currentView.trigger("inTheDom");
       

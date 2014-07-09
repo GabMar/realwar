@@ -13,7 +13,6 @@ define(["jquery", "underscore", "parse", "models/Weapon"],
 		
 		fetch: function(options) {
             options || (options = {});
-            //options.dataType="xml";
             Parse.Collection.prototype.fetch.call(this, options);
         }
 		

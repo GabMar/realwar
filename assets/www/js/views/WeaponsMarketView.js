@@ -13,15 +13,14 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
         },
 
         template: Handlebars.compile(template),
-        //secondo me inizialize dovrebbe caricare tutti i modelli
-        //e poi realizzare una change page come il router
+        
 
-        initialize: function (params) { //carico i modelli per il market
+        initialize: function (params) { 
             this.currentView = undefined;
             this.model= new WeaponsMarketCollection();
             this.head= new HeadMarketCollection();
             this.armor= new ArmorMarketCollection();
-            this.model.bind("reset", this.render, this); //che fa?
+            this.model.bind("reset", this.render, this); 
          },
 
         weaponList: function () {
@@ -36,9 +35,7 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
             return this;
         },
 
-        headList: function () { //funziona ma da sistermare xke aggiorna weapon
-            //Non so se sia il metodo giusto per cambiare i colori
-            //ma io lo faccio così per ora
+        headList: function () { 
             $(this.el).empty();
             var ul = $(this.el).html(this.template);
             $("#spinner").hide();
@@ -48,8 +45,6 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
             $(ul).find('#btnWpn').css("color","white");
             $(ul).find('#btnArm').css("background-color", "rgb(5, 31, 7)");
             $(ul).find('#btnArm').css("color","white");
-            //$(ul).find('#weaponsmarket').html('<p>Under construction</p>');
-            //$(ul).find('#weaponsmarket').empty();
             _.each(this.head.models, function (head) {
                 $(ul).find('#weaponsmarket').append(new WeaponsMarketItemView({ //mi appende dentro this.el un elemento della lista
                     model: head
@@ -68,7 +63,6 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/WeaponsMarke
             $(ul).find('#btnWpn').css("color","white");
             $(ul).find('#btnHd').css("background-color", "rgb(5, 31, 7)");
             $(ul).find('#btnHd').css("color","white");
-            //$(ul).find('#weaponsmarket').empty(); non serve più
             _.each(this.armor.models, function (armor) {
                 $(ul).find('#weaponsmarket').append(new WeaponsMarketItemView({ //mi appende dentro this.el un elemento della lista
                     model: armor

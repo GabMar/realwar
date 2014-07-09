@@ -3,7 +3,7 @@ function ($, _, Parse, Handlebars, WeaponsListCollection, WeaponsEquipmentView, 
     
     var HeadQuarterEquipView = Parse.View.extend({
 
-        tagName: "div", //si aggiunge un div con id, non cambia molto
+        tagName: "div", 
         id: "listaEquip",
 
         template: Handlebars.compile(template),
@@ -22,7 +22,6 @@ function ($, _, Parse, Handlebars, WeaponsListCollection, WeaponsEquipmentView, 
             var weapon = JSON.parse(window.localStorage.getItem("weapon"));
                 var head = JSON.parse(window.localStorage.getItem("head"));
                 var armor = JSON.parse(window.localStorage.getItem("armor"));
-                //weapon.cid = this.model.cid;
                 var vector =[];
                 vector['weapon']=weapon;
                 vector['head']=head;

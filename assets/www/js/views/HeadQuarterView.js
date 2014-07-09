@@ -2,10 +2,8 @@ define(["jquery", "jqueryparse", "underscore", "parse", "handlebars", "leaflet",
     function ($, $p,  _, Parse, Handlebars, L, template, Warrior, Weapon, Head, Armor, HeadQuarterStatsView, HeadQuarterScoreView, HeadQuarterEquipView) {
 
 var HeadQuarterView = Parse.View.extend({
-       //className: "page",
 	   tagName: "div",
 	   id: "headQuarter",
-	   //el: 'div',
 	   self:undefined,
 	   template: Handlebars.compile(template),
 

@@ -19,7 +19,6 @@ define(["jquery", "underscore", "parse", "models/Weapon", "models/Warrior"],
                                 self.models.push(list[i]);
                             }
                             self.trigger("fetched");
-                            //window.localStorage.setItem("armi",JSON.stringify(weapon));
                         }
                     });
                 });
@@ -32,7 +31,6 @@ define(["jquery", "underscore", "parse", "models/Weapon", "models/Warrior"],
 
             fetch: function(options) {
                 options || (options = {});
-                //options.dataType="xml";
                 Parse.Collection.prototype.fetch.call(this, options);
             }
 

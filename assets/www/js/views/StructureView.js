@@ -46,11 +46,8 @@ define(["jquery", "underscore", "parse", "handlebars", "leaflet", "text!template
             this.otherButton = document.getElementById("mapButton");
           }
           return this;
-        },
-
-        toggleMenu: function () {//non utilizzata
-          this.el.classList.toggle("is-menu-visible");
-        }
+        } 
+        
       });
 
     return StructureView;

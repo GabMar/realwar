@@ -35,11 +35,6 @@ define(["jquery", "underscore", "parse", "handlebars", "collections/HeadsEquipme
             goToDetails: function ()  {
                 dest="equipment/heads/"+this.model.id;
                 Parse.history.navigate(dest, {trigger: true});
-                /*var weids = new HeadsEquipmentItemDetailsView({
-                    model: this.model
-                 });
-                $('#headslistcontainer').empty();
-                $('#headslistcontainer').append(weids.render().el);*/
             }
         });
 

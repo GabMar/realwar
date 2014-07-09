@@ -19,7 +19,7 @@ define(["jquery", "underscore", "parse"],
         heads: undefined,
         armor: undefined,
         armors: undefined,
-        gpsId: undefined,   // andrebbero inseriti e utilizzati, salvando il model
+        gpsId: undefined,   
         watchId: undefined
       },
 
@@ -116,8 +116,6 @@ define(["jquery", "underscore", "parse"],
                   });
           },
           error: function(warrior, error) {
-            // Execute any logic that should take place if the save fails.
-            // error is a Parse.Error with an error code and description.
             alert('Failed to create new object, with error code: ' + warrior.description);
           }
         });
@@ -154,8 +152,6 @@ define(["jquery", "underscore", "parse"],
               queryWeapon.get(object.get("weapon").id, {
               success: function(weapon) {
                   window.localStorage.setItem("weapon",JSON.stringify(weapon)); 
-                  //self.model.set("coins", warrior.get("coins"));
-                  //self.model.save();             
                 },
               error:function(object,error){
                 alert("Errore1: "+error);
@@ -198,8 +194,6 @@ define(["jquery", "underscore", "parse"],
         queryWeapon.get("NolqCh0kmx", {
               success: function(weapon) {
                   window.localStorage.setItem("weapon",JSON.stringify(weapon));
-                  //self.model.set("coins", warrior.get("coins"));
-                  //self.model.save();
               },
               error:function(object,error){
                 alert("Errore1: "+error);
@@ -307,7 +301,6 @@ define(["jquery", "underscore", "parse"],
             }
             else{
               var pushQuery = new Parse.Query(Parse.Installation);
-              //pushQuery.equalTo('channels', '[Salx]');
               pushQuery.equalTo('owner', {__type: "Pointer", className: "_User",objectId: user_id});
                
               //Send push notification to query

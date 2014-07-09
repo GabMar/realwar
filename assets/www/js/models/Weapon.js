@@ -65,7 +65,7 @@ define(["jquery", "underscore", "parse"],
                       window.localStorage.removeItem("item_coins");
                     } 
                     else {
-                      alert("non hai abbastanza soldi, pezzente!");
+                      alert("non hai abbastanza soldi!");
                     }
 
                   }

@@ -4,7 +4,6 @@ define(["jquery", "underscore", "parse", "handlebars", "views/HeadQuarterScoreVi
         var ScoreItemView = Parse.View.extend({
 
             tagName: "li",
-           //className: "topcoat-list__item", non serve più: mi attribuiva la classe per sfruttare i css di topcoat
 
             
 

@@ -4,7 +4,6 @@ define(["jquery", "underscore", "parse", "handlebars", "views/WeaponsMarketItemD
         var WeaponsMarketItemView = Parse.View.extend({
 
             tagName: "li",
-           //className: "topcoat-list__item", non serve più: mi attribuiva la classe per sfruttare i css di topcoat
 
             events: {
                 "touchend": "goToDetails"
@@ -25,11 +24,11 @@ define(["jquery", "underscore", "parse", "handlebars", "views/WeaponsMarketItemD
             },
 
             goToDetails: function () {
-                var us = new WeaponsMarketItemDetailsView({
+                var view = new WeaponsMarketItemDetailsView({
                     model: this.model
                  });
                 $('#weaponsmarketcontainer').empty();
-                $('#weaponsmarketcontainer').append(us.render().el);
+                $('#weaponsmarketcontainer').append(view.render().el);
             }
         });
 
