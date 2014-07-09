@@ -15,7 +15,7 @@ define(["jquery", "underscore", "parse", "handlebars", "views/HeadQuarterScoreVi
             },
 
             render: function (eventName) {
-                $('#spinner_equip').hide();
+                $('#spinner_score').hide();
                 var weapons = this.model.toJSON();
                 weapons.cid = this.model.cid;
                 $(this.el).html(this.template(weapons));

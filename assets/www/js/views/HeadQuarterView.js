@@ -53,7 +53,7 @@ var HeadQuarterView = Parse.View.extend({
         },
 
         showScore: function() {
-    	$('#spinner_equip').show();
+    	$('#spinner_score').show();
 		$('#Score').css("background-color", "#20A715");
 		$('#Score').css("color","#051E07");
 		$('#Stats').css("background-color", "rgb(5, 31, 7)");
